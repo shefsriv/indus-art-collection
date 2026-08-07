@@ -28,6 +28,42 @@ const TILE_H = 950;
 const MAT = '#f4f1ea';
 const FULL_W = 2000;
 
+// Pages of the folk-collection document that are not a work to sell. Two kinds:
+// page furniture and studio clutter (a locator map, the blank back of a canvas,
+// a shot of the workshop wall, a scroll lying rolled up on the floor), and the
+// angled snapshot of a painting that is also present as a flat scan — in every
+// pair below the flat scan is the one kept.
+const FOLK_PREFIX = 'india-folk-tribal-paintings-song-collection-2604-260408-001807-';
+const FOLK_EXCLUDE = new Set([
+  7,  // map of India
+  8,  // photograph of village houses
+  9,  // several framed works propped in a room
+  11, // blank grey canvas back
+  21, // blank grey canvas back
+  22, // close crop of a detail, not the whole work
+  35, // close crop of a detail, not the whole work
+  37, // workshop wall
+  58, // blank rolled paper
+  69, // scroll lying rolled up
+  71, // work lying on the floor
+  // angled duplicates (flat scan kept in brackets)
+  12, // [13]
+  20, // [19]
+  23, // [24]
+  25, // [26]
+  34, // [33]
+  52, // [51]
+  56, // [55]
+  63, // [64]
+  82, // [83]
+  84, // [85]
+]);
+
+const isExcluded = (base) => {
+  if (!base.startsWith(FOLK_PREFIX)) return false;
+  return FOLK_EXCLUDE.has(parseInt(base.slice(FOLK_PREFIX.length), 10));
+};
+
 const artistKeyOf = (base) => {
   const keys = Object.keys(artists).sort((a, b) => b.length - a.length);
   return keys.find((k) => base.startsWith(k));
@@ -51,6 +87,8 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
 
   for (const file of files) {
     const base = path.basename(file, path.extname(file));
+    if (isExcluded(base)) { skipped++; continue; }
+
     const artistKey = artistKeyOf(base);
     if (!artistKey) { skipped++; console.warn(`no artist for ${file}`); continue; }
 
@@ -88,6 +126,15 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
       thumb: `art/thumb/${id}.jpg`,
       full: `art/full/${id}.jpg`,
     });
+  }
+
+  // Drop assets left behind by works that have since been excluded, so the
+  // published site never ships an image nothing links to.
+  const live = new Set(catalog.map((w) => `${w.id}.jpg`));
+  for (const dir of [THUMB_DIR, FULL_DIR]) {
+    for (const f of fs.readdirSync(dir)) {
+      if (!live.has(f)) { fs.unlinkSync(path.join(dir, f)); console.log(`pruned ${path.basename(dir)}/${f}`); }
+    }
   }
 
   // merge any descriptions previously typed into the spreadsheet
