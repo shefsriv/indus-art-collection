@@ -10,15 +10,22 @@ const path = require('path');
 const sharp = require('sharp');
 const ExcelJS = require('exceljs');
 const { artists, works } = require('./metadata.cjs');
+const { findCropBox } = require('./autocrop.cjs');
 
 const SRC = process.env.ART_SRC || 'C:/Users/shefs/indus-art-source';
 const ROOT = path.join(__dirname, '..');
+const PLACEHOLDER = 'Add a short description of this painting here.';
 const THUMB_DIR = path.join(ROOT, 'public', 'art', 'thumb');
 const FULL_DIR = path.join(ROOT, 'public', 'art', 'full');
 const DATA_FILE = path.join(ROOT, 'src', 'data', 'catalog.json');
 const XLSX_FILE = path.join(ROOT, 'Indus Art Collection - Catalogue.xlsx');
 
-const THUMB_W = 700;
+// Every thumbnail is rendered to the same 4:5 tile so the grid lines up. The
+// painting is fitted inside rather than cropped to fill, so no artwork is lost —
+// the leftover space reads as a mat around the picture.
+const TILE_W = 760;
+const TILE_H = 950;
+const MAT = '#f4f1ea';
 const FULL_W = 2000;
 
 const artistKeyOf = (base) => {
@@ -52,11 +59,18 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
     const id = base;
 
     const src = path.join(SRC, file);
-    const { width, height } = await sharp(src).metadata();
 
-    await sharp(src).resize({ width: THUMB_W, withoutEnlargement: true })
-      .jpeg({ quality: 78, mozjpeg: true }).toFile(path.join(THUMB_DIR, `${id}.jpg`));
-    await sharp(src).resize({ width: FULL_W, withoutEnlargement: true })
+    // Discard the page margin and the caption the artist printed under the work.
+    const box = await findCropBox(src);
+    const width = box.width;
+    const height = box.height;
+
+    await sharp(src).extract(box)
+      .resize(TILE_W, TILE_H, { fit: 'contain', background: MAT })
+      .jpeg({ quality: 80, mozjpeg: true }).toFile(path.join(THUMB_DIR, `${id}.jpg`));
+
+    await sharp(src).extract(box)
+      .resize({ width: FULL_W, withoutEnlargement: true })
       .jpeg({ quality: 86, mozjpeg: true }).toFile(path.join(FULL_DIR, `${id}.jpg`));
 
     catalog.push({
@@ -87,7 +101,8 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
         if (n === 1) return;
         const id = String(row.getCell(1).value ?? '').trim();
         const desc = String(row.getCell(8).value ?? '').trim();
-        if (id && desc) byId.set(id, desc);
+        // the untouched placeholder is not a description
+        if (id && desc && desc !== PLACEHOLDER) byId.set(id, desc);
       });
       for (const w of catalog) if (byId.has(w.id)) w.description = byId.get(w.id);
       if (byId.size) console.log(`carried over ${byId.size} descriptions`);
@@ -127,7 +142,6 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
   ws.getRow(1).alignment = { vertical: 'middle' };
   ws.getRow(1).height = 24;
 
-  const PLACEHOLDER = 'Add a short description of this painting here.';
   for (const w of catalog) {
     const row = ws.addRow({
       id: w.id, artist: w.artist, style: w.style, title: w.title,

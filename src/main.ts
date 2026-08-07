@@ -104,10 +104,13 @@ function artGrid(works: Work[]): string {
   if (!works.length) return `<p style="text-align:center;color:var(--ink-soft)">No works to show.</p>`;
   return `<div class="art-grid">${works.map((w) => `
     <figure class="art-item" data-id="${esc(w.id)}">
-      <img src="${asset(w.thumb)}" alt="${esc(workTitle(w))} by ${esc(w.artist)}" loading="lazy" />
+      <div class="frame">
+        <img src="${asset(w.thumb)}" alt="${esc(workTitle(w))} by ${esc(w.artist)}" loading="lazy" />
+      </div>
       <figcaption>
         <strong>${esc(workTitle(w))}</strong>
-        <span>${esc(w.artist)} · ${esc(workLine(w))}</span>
+        <span class="by">${esc(w.artist)}</span>
+        <span class="spec">${esc(workLine(w))}</span>
       </figcaption>
     </figure>`).join('')}</div>`;
 }
@@ -146,14 +149,15 @@ function homePage(): string {
   const heroImgs = catalog.works.slice(0, 8).map(
     (w) => `<img src="${asset(w.thumb)}" alt="" />`).join('');
 
+  // multiples of three so the rows stay complete
   const featured = catalog.works.filter((w) => w.style !== 'Folk').slice(0, 12);
-  const folk = catalog.works.filter((w) => w.style === 'Folk').slice(0, 8);
+  const folk = catalog.works.filter((w) => w.style === 'Folk').slice(0, 9);
 
   return `
     <section class="hero">
       <div class="hero-bg">${heroImgs}</div>
       <div class="hero-inner">
-        <span class="eyebrow">Est. 2025 · India</span>
+        <span class="eyebrow">Est. 2026 · India</span>
         <h1>Indus Art Collection</h1>
         <p>We curate authentic contemporary, traditional and folk paintings by Indian
            artists — bringing works straight from the studio to collectors, galleries
