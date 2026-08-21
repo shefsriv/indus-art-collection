@@ -469,15 +469,19 @@ h3 { font-size: 1.3rem; }
   padding-bottom: 42px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
+/* The column headings are set in the serif italic, which sits better with the
+   painting captions than small capitals did. */
 .site-footer h4 {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.16rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: #fff;
-  margin: 0 0 16px;
-  font-weight: 500;
+  margin: 0 0 14px;
+  font-weight: 400;
 }
+.footer-blurb { font-family: var(--serif); font-style: italic; font-size: 0.96rem; line-height: 1.65; }
 .site-footer p, .site-footer li { font-size: 0.89rem; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: 9px; }

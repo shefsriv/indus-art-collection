@@ -85,8 +85,8 @@ function footer(): string {
               <img src="${asset('logo-mark.png')}" alt="" />
               <p style="margin:0">${esc(site.tagline)}</p>
             </div>
-            <p>Curating authentic paintings by Indian artists for collectors,
-               galleries, designers and corporate spaces.</p>
+            <p class="footer-blurb">Curating authentic paintings by Indian artists for
+               collectors, galleries, designers and corporate spaces.</p>
             <div class="socials">
               ${social(site.instagram, 'Instagram', 'IG')}
               ${social(site.facebook, 'Facebook', 'FB')}
