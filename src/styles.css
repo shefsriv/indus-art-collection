@@ -474,14 +474,13 @@ h3 { font-size: 1.3rem; }
 .site-footer h4 {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.16rem;
+  font-size: 1.38rem;
   letter-spacing: 0.02em;
   text-transform: none;
   color: #fff;
   margin: 0 0 14px;
   font-weight: 400;
 }
-.footer-blurb { font-family: var(--serif); font-style: italic; font-size: 0.96rem; line-height: 1.65; }
 .site-footer p, .site-footer li { font-size: 0.89rem; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: 9px; }
