@@ -69,8 +69,16 @@ h3 { font-size: 1.3rem; }
   margin: 0 auto;
 }
 
-.brand { display: flex; align-items: center; gap: 16px; }
-.brand img { width: 82px; height: 82px; object-fit: contain; }
+/* The mark is the tree emblem alone; the name reads beside it, not beneath. */
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand img { width: 74px; height: 74px; object-fit: contain; }
+.brand-text {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
 
 .nav { display: flex; gap: 30px; align-items: center; }
 .nav a {
@@ -487,6 +495,8 @@ h3 { font-size: 1.3rem; }
 }
 
 @media (max-width: 520px) {
+  .brand img { width: 58px; height: 58px; }
+  .brand-text { font-size: 1.16rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .hero-bg { grid-template-columns: repeat(2, 1fr); }
 }

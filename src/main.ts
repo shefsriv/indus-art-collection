@@ -45,7 +45,8 @@ function header(route: string): string {
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="#/">
-          <img src="${asset('logo.png')}" alt="${esc(site.name)} logo" />
+          <img src="${asset('logo-mark.png')}" alt="${esc(site.name)} logo" />
+          <span class="brand-text">${esc(site.name)}</span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
         <nav class="nav" id="nav">${links}</nav>
@@ -64,7 +65,7 @@ function footer(): string {
           <div>
             <div class="footer-brand">
               <h4>${esc(site.name)}</h4>
-              <img src="${asset('logo.png')}" alt="" />
+              <img src="${asset('logo-mark.png')}" alt="" />
               <p style="margin:0">${esc(site.tagline)}</p>
             </div>
             <p>Curating authentic paintings by Indian artists for collectors,
