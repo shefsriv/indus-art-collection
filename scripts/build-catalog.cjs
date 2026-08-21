@@ -70,7 +70,11 @@ const FOLK_MONO = new Set([
 const isMono = (base) =>
   base.startsWith(FOLK_PREFIX) && FOLK_MONO.has(parseInt(base.slice(FOLK_PREFIX.length), 10));
 
+// Source-image prefixes for artists not shown on the site.
+const ARTIST_EXCLUDE = ['mehnaaz-bano-painting'];
+
 const isExcluded = (base) => {
+  if (ARTIST_EXCLUDE.some((p) => base.startsWith(p))) return true;
   if (!base.startsWith(FOLK_PREFIX)) return false;
   return FOLK_EXCLUDE.has(parseInt(base.slice(FOLK_PREFIX.length), 10));
 };

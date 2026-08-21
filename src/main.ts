@@ -242,8 +242,8 @@ function artistsPage(): string {
     <div class="wrap page-head">
       <span class="eyebrow">Artists</span>
       <h1>The painters we represent</h1>
-      <p class="lede">Ten artists working across contemporary, traditional and folk
-        idioms. Select a name to open that artist's full collection.</p>
+      <p class="lede">${catalog.artists.length} artists working across contemporary,
+        traditional and folk idioms. Select a name to open that artist's full collection.</p>
     </div>
     <section class="section"><div class="wrap">${artistGrid(orderedArtists)}</div></section>`;
 }
