@@ -188,7 +188,7 @@ function homePage(): string {
     <section class="hero">
       <div class="hero-bg">${heroImgs}</div>
       <div class="hero-inner">
-        <span class="eyebrow">Est. 2026 · India</span>
+        <span class="eyebrow">Est. 2026 · United States</span>
         <h1>Indus Art Collection</h1>
         <p>We curate authentic contemporary, traditional and folk paintings by Indian
            artists — bringing works straight from the studio to collectors, galleries
