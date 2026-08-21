@@ -71,12 +71,12 @@ h3 { font-size: 1.3rem; }
 
 /* The mark is the tree emblem alone; the name reads beside it, not beneath. */
 .brand { display: flex; align-items: center; gap: 18px; }
-.brand img { width: 74px; height: 74px; object-fit: contain; }
+.brand img { width: 86px; height: 86px; object-fit: contain; }
 .brand-text {
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-size: clamp(1.8rem, 2.7vw, 2.5rem);
   line-height: 1.1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   white-space: nowrap;
 }
 
@@ -495,8 +495,9 @@ h3 { font-size: 1.3rem; }
 }
 
 @media (max-width: 520px) {
-  .brand img { width: 58px; height: 58px; }
-  .brand-text { font-size: 1.16rem; }
+  .brand img { width: 60px; height: 60px; }
+  /* on a narrow phone the name may take two lines rather than shrink away */
+  .brand-text { font-size: 1.44rem; white-space: normal; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .hero-bg { grid-template-columns: repeat(2, 1fr); }
 }
