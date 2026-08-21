@@ -71,17 +71,17 @@ Everything routine lives in **`src/config.ts`**:
 | `instagram`, `facebook` | Social links; the icons are hidden when blank |
 | `formspree` | The endpoint that makes the enquiry forms actually send email |
 
-### Turning on the enquiry forms
+### The enquiry forms
 
-Static sites cannot receive form submissions on their own, so the forms use
-[Formspree](https://formspree.io) (free for 50 submissions a month).
+Static sites cannot receive form submissions on their own, so the forms post to
+[Formspree](https://formspree.io), which is set up and tested: submissions
+arrive as email at the address in `email`. The free plan carries 50 submissions
+a month across all the forms, so watch for Formspree's warning if enquiries
+pick up.
 
-1. Sign up at formspree.io and create a new form.
-2. Copy the endpoint it gives you — it looks like `https://formspree.io/f/abcdwxyz`.
-3. Paste it into `formspree` in `src/config.ts`.
-4. Commit and push.
-
-Until you do this the forms fall back to opening the visitor's email app.
+To move the forms to a different account or service, replace `formspree` in
+`src/config.ts` with the new endpoint. Left blank, the forms fall back to
+opening the visitor's own email app.
 
 ### Using your own domain name
 
