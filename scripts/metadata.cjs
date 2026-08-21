@@ -13,7 +13,7 @@ const artists = {
     name: 'Gopal Naskar',
     style: 'Contemporary',
     bio: 'Gopal Naskar works in flat, saturated colour and sinuous line, drawing '
-      + 'on Bengal folk imagery of fish, water and village life.',
+      + 'on folk imagery of fish, water and village life.',
   },
   'kandan-g': {
     name: 'Kandan G',
