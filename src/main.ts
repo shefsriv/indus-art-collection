@@ -481,7 +481,7 @@ function showLightbox(index: number): void {
   img.src = asset(w.full);
   img.alt = workAlt(w);
   stage.classList.remove('zoomed');
-  img.style.transform = '';
+  stage.scrollTo(0, 0);
   (document.getElementById('lbZoom') as HTMLButtonElement).textContent = 'Zoom in';
 
   const bits = [w.artist, w.size, w.medium, w.year].filter(Boolean).join('  ·  ');
@@ -497,36 +497,49 @@ function closeLightbox(): void {
   document.body.style.overflow = '';
 }
 
+const step = (n: number) =>
+  showLightbox((lightboxIndex + n + lightboxWorks.length) % lightboxWorks.length);
+
 function wireLightbox(): void {
   const stage = document.getElementById('lbStage')!;
   const img = document.getElementById('lbImg') as HTMLImageElement;
   const zoomBtn = document.getElementById('lbZoom') as HTMLButtonElement;
 
+  // Zooming widens the picture itself rather than scaling it with a transform:
+  // a transform leaves the layout box its old size, so the enlarged edges fall
+  // outside the stage with no way to scroll to them.
   const toggleZoom = () => {
     const zoomed = stage.classList.toggle('zoomed');
-    img.style.transform = zoomed ? 'scale(1.9)' : '';
     zoomBtn.textContent = zoomed ? 'Zoom out' : 'Zoom in';
+    if (zoomed) {
+      stage.scrollTo((stage.scrollWidth - stage.clientWidth) / 2,
+        (stage.scrollHeight - stage.clientHeight) / 2);
+    }
   };
 
   zoomBtn.addEventListener('click', toggleZoom);
   img.addEventListener('click', toggleZoom);
   document.getElementById('lbClose')!.addEventListener('click', closeLightbox);
-  document.getElementById('lbPrev')!.addEventListener('click', () =>
-    showLightbox((lightboxIndex - 1 + lightboxWorks.length) % lightboxWorks.length));
-  document.getElementById('lbNext')!.addEventListener('click', () =>
-    showLightbox((lightboxIndex + 1) % lightboxWorks.length));
+  document.getElementById('lbPrev')!.addEventListener('click', () => step(-1));
+  document.getElementById('lbNext')!.addEventListener('click', () => step(1));
+  // the enquiry link leaves the page behind the lightbox, so let go of it first
+  document.getElementById('lbEnquire')!.addEventListener('click', closeLightbox);
 
-  document.getElementById('lightbox')!.addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (!document.getElementById('lightbox')!.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') showLightbox((lightboxIndex - 1 + lightboxWorks.length) % lightboxWorks.length);
-    if (e.key === 'ArrowRight') showLightbox((lightboxIndex + 1) % lightboxWorks.length);
-  });
+  // clicking the dark surround closes, whether it lands on the stage or beside it
+  const closeOnBackdrop = (e: Event) => { if (e.target === e.currentTarget) closeLightbox(); };
+  document.getElementById('lightbox')!.addEventListener('click', closeOnBackdrop);
+  stage.addEventListener('click', closeOnBackdrop);
 }
+
+// Bound once for the life of the page: rebinding on every render left a stack
+// of handlers, and arrow keys then jumped several works at a time.
+document.addEventListener('keydown', (e) => {
+  const box = document.getElementById('lightbox');
+  if (!box?.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
 
 /** Make every thumbnail on the page open the lightbox. */
 function bindThumbs(): void {
@@ -545,6 +558,10 @@ function parseRoute(): { path: string; query: URLSearchParams } {
   const [path, qs] = raw.split('?');
   return { path: path || '/', query: new URLSearchParams(qs || '') };
 }
+
+const onScroll = () =>
+  document.getElementById('toTop')?.classList.toggle('show', window.scrollY > 500);
+window.addEventListener('scroll', onScroll, { passive: true });
 
 function render(): void {
   const { path, query } = parseRoute();
@@ -566,6 +583,9 @@ function render(): void {
 
   app.innerHTML = header(routeKey, search) + `<main>${body}</main>` + footer() + lightboxMarkup() +
     `<button class="to-top" id="toTop" aria-label="Back to top">↑</button>`;
+
+  // whatever the last page did, this one starts scrollable
+  document.body.style.overflow = '';
 
   wireLightbox();
   bindThumbs();
@@ -643,12 +663,9 @@ function render(): void {
     });
   });
 
-  // scroll to top
-  const toTop = document.getElementById('toTop')!;
-  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  const onScroll = () => toTop.classList.toggle('show', window.scrollY > 500);
-  window.removeEventListener('scroll', onScroll);
-  window.addEventListener('scroll', onScroll, { passive: true });
+  // scroll to top — the listener is bound once below and finds the fresh button
+  document.getElementById('toTop')!
+    .addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   onScroll();
 
   window.scrollTo(0, 0);

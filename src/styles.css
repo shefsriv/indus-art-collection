@@ -369,12 +369,17 @@ h3 { font-size: 1.3rem; }
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transition: transform 0.25s ease;
-  transform-origin: center center;
   cursor: zoom-in;
 }
+/* Zoomed, the picture is laid out larger than the stage, which then scrolls. */
 .lb-stage.zoomed { place-items: start; }
-.lb-stage.zoomed img { max-width: none; max-height: none; cursor: zoom-out; }
+.lb-stage.zoomed img {
+  max-width: none;
+  max-height: none;
+  width: 190%;
+  height: auto;
+  cursor: zoom-out;
+}
 .lb-bar {
   display: flex;
   align-items: center;
