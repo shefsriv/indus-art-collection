@@ -71,16 +71,6 @@ h3 { font-size: 1.3rem; }
 
 .brand { display: flex; align-items: center; gap: 16px; }
 .brand img { width: 82px; height: 82px; object-fit: contain; }
-.brand-text { font-family: var(--serif); font-size: 1.72rem; line-height: 1.1; }
-.brand-text small {
-  display: block;
-  font-family: var(--sans);
-  font-size: 0.66rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-top: 2px;
-}
 
 .nav { display: flex; gap: 30px; align-items: center; }
 .nav a {
@@ -413,8 +403,10 @@ h3 { font-size: 1.3rem; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: 9px; }
 .site-footer a:hover { color: var(--gold); }
-.footer-brand { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
-.footer-brand img { width: 84px; background: var(--paper); padding: 6px; }
+/* The logo sits under the Indus Art Collection heading. */
+.footer-brand { margin-bottom: 16px; }
+.footer-brand h4 { margin-bottom: 12px; }
+.footer-brand img { width: 84px; background: var(--paper); padding: 6px; display: block; margin-bottom: 12px; }
 .socials { display: flex; gap: 12px; margin-top: 16px; }
 .socials a {
   width: 36px;

@@ -6,8 +6,8 @@ export const site = {
 
   // Replace with the address enquiries should reach.
   email: 'shefsriv1968@gmail.com',
-  phone: '',
-  location: 'Phoenix, Arizona  ·  Lucknow, India',
+  phone: '602-741-4861',
+  location: 'Phoenix, AZ',
 
   instagram: '',
   facebook: '',
@@ -17,6 +17,21 @@ export const site = {
   // Until then both forms fall back to opening the visitor's email client.
   formspree: '',
 };
+
+// The order artists are hung in wherever the whole collection is shown — the
+// Gallery "All" view, the home page and the artists list. Any artist missing
+// from this list follows the named ones, alphabetically.
+export const ARTIST_ORDER = [
+  'umesh-kumar-saxena',
+  'kandan-g',
+  'nirakaar-chaudhary',
+  'ashok-rathod',
+  'gopal-naskar',
+  'umendra-p-singh',
+  'm-salim',
+  'folk-tribal-masters',
+  'n-k-mishra',
+];
 
 export const NAV = [
   { label: 'Home', href: '#/' },

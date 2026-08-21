@@ -59,6 +59,17 @@ const FOLK_EXCLUDE = new Set([
   84, // [85]
 ]);
 
+// Folk works painted in a single pigment — black, white, grey, sepia or ochre.
+// The site hangs these before the coloured folk works, so the group is judged
+// by eye once here rather than guessed from the pixels at render time.
+const FOLK_MONO = new Set([
+  36, 38, 39, 40, 48, 50, 62, 64, 65, 68, 74, 75,
+  76, 79, 80, 81, 85, 87, 88, 89, 90, 91, 92, 93,
+]);
+
+const isMono = (base) =>
+  base.startsWith(FOLK_PREFIX) && FOLK_MONO.has(parseInt(base.slice(FOLK_PREFIX.length), 10));
+
 const isExcluded = (base) => {
   if (!base.startsWith(FOLK_PREFIX)) return false;
   return FOLK_EXCLUDE.has(parseInt(base.slice(FOLK_PREFIX.length), 10));
@@ -122,6 +133,7 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
       year: meta.year || '',
       ref: meta.ref || '',
       description: '',
+      mono: isMono(base),
       aspect: +(width / height).toFixed(4),
       thumb: `art/thumb/${id}.jpg`,
       full: `art/full/${id}.jpg`,

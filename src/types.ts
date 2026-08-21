@@ -9,6 +9,8 @@ export interface Work {
   year: string;
   ref: string;
   description: string;
+  /** Painted in a single pigment — these hang before the coloured works. */
+  mono: boolean;
   aspect: number;
   thumb: string;
   full: string;

@@ -93,6 +93,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9829,
       "thumb": "art/thumb/ashok-rathod-painting-1.jpg",
       "full": "art/full/ashok-rathod-painting-1.jpg"
@@ -108,6 +109,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.597,
       "thumb": "art/thumb/ashok-rathod-painting-2.jpg",
       "full": "art/full/ashok-rathod-painting-2.jpg"
@@ -123,6 +125,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6204,
       "thumb": "art/thumb/ashok-rathod-painting-3.jpg",
       "full": "art/full/ashok-rathod-painting-3.jpg"
@@ -138,6 +141,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.974,
       "thumb": "art/thumb/ashok-rathod-painting-4.jpg",
       "full": "art/full/ashok-rathod-painting-4.jpg"
@@ -153,6 +157,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.5384,
       "thumb": "art/thumb/ashok-rathod-painting-5.jpg",
       "full": "art/full/ashok-rathod-painting-5.jpg"
@@ -168,6 +173,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.013,
       "thumb": "art/thumb/gopal-naskar-1.jpg",
       "full": "art/full/gopal-naskar-1.jpg"
@@ -183,6 +189,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9835,
       "thumb": "art/thumb/gopal-naskar-2.jpg",
       "full": "art/full/gopal-naskar-2.jpg"
@@ -198,6 +205,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.0022,
       "thumb": "art/thumb/gopal-naskar-3.jpg",
       "full": "art/full/gopal-naskar-3.jpg"
@@ -213,6 +221,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.0022,
       "thumb": "art/thumb/gopal-naskar-4.jpg",
       "full": "art/full/gopal-naskar-4.jpg"
@@ -228,6 +237,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3681,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-10.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-10.jpg"
@@ -243,6 +253,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3755,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-13.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-13.jpg"
@@ -258,6 +269,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7476,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-14.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-14.jpg"
@@ -273,6 +285,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3818,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-15.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-15.jpg"
@@ -288,6 +301,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.369,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-16.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-16.jpg"
@@ -303,6 +317,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7398,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-17.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-17.jpg"
@@ -318,6 +333,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7208,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-18.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-18.jpg"
@@ -333,6 +349,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7313,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-19.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-19.jpg"
@@ -348,6 +365,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3811,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-24.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-24.jpg"
@@ -363,6 +381,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.5717,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-26.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-26.jpg"
@@ -378,6 +397,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7317,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-27.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-27.jpg"
@@ -393,6 +413,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3523,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-28.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-28.jpg"
@@ -408,6 +429,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7418,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-29.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-29.jpg"
@@ -423,6 +445,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7535,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-31.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-31.jpg"
@@ -438,6 +461,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.9353,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-32.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-32.jpg"
@@ -453,6 +477,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6874,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-33.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-33.jpg"
@@ -468,6 +493,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.6964,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-36.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-36.jpg"
@@ -483,6 +509,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.236,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-38.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-38.jpg"
@@ -498,6 +525,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.3882,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-39.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-39.jpg"
@@ -513,6 +541,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.4427,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-40.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-40.jpg"
@@ -528,6 +557,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3931,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-41.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-41.jpg"
@@ -543,6 +573,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.8048,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-42.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-42.jpg"
@@ -558,6 +589,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.8167,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-43.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-43.jpg"
@@ -573,6 +605,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.4577,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-44.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-44.jpg"
@@ -588,6 +621,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.5637,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-45.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-45.jpg"
@@ -603,6 +637,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7436,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-46.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-46.jpg"
@@ -618,6 +653,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6574,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-47.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-47.jpg"
@@ -633,6 +669,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 2.7357,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-48.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-48.jpg"
@@ -648,6 +685,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7319,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-49.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-49.jpg"
@@ -663,6 +701,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.3647,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-50.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-50.jpg"
@@ -678,6 +717,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6464,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-51.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-51.jpg"
@@ -693,6 +733,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6549,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-53.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-53.jpg"
@@ -708,6 +749,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6141,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-54.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-54.jpg"
@@ -723,6 +765,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.8173,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-55.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-55.jpg"
@@ -738,6 +781,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7222,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-57.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-57.jpg"
@@ -753,6 +797,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6608,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-59.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-59.jpg"
@@ -768,6 +813,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.6027,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-60.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-60.jpg"
@@ -783,6 +829,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.639,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-61.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-61.jpg"
@@ -798,6 +845,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.454,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-62.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-62.jpg"
@@ -813,6 +861,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.5886,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-64.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-64.jpg"
@@ -828,6 +877,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.3282,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-65.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-65.jpg"
@@ -843,6 +893,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.7038,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-66.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-66.jpg"
@@ -858,6 +909,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.2118,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-67.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-67.jpg"
@@ -873,6 +925,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.9959,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-68.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-68.jpg"
@@ -888,6 +941,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6078,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-70.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-70.jpg"
@@ -903,6 +957,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.4638,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-72.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-72.jpg"
@@ -918,6 +973,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6665,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-73.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-73.jpg"
@@ -933,6 +989,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.7704,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-74.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-74.jpg"
@@ -948,6 +1005,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.4111,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-75.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-75.jpg"
@@ -963,6 +1021,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.7978,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-76.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-76.jpg"
@@ -978,6 +1037,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 3.2663,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-77.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-77.jpg"
@@ -993,6 +1053,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 3.2496,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-78.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-78.jpg"
@@ -1008,6 +1069,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.4619,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-79.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-79.jpg"
@@ -1023,6 +1085,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 2.6072,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-80.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-80.jpg"
@@ -1038,6 +1101,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.7984,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-81.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-81.jpg"
@@ -1053,6 +1117,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9947,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-83.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-83.jpg"
@@ -1068,6 +1133,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.5842,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-85.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-85.jpg"
@@ -1083,6 +1149,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.5459,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-86.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-86.jpg"
@@ -1098,6 +1165,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.7678,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-87.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-87.jpg"
@@ -1113,6 +1181,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.0644,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-88.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-88.jpg"
@@ -1128,6 +1197,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.0105,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-89.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-89.jpg"
@@ -1143,6 +1213,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.6164,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-90.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-90.jpg"
@@ -1158,6 +1229,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.6517,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-91.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-91.jpg"
@@ -1173,6 +1245,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 0.7803,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-92.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-92.jpg"
@@ -1188,6 +1261,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": true,
       "aspect": 1.5369,
       "thumb": "art/thumb/india-folk-tribal-paintings-song-collection-2604-260408-001807-93.jpg",
       "full": "art/full/india-folk-tribal-paintings-song-collection-2604-260408-001807-93.jpg"
@@ -1203,6 +1277,7 @@
       "year": "2024",
       "ref": "1024",
       "description": "",
+      "mono": false,
       "aspect": 0.5054,
       "thumb": "art/thumb/kandan-g-1.jpg",
       "full": "art/full/kandan-g-1.jpg"
@@ -1218,6 +1293,7 @@
       "year": "2024",
       "ref": "1028",
       "description": "",
+      "mono": false,
       "aspect": 0.4998,
       "thumb": "art/thumb/kandan-g-2.jpg",
       "full": "art/full/kandan-g-2.jpg"
@@ -1233,6 +1309,7 @@
       "year": "2025",
       "ref": "1060",
       "description": "",
+      "mono": false,
       "aspect": 0.6092,
       "thumb": "art/thumb/kandan-g-3.jpg",
       "full": "art/full/kandan-g-3.jpg"
@@ -1248,6 +1325,7 @@
       "year": "2025",
       "ref": "1061",
       "description": "",
+      "mono": false,
       "aspect": 0.5481,
       "thumb": "art/thumb/kandan-g-4.jpg",
       "full": "art/full/kandan-g-4.jpg"
@@ -1263,6 +1341,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.1612,
       "thumb": "art/thumb/m-salim-painting-1.jpg",
       "full": "art/full/m-salim-painting-1.jpg"
@@ -1278,6 +1357,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.2559,
       "thumb": "art/thumb/m-salim-painting-2.jpg",
       "full": "art/full/m-salim-painting-2.jpg"
@@ -1293,6 +1373,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3498,
       "thumb": "art/thumb/m-salim-painting-3.jpg",
       "full": "art/full/m-salim-painting-3.jpg"
@@ -1308,6 +1389,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.3382,
       "thumb": "art/thumb/m-salim-painting-4.jpg",
       "full": "art/full/m-salim-painting-4.jpg"
@@ -1323,6 +1405,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9964,
       "thumb": "art/thumb/mehnaaz-bano-painting-1.jpg",
       "full": "art/full/mehnaaz-bano-painting-1.jpg"
@@ -1338,6 +1421,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.0681,
       "thumb": "art/thumb/mehnaaz-bano-painting-2.jpg",
       "full": "art/full/mehnaaz-bano-painting-2.jpg"
@@ -1353,6 +1437,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.986,
       "thumb": "art/thumb/mehnaaz-bano-painting-3.jpg",
       "full": "art/full/mehnaaz-bano-painting-3.jpg"
@@ -1368,6 +1453,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9702,
       "thumb": "art/thumb/mehnaaz-bano-painting-4.jpg",
       "full": "art/full/mehnaaz-bano-painting-4.jpg"
@@ -1383,6 +1469,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9941,
       "thumb": "art/thumb/mehnaaz-bano-painting-5.jpg",
       "full": "art/full/mehnaaz-bano-painting-5.jpg"
@@ -1398,6 +1485,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.012,
       "thumb": "art/thumb/mehnaaz-bano-painting-6.jpg",
       "full": "art/full/mehnaaz-bano-painting-6.jpg"
@@ -1413,6 +1501,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.0235,
       "thumb": "art/thumb/mehnaaz-bano-painting-7.jpg",
       "full": "art/full/mehnaaz-bano-painting-7.jpg"
@@ -1428,6 +1517,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.993,
       "thumb": "art/thumb/mehnaaz-bano-painting-8.jpg",
       "full": "art/full/mehnaaz-bano-painting-8.jpg"
@@ -1443,6 +1533,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6819,
       "thumb": "art/thumb/n-k-mishra-1.jpg",
       "full": "art/full/n-k-mishra-1.jpg"
@@ -1458,6 +1549,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.5537,
       "thumb": "art/thumb/n-k-mishra-2.jpg",
       "full": "art/full/n-k-mishra-2.jpg"
@@ -1473,6 +1565,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6989,
       "thumb": "art/thumb/n-k-mishra-3.jpg",
       "full": "art/full/n-k-mishra-3.jpg"
@@ -1488,6 +1581,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.0133,
       "thumb": "art/thumb/n-k-mishra-4.jpg",
       "full": "art/full/n-k-mishra-4.jpg"
@@ -1503,6 +1597,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.2913,
       "thumb": "art/thumb/nirakaar-chaudhary-painting-1.jpg",
       "full": "art/full/nirakaar-chaudhary-painting-1.jpg"
@@ -1518,6 +1613,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 2.7484,
       "thumb": "art/thumb/nirakaar-chaudhary-painting-2.jpg",
       "full": "art/full/nirakaar-chaudhary-painting-2.jpg"
@@ -1533,6 +1629,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.5037,
       "thumb": "art/thumb/umendra-p-singh-1.jpg",
       "full": "art/full/umendra-p-singh-1.jpg"
@@ -1548,6 +1645,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 2.0011,
       "thumb": "art/thumb/umendra-p-singh-2.jpg",
       "full": "art/full/umendra-p-singh-2.jpg"
@@ -1563,6 +1661,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 2.4358,
       "thumb": "art/thumb/umendra-p-singh-3.jpg",
       "full": "art/full/umendra-p-singh-3.jpg"
@@ -1578,6 +1677,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.6718,
       "thumb": "art/thumb/umendra-p-singh-4.jpg",
       "full": "art/full/umendra-p-singh-4.jpg"
@@ -1593,6 +1693,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 1.005,
       "thumb": "art/thumb/umesh-ji-1.jpg",
       "full": "art/full/umesh-ji-1.jpg"
@@ -1608,6 +1709,7 @@
       "year": "2025",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.4914,
       "thumb": "art/thumb/umesh-ji-2.jpg",
       "full": "art/full/umesh-ji-2.jpg"
@@ -1623,6 +1725,7 @@
       "year": "2025",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.4764,
       "thumb": "art/thumb/umesh-ji-3.jpg",
       "full": "art/full/umesh-ji-3.jpg"
@@ -1638,6 +1741,7 @@
       "year": "2025",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.508,
       "thumb": "art/thumb/umesh-ji-4.jpg",
       "full": "art/full/umesh-ji-4.jpg"
@@ -1653,6 +1757,7 @@
       "year": "2025",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.5122,
       "thumb": "art/thumb/umesh-ji-5.jpg",
       "full": "art/full/umesh-ji-5.jpg"
@@ -1668,6 +1773,7 @@
       "year": "2025",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.4917,
       "thumb": "art/thumb/umesh-ji-6.jpg",
       "full": "art/full/umesh-ji-6.jpg"
@@ -1683,6 +1789,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9566,
       "thumb": "art/thumb/umesh-kumar-saxena-painting-1-1.jpg",
       "full": "art/full/umesh-kumar-saxena-painting-1-1.jpg"
@@ -1698,6 +1805,7 @@
       "year": "",
       "ref": "",
       "description": "",
+      "mono": false,
       "aspect": 0.9523,
       "thumb": "art/thumb/umesh-kumar-saxena-painting-1-2.jpg",
       "full": "art/full/umesh-kumar-saxena-painting-1-2.jpg"

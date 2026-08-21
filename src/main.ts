@@ -1,9 +1,24 @@
 import './styles.css';
 import catalogData from './data/catalog.json';
 import type { Catalog, Work, Artist } from './types';
-import { site, NAV } from './config';
+import { site, NAV, ARTIST_ORDER } from './config';
 
 const catalog = catalogData as Catalog;
+
+/** Artists run in the order Shefali hangs them; unnamed ones follow. */
+const artistRank = (slug: string) => {
+  const i = ARTIST_ORDER.indexOf(slug);
+  return i === -1 ? ARTIST_ORDER.length : i;
+};
+
+// Every view of the collection reads from this: artists in the hanging order,
+// and within the folk collection the monochrome works before the coloured.
+const allWorks = [...catalog.works].sort((a, b) =>
+  artistRank(a.artistSlug) - artistRank(b.artistSlug) ||
+  Number(b.mono) - Number(a.mono));
+
+const orderedArtists = [...catalog.artists].sort((a, b) =>
+  artistRank(a.slug) - artistRank(b.slug));
 const app = document.getElementById('app')!;
 
 const esc = (s: string) =>
@@ -31,7 +46,6 @@ function header(route: string): string {
       <div class="header-inner">
         <a class="brand" href="#/">
           <img src="${asset('logo.png')}" alt="${esc(site.name)} logo" />
-          <span class="brand-text">Indus Art<small>Collection</small></span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
         <nav class="nav" id="nav">${links}</nav>
@@ -49,11 +63,9 @@ function footer(): string {
         <div class="footer-grid">
           <div>
             <div class="footer-brand">
+              <h4>${esc(site.name)}</h4>
               <img src="${asset('logo.png')}" alt="" />
-              <div>
-                <h4 style="margin-bottom:6px">${esc(site.name)}</h4>
-                <p style="margin:0">${esc(site.tagline)}</p>
-              </div>
+              <p style="margin:0">${esc(site.tagline)}</p>
             </div>
             <p>Curating authentic paintings by Indian artists for collectors,
                galleries, designers and corporate spaces.</p>
@@ -84,8 +96,8 @@ function footer(): string {
             <h4>Contact</h4>
             <ul>
               <li><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
-              ${site.phone ? `<li>${esc(site.phone)}</li>` : ''}
               <li>${esc(site.location)}</li>
+              ${site.phone ? `<li><a href="tel:${esc(site.phone.replace(/[^0-9+]/g, ''))}">${esc(site.phone)}</a></li>` : ''}
               <li><a href="#/contact">Send an enquiry</a></li>
             </ul>
           </div>
@@ -146,12 +158,12 @@ function enquiryForm(subject: string): string {
 /* ------------------------------------------------------------------- pages */
 
 function homePage(): string {
-  const heroImgs = catalog.works.slice(0, 8).map(
+  const heroImgs = allWorks.slice(0, 8).map(
     (w) => `<img src="${asset(w.thumb)}" alt="" />`).join('');
 
   // multiples of three so the rows stay complete
-  const featured = catalog.works.filter((w) => w.style !== 'Folk').slice(0, 12);
-  const folk = catalog.works.filter((w) => w.style === 'Folk').slice(0, 9);
+  const featured = allWorks.filter((w) => w.style !== 'Folk').slice(0, 12);
+  const folk = allWorks.filter((w) => w.style === 'Folk').slice(0, 9);
 
   return `
     <section class="hero">
@@ -177,7 +189,7 @@ function homePage(): string {
           <div class="rule"></div>
           <p>Select an artist to see their complete body of work.</p>
         </div>
-        ${artistGrid(catalog.artists)}
+        ${artistGrid(orderedArtists)}
       </div>
     </section>
 
@@ -233,13 +245,13 @@ function artistsPage(): string {
       <p class="lede">Ten artists working across contemporary, traditional and folk
         idioms. Select a name to open that artist's full collection.</p>
     </div>
-    <section class="section"><div class="wrap">${artistGrid(catalog.artists)}</div></section>`;
+    <section class="section"><div class="wrap">${artistGrid(orderedArtists)}</div></section>`;
 }
 
 function artistPage(slug: string): string {
   const artist = catalog.artists.find((a) => a.slug === slug);
   if (!artist) return notFound();
-  const works = catalog.works.filter((w) => w.artistSlug === slug);
+  const works = allWorks.filter((w) => w.artistSlug === slug);
 
   return `
     <div class="wrap page-head">
@@ -262,10 +274,10 @@ function artistPage(slug: string): string {
 }
 
 function galleryPage(styleFilter: string): string {
-  const styles = ['All', ...Array.from(new Set(catalog.works.map((w) => w.style)))];
+  const styles = ['All', ...Array.from(new Set(allWorks.map((w) => w.style)))];
   const works = styleFilter === 'All'
-    ? catalog.works
-    : catalog.works.filter((w) => w.style === styleFilter);
+    ? allWorks
+    : allWorks.filter((w) => w.style === styleFilter);
 
   const buttons = styles.map((s) =>
     `<button class="filter ${s === styleFilter ? 'active' : ''}" data-style="${esc(s)}">${esc(s)}</button>`
@@ -367,8 +379,8 @@ function contactPage(): string {
           <h3>Reach us directly</h3>
           <ul class="info-list">
             <li><b>Email</b><span><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></span></li>
-            ${site.phone ? `<li><b>Phone</b><span>${esc(site.phone)}</span></li>` : ''}
             <li><b>Based in</b><span>${esc(site.location)}</span></li>
+            ${site.phone ? `<li><b>Phone</b><span><a href="tel:${esc(site.phone.replace(/[^0-9+]/g, ''))}">${esc(site.phone)}</a></span></li>` : ''}
           </ul>
           <h3>Trade &amp; corporate</h3>
           <p>We work with interior designers, art consultants and corporate art
