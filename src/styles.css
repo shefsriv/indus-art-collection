@@ -485,11 +485,19 @@ h3 { font-size: 1.3rem; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: 9px; }
 .site-footer a:hover { color: var(--gold); }
-/* The logo sits under the Indus Art Collection heading. */
+/* The logo sits under the Indus Art Collection heading, and the whole first
+   column centres on it rather than hanging off the left edge. */
+.footer-about { text-align: center; }
 .footer-brand { margin-bottom: 16px; }
 .footer-brand h4 { margin-bottom: 12px; }
-.footer-brand img { width: 84px; background: var(--paper); padding: 6px; display: block; margin-bottom: 12px; }
-.socials { display: flex; gap: 12px; margin-top: 16px; }
+.footer-brand img {
+  width: 84px;
+  background: var(--paper);
+  padding: 6px;
+  display: block;
+  margin: 0 auto 12px;
+}
+.socials { display: flex; gap: 12px; margin-top: 16px; justify-content: center; }
 .socials a {
   width: 36px;
   height: 36px;

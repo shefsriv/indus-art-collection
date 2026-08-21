@@ -79,7 +79,7 @@ function footer(): string {
     <footer class="site-footer">
       <div class="wrap">
         <div class="footer-grid">
-          <div>
+          <div class="footer-about">
             <div class="footer-brand">
               <h4>${esc(site.name)}</h4>
               <img src="${asset('logo-mark.png')}" alt="" />
