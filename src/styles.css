@@ -59,12 +59,14 @@ h3 { font-size: 1.3rem; }
   border-bottom: 1px solid var(--line);
 }
 
+/* The mark and the name sit on their own line, the navigation on the next, so
+   neither has to compete with the other for width. */
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
-  padding: 14px 28px;
+  padding: 16px 28px 14px;
   max-width: var(--wrap);
   margin: 0 auto;
 }
@@ -80,7 +82,16 @@ h3 { font-size: 1.3rem; }
   white-space: nowrap;
 }
 
-.nav { display: flex; gap: 30px; align-items: center; }
+.nav {
+  display: flex;
+  gap: 34px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4px 28px 12px;
+  border-top: 1px solid var(--line);
+  margin: 0 28px;
+}
 .nav a {
   font-size: 0.82rem;
   letter-spacing: 0.13em;
@@ -478,15 +489,19 @@ h3 { font-size: 1.3rem; }
     left: 0;
     right: 0;
     background: var(--paper);
+    border-top: 0;
     border-bottom: 1px solid var(--line);
     flex-direction: column;
+    flex-wrap: nowrap;
     gap: 0;
+    margin: 0;
     padding: 8px 28px 18px;
   }
   .nav.open { display: flex; }
   .nav a { padding: 12px 0; width: 100%; border-bottom: 1px solid var(--line); }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; position: absolute; right: 28px; top: 50%; transform: translateY(-50%); }
   .site-header { position: relative; }
+  .header-inner { position: relative; padding-right: 76px; padding-left: 76px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .art-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 18px; }
   .art-item figcaption strong { font-size: 1.05rem; }

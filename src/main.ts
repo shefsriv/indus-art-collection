@@ -49,8 +49,8 @@ function header(route: string): string {
           <span class="brand-text">${esc(site.name)}</span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
-        <nav class="nav" id="nav">${links}</nav>
       </div>
+      <nav class="nav" id="nav">${links}</nav>
     </header>`;
 }
 
