@@ -166,6 +166,7 @@ function enquiryForm(subject: string): string {
       <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message"
         placeholder="Tell us which works interest you, or what you are looking for."></textarea></div>
       <button class="btn btn-dark" type="submit" style="width:100%">Send enquiry</button>
+      <p class="form-status" hidden></p>
       <p class="privacy">100% privacy — your details are never shared.</p>
       ${site.formspree ? '' : `<div class="form-note">Set up is not finished: add your
         Formspree endpoint in <code>src/config.ts</code> so enquiries arrive by email.
@@ -577,6 +578,40 @@ function render(): void {
     toggle.setAttribute('aria-expanded', String(open));
   });
   nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // enquiry forms post in the background, so the visitor is thanked in place
+  // rather than being sent off to the form service's own page
+  if (site.formspree) {
+    document.querySelectorAll<HTMLFormElement>('form.form-card').forEach((form) => {
+      const status = form.querySelector<HTMLParagraphElement>('.form-status')!;
+      const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        status.hidden = true;
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+          if (!res.ok) throw new Error(String(res.status));
+          form.reset();
+          status.className = 'form-status ok';
+          status.textContent = 'Thank you — your message is on its way. We will be in touch shortly.';
+        } catch {
+          status.className = 'form-status bad';
+          status.innerHTML = `Sorry, that did not send. Please email us at
+            <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>.`;
+        } finally {
+          status.hidden = false;
+          button.disabled = false;
+          button.textContent = 'Send enquiry';
+        }
+      });
+    });
+  }
 
   // search: the bar drops out of the header and hands the term to the gallery
   const searchBar = document.getElementById('searchBar') as HTMLFormElement;

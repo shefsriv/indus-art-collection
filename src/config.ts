@@ -15,7 +15,7 @@ export const site = {
   // Paste the Formspree endpoint here once the form is created at
   // https://formspree.io — it looks like https://formspree.io/f/abcdwxyz
   // Until then both forms fall back to opening the visitor's email client.
-  formspree: '',
+  formspree: 'https://formspree.io/f/mljrvbwq',
 };
 
 // The order artists are hung in wherever the whole collection is shown — the
