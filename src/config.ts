@@ -2,7 +2,7 @@
 
 export const site = {
   name: 'Indus Art Collection',
-  tagline: 'Contemporary, Traditional & Folk Art of India',
+  tagline: 'Contemporary, Traditional & Folk Art',
 
   // Replace with the address enquiries should reach.
   email: 'shefsriv1968@gmail.com',

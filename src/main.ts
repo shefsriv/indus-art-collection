@@ -356,9 +356,8 @@ function aboutPage(): string {
     <section class="section">
       <div class="wrap prose">
         <p>Indus Art Collection curates original paintings by Indian artists — the
-           contemporary studio painters working in Lucknow, Bengal and the south, and
-           the folk and tribal masters carrying forward Madhubani, Warli and allied
-           traditions.</p>
+           contemporary studio painters and the folk and tribal masters carrying
+           forward Madhubani, Warli and allied traditions.</p>
         <p>We work directly with the artists. Every painting in the collection is an
            original, sourced from the studio rather than a secondary market, and every
            original is sold with a Certificate of Authenticity.</p>
