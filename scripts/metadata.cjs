@@ -120,11 +120,11 @@ const works = {
   'umendra-p-singh-4': { title: '', size: '', medium: '' },
 
   'umesh-ji-1': { title: '', size: '70 x 70 in / 178 x 178 cm', medium: 'Acrylic on canvas' },
-  'umesh-ji-2': { title: 'Painting 10/2025', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
-  'umesh-ji-3': { title: 'Painting 11/2025', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
-  'umesh-ji-4': { title: 'Painting 12/2025', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
-  'umesh-ji-5': { title: 'Painting 15/2025', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
-  'umesh-ji-6': { title: 'Painting 17/2025', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-2': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-3': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-4': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-5': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-6': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
   'umesh-kumar-saxena-painting-1-1': { title: 'Triptych', size: '18 x 60 in each', medium: 'Acrylic on canvas' },
   'umesh-kumar-saxena-painting-1-2': { title: 'Triptych', size: '18 x 60 in each', medium: 'Acrylic on canvas' },
 };
