@@ -37,7 +37,7 @@ const workAlt = (w: Work) => (w.title ? `${w.title} by ${w.artist}` : `Painting 
 
 /* ------------------------------------------------------------------ layout */
 
-function header(route: string): string {
+function header(route: string, query: string): string {
   const links = NAV.map((n) => {
     const active = n.href === route || (n.href !== '#/' && route.startsWith(n.href));
     return `<a href="${n.href}" class="${active ? 'active' : ''}">${n.label}</a>`;
@@ -50,9 +50,24 @@ function header(route: string): string {
           <img src="${asset('logo-mark.png')}" alt="${esc(site.name)} logo" />
           <span class="brand-text">${esc(site.name)}</span>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <div class="header-actions">
+          <button class="icon-btn" id="searchToggle" aria-label="Search the collection"
+            aria-expanded="false" title="Search">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
+              stroke-width="1.7" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" /><path d="M16.2 16.2 21 21" stroke-linecap="round" />
+            </svg>
+          </button>
+          <a class="btn btn-dark btn-small" href="#/register">Register</a>
+          <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+        </div>
       </div>
-      <nav class="nav" id="nav">${links}</nav>
+      <nav class="nav" id="nav">${links}<a class="nav-register" href="#/register">Register</a></nav>
+      <form class="search-bar" id="searchBar" role="search" hidden>
+        <input id="searchInput" type="search" name="q" value="${esc(query)}" autocomplete="off"
+          placeholder="Search by artist, style, medium or size — then press Enter" />
+        <button class="btn btn-dark btn-small" type="submit">Search</button>
+      </form>
     </header>`;
 }
 
@@ -276,28 +291,55 @@ function artistPage(slug: string): string {
     </section>`;
 }
 
-function galleryPage(styleFilter: string): string {
+/** Everything a visitor might reasonably type is matched against. */
+const matchesQuery = (w: Work, terms: string[]) => {
+  const hay = [w.artist, w.title, w.style, w.medium, w.size, w.year, w.description]
+    .join(' ').toLowerCase();
+  return terms.every((t) => hay.includes(t));
+};
+
+function galleryPage(styleFilter: string, query: string): string {
+  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
   const styles = ['All', ...Array.from(new Set(allWorks.map((w) => w.style)))];
-  const works = styleFilter === 'All'
-    ? allWorks
-    : allWorks.filter((w) => w.style === styleFilter);
+  const works = allWorks
+    .filter((w) => styleFilter === 'All' || w.style === styleFilter)
+    .filter((w) => !terms.length || matchesQuery(w, terms));
 
   const buttons = styles.map((s) =>
     `<button class="filter ${s === styleFilter ? 'active' : ''}" data-style="${esc(s)}">${esc(s)}</button>`
   ).join('');
 
+  const lede = terms.length
+    ? `${works.length} work${works.length === 1 ? '' : 's'} matching
+       “${esc(query)}”. <a href="#/gallery" class="clear-search">Clear the search</a>`
+    : `${catalog.works.length} paintings across contemporary, traditional and folk
+       traditions. Click any work to view it large and zoom in.`;
+
   return `
     <div class="wrap page-head">
       <span class="eyebrow">Catalogue</span>
       <h1>The collection</h1>
-      <p class="lede">${catalog.works.length} paintings across contemporary, traditional
-        and folk traditions. Click any work to view it large and zoom in.</p>
+      <p class="lede">${lede}</p>
     </div>
     <section class="section">
       <div class="wrap">
         <div class="filters">${buttons}</div>
         <div id="galleryWorks">${artGrid(works)}</div>
       </div>
+    </section>`;
+}
+
+function registerPage(): string {
+  return `
+    <div class="wrap page-head">
+      <span class="eyebrow">Register</span>
+      <h1>Register with us</h1>
+      <p class="lede">Join the collection's list to hear first about new arrivals,
+        artist features and exhibitions. We write occasionally and never share
+        your details.</p>
+    </div>
+    <section class="section">
+      <div class="wrap">${enquiryForm('Indus Art Collection — registration')}</div>
     </section>`;
 }
 
@@ -509,17 +551,19 @@ function render(): void {
 
   let body: string;
   let routeKey = `#${path}`;
+  const search = query.get('q') || '';
 
   if (parts.length === 0) body = homePage();
   else if (parts[0] === 'artists') body = artistsPage();
   else if (parts[0] === 'artist' && parts[1]) { body = artistPage(parts[1]); routeKey = '#/artists'; }
-  else if (parts[0] === 'gallery') body = galleryPage(query.get('style') || 'All');
+  else if (parts[0] === 'gallery') body = galleryPage(query.get('style') || 'All', search);
   else if (parts[0] === 'about') body = aboutPage();
   else if (parts[0] === 'news') body = newsPage();
+  else if (parts[0] === 'register') body = registerPage();
   else if (parts[0] === 'contact') body = contactPage();
   else body = notFound();
 
-  app.innerHTML = header(routeKey) + `<main>${body}</main>` + footer() + lightboxMarkup() +
+  app.innerHTML = header(routeKey, search) + `<main>${body}</main>` + footer() + lightboxMarkup() +
     `<button class="to-top" id="toTop" aria-label="Back to top">↑</button>`;
 
   wireLightbox();
@@ -534,11 +578,33 @@ function render(): void {
   });
   nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => nav.classList.remove('open')));
 
-  // gallery filters
+  // search: the bar drops out of the header and hands the term to the gallery
+  const searchBar = document.getElementById('searchBar') as HTMLFormElement;
+  const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+  const searchToggle = document.getElementById('searchToggle')!;
+  const openSearch = (open: boolean) => {
+    searchBar.hidden = !open;
+    searchToggle.setAttribute('aria-expanded', String(open));
+    if (open) searchInput.focus();
+  };
+  searchToggle.addEventListener('click', () => openSearch(Boolean(searchBar.hidden)));
+  searchBar.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = searchInput.value.trim();
+    location.hash = q ? `#/gallery?q=${encodeURIComponent(q)}` : '#/gallery';
+  });
+  // a search already in play keeps its bar open, so the term can be edited
+  if (search) openSearch(true);
+
+  // gallery filters, which keep any search term in play
   document.querySelectorAll<HTMLButtonElement>('.filter').forEach((btn) => {
     btn.addEventListener('click', () => {
       const style = btn.dataset.style!;
-      location.hash = style === 'All' ? '#/gallery' : `#/gallery?style=${encodeURIComponent(style)}`;
+      const params = new URLSearchParams();
+      if (style !== 'All') params.set('style', style);
+      if (search) params.set('q', search);
+      const qs = params.toString();
+      location.hash = qs ? `#/gallery?${qs}` : '#/gallery';
     });
   });
 

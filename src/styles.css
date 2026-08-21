@@ -62,11 +62,13 @@ h3 { font-size: 1.3rem; }
 /* The mark and the name sit on their own line, the navigation on the next, so
    neither has to compete with the other for width. */
 .header-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
-  padding: 16px 28px 14px;
+  /* room on both sides for the actions, so the name stays centred */
+  padding: 16px 210px 14px;
   max-width: var(--wrap);
   margin: 0 auto;
 }
@@ -81,6 +83,53 @@ h3 { font-size: 1.3rem; }
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
+
+/* Search and Register sit at the right of the brand line without pushing the
+   name off centre, so the first row stays symmetrical. */
+.header-actions {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.icon-btn:hover { color: var(--ink); border-color: var(--gold); }
+.btn-small { padding: 9px 20px; font-size: 0.72rem; }
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 28px 16px;
+}
+.search-bar[hidden] { display: none; }
+.search-bar input {
+  flex: 1;
+  padding: 12px 16px;
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.search-bar input:focus { outline: none; border-color: var(--gold); }
+.clear-search { color: var(--gold); border-bottom: 1px solid currentColor; }
 
 .nav {
   display: flex;
@@ -102,6 +151,8 @@ h3 { font-size: 1.3rem; }
   transition: color 0.2s, border-color 0.2s;
 }
 .nav a:hover, .nav a.active { color: var(--ink); border-bottom-color: var(--gold); }
+/* only surfaces on the narrowest screens, where the header button is hidden */
+.nav .nav-register { display: none; }
 
 .nav-toggle {
   display: none;
@@ -499,9 +550,10 @@ h3 { font-size: 1.3rem; }
   }
   .nav.open { display: flex; }
   .nav a { padding: 12px 0; width: 100%; border-bottom: 1px solid var(--line); }
-  .nav-toggle { display: block; position: absolute; right: 28px; top: 50%; transform: translateY(-50%); }
+  .nav-toggle { display: block; }
   .site-header { position: relative; }
-  .header-inner { position: relative; padding-right: 76px; padding-left: 76px; }
+  /* the brand shifts left of the actions rather than centring under them */
+  .header-inner { justify-content: flex-start; padding: 14px 150px 12px 28px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .art-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 18px; }
   .art-item figcaption strong { font-size: 1.05rem; }
@@ -513,6 +565,11 @@ h3 { font-size: 1.3rem; }
   .brand img { width: 60px; height: 60px; }
   /* on a narrow phone the name may take two lines rather than shrink away */
   .brand-text { font-size: 1.44rem; white-space: normal; }
+  /* no room for the Register button beside the name — it moves into the menu */
+  .header-actions .btn-small { display: none; }
+  .nav .nav-register { display: block; }
+  .header-inner { padding-right: 104px; }
+  .search-bar { flex-direction: column; padding-bottom: 14px; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .hero-bg { grid-template-columns: repeat(2, 1fr); }
 }
