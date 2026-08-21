@@ -27,11 +27,13 @@ const esc = (s: string) =>
 const base = import.meta.env.BASE_URL;
 const asset = (p: string) => `${base}${p}`;
 
-/** Line under a thumbnail: "Untitled · 24 x 24 in" etc. */
+/** Line under a thumbnail: "24 x 24 in · Acrylic on canvas" etc. */
 const workLine = (w: Work) =>
   [w.size, w.medium].filter(Boolean).join('  ·  ') || 'Details on request';
 
-const workTitle = (w: Work) => w.title || 'Untitled';
+// Most works carry no title, and a wall of "Untitled" says nothing — those
+// tiles simply lead with the artist's name instead.
+const workAlt = (w: Work) => (w.title ? `${w.title} by ${w.artist}` : `Painting by ${w.artist}`);
 
 /* ------------------------------------------------------------------ layout */
 
@@ -118,10 +120,10 @@ function artGrid(works: Work[]): string {
   return `<div class="art-grid">${works.map((w) => `
     <figure class="art-item" data-id="${esc(w.id)}">
       <div class="frame">
-        <img src="${asset(w.thumb)}" alt="${esc(workTitle(w))} by ${esc(w.artist)}" loading="lazy" />
+        <img src="${asset(w.thumb)}" alt="${esc(workAlt(w))}" loading="lazy" />
       </div>
       <figcaption>
-        <strong>${esc(workTitle(w))}</strong>
+        ${w.title ? `<strong>${esc(w.title)}</strong>` : ''}
         <span class="by">${esc(w.artist)}</span>
         <span class="spec">${esc(workLine(w))}</span>
       </figcaption>
@@ -434,13 +436,13 @@ function showLightbox(index: number): void {
 
   lightboxIndex = index;
   img.src = asset(w.full);
-  img.alt = `${workTitle(w)} by ${w.artist}`;
+  img.alt = workAlt(w);
   stage.classList.remove('zoomed');
   img.style.transform = '';
   (document.getElementById('lbZoom') as HTMLButtonElement).textContent = 'Zoom in';
 
   const bits = [w.artist, w.size, w.medium, w.year].filter(Boolean).join('  ·  ');
-  info.innerHTML = `<strong>${esc(workTitle(w))}</strong><span>${esc(bits)}</span>` +
+  info.innerHTML = (w.title ? `<strong>${esc(w.title)}</strong>` : '') + `<span>${esc(bits)}</span>` +
     (w.description ? `<span style="display:block;margin-top:6px">${esc(w.description)}</span>` : '');
 
   box.classList.add('open');
