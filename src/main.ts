@@ -116,11 +116,11 @@ function footer(): string {
           <div>
             <h4>Contact</h4>
             <ul class="footer-contacts">
-              ${CONTACTS.map((c) => `
+              <li><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
+              ${CONTACTS.filter((c) => c.phone).map((c) => `
                 <li>
                   <b>${esc(c.region)}</b>
-                  <a href="mailto:${esc(c.email)}">${esc(c.email)}</a>
-                  ${c.phone ? `<a href="${telHref(c.phone)}">${esc(c.phone)}</a>` : ''}
+                  <a href="${telHref(c.phone!)}">${esc(c.phone!)}</a>
                 </li>`).join('')}
               <li><a href="#/contact">Send an enquiry</a></li>
             </ul>
@@ -427,16 +427,14 @@ function contactPage(): string {
     <section class="section">
       <div class="wrap contact-grid">
         <div class="prose">
-          <h3>Reach us directly</h3>
-          ${CONTACTS.map((c) => `
-            <h4 class="contact-region">${esc(c.region)}</h4>
-            <ul class="info-list">
-              <li><b>Email</b><span><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></span></li>
-              ${c.phone ? `<li><b>Phone</b><span><a href="${telHref(c.phone)}">${esc(c.phone)}</a></span></li>` : ''}
-              ${c.location ? `<li><b>Based in</b><span>${esc(c.location)}</span></li>` : ''}
-            </ul>`).join('')}
-          <p class="contact-general">For general enquiries, write to
-            <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>.</p>
+          <p class="contact-lead">Write to us at
+            <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>, or call
+            whichever office is nearer to you.</p>
+          <ul class="info-list">
+            <li><b>Email</b><span><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></span></li>
+            ${CONTACTS.filter((c) => c.phone).map((c) => `
+              <li><b>${esc(c.region)}</b><span><a href="${telHref(c.phone!)}">${esc(c.phone!)}</a></span></li>`).join('')}
+          </ul>
           <h3>Trade &amp; corporate</h3>
           <p>We work with interior designers, art consultants and corporate art
              programmes on curated sourcing, with trade terms available. Mention your

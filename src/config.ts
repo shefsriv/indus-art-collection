@@ -17,27 +17,18 @@ export const site = {
   formspree: 'https://formspree.io/f/mljrvbwq',
 };
 
-// Who a visitor writes to, by where they are. Shown on the contact page and in
-// the footer of every page. Add or remove an entry and both update themselves;
-// leave `phone` out and only the email is shown.
+// Where a visitor can telephone, by country. Shown on the contact page and in
+// the footer of every page; add or remove an entry and both update themselves.
+// Every written enquiry goes to `site.email` above, so the individual
+// mailboxes (shefali@ and abhishek@) are deliberately not published here.
 export type Contact = {
   region: string;
-  email: string;
   phone?: string;
-  location?: string;
 };
 
 export const CONTACTS: Contact[] = [
-  {
-    region: 'United States',
-    email: 'shefali@indusartcollection.com',
-    phone: '602-741-4861',
-    location: 'Phoenix, AZ',
-  },
-  {
-    region: 'India',
-    email: 'abhishek@indusartcollection.com',
-  },
+  { region: 'United States', phone: '602-741-4861' },
+  { region: 'India', phone: '+91 7800353989' },
 ];
 
 // The order artists are hung in wherever the whole collection is shown — the
