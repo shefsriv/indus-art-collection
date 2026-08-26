@@ -485,6 +485,19 @@ h3 { font-size: 1.3rem; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: 9px; }
 .site-footer a:hover { color: var(--gold); }
+/* Each country in the footer's contact column reads as a small block: the
+   region as a quiet label with its email and phone stacked beneath. */
+.footer-contacts li { margin-bottom: 14px; }
+.footer-contacts b {
+  display: block;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 3px;
+}
+.footer-contacts a { display: block; }
 /* The logo sits under the Indus Art Collection heading, and the whole first
    column centres on it rather than hanging off the left edge. */
 .footer-about { text-align: center; }
@@ -548,6 +561,35 @@ h3 { font-size: 1.3rem; }
 .prose p { margin: 0 0 18px; }
 .prose h3 { margin: 32px 0 10px; }
 
+/* Details beside the enquiry form on a wide screen, stacked on a narrow one.
+   This lived as an inline style, which no media query could override, so the
+   contact page used to scroll sideways on a phone. */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* Long addresses must be allowed to wrap rather than force the page wider. */
+.info-list span, .info-list a, .footer-contacts a { overflow-wrap: anywhere; }
+
+/* The contact page lists one block per country, each under its own heading. */
+.contact-region {
+  margin: 26px 0 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.contact-region:first-of-type { margin-top: 18px; }
+.info-list + .contact-region { margin-top: 30px; }
+.contact-general { margin-top: 22px; font-size: 0.92rem; color: var(--ink-soft); }
+
 .info-list { list-style: none; padding: 0; margin: 22px 0 0; }
 .info-list li { padding: 11px 0; border-bottom: 1px solid var(--line); display: flex; gap: 18px; font-size: 0.92rem; }
 .info-list b { min-width: 108px; font-weight: 500; color: var(--ink-soft); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; }
@@ -592,4 +634,8 @@ h3 { font-size: 1.3rem; }
   .search-bar { flex-direction: column; padding-bottom: 14px; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .hero-bg { grid-template-columns: repeat(2, 1fr); }
+  /* The label column leaves too little room for an email address on a phone,
+     which breaks it mid-word, so the label sits above its value instead. */
+  .info-list li { flex-direction: column; gap: 4px; }
+  .info-list b { min-width: 0; padding-top: 0; }
 }

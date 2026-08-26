@@ -1,7 +1,7 @@
 import './styles.css';
 import catalogData from './data/catalog.json';
 import type { Catalog, Work, Artist } from './types';
-import { site, NAV, ARTIST_ORDER } from './config';
+import { site, NAV, ARTIST_ORDER, CONTACTS } from './config';
 
 const catalog = catalogData as Catalog;
 
@@ -71,6 +71,9 @@ function header(route: string, query: string): string {
     </header>`;
 }
 
+// Strips a phone number down to what a dialler will accept.
+const telHref = (phone: string) => `tel:${phone.replace(/[^0-9+]/g, '')}`;
+
 function footer(): string {
   const social = (url: string, label: string, glyph: string) =>
     url ? `<a href="${esc(url)}" target="_blank" rel="noopener" aria-label="${label}">${glyph}</a>` : '';
@@ -112,10 +115,13 @@ function footer(): string {
           </div>
           <div>
             <h4>Contact</h4>
-            <ul>
-              <li><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
-              <li>${esc(site.location)}</li>
-              ${site.phone ? `<li><a href="tel:${esc(site.phone.replace(/[^0-9+]/g, ''))}">${esc(site.phone)}</a></li>` : ''}
+            <ul class="footer-contacts">
+              ${CONTACTS.map((c) => `
+                <li>
+                  <b>${esc(c.region)}</b>
+                  <a href="mailto:${esc(c.email)}">${esc(c.email)}</a>
+                  ${c.phone ? `<a href="${telHref(c.phone)}">${esc(c.phone)}</a>` : ''}
+                </li>`).join('')}
               <li><a href="#/contact">Send an enquiry</a></li>
             </ul>
           </div>
@@ -419,14 +425,18 @@ function contactPage(): string {
         and corporate buyers.</p>
     </div>
     <section class="section">
-      <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="wrap contact-grid">
         <div class="prose">
           <h3>Reach us directly</h3>
-          <ul class="info-list">
-            <li><b>Email</b><span><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></span></li>
-            <li><b>Based in</b><span>${esc(site.location)}</span></li>
-            ${site.phone ? `<li><b>Phone</b><span><a href="tel:${esc(site.phone.replace(/[^0-9+]/g, ''))}">${esc(site.phone)}</a></span></li>` : ''}
-          </ul>
+          ${CONTACTS.map((c) => `
+            <h4 class="contact-region">${esc(c.region)}</h4>
+            <ul class="info-list">
+              <li><b>Email</b><span><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></span></li>
+              ${c.phone ? `<li><b>Phone</b><span><a href="${telHref(c.phone)}">${esc(c.phone)}</a></span></li>` : ''}
+              ${c.location ? `<li><b>Based in</b><span>${esc(c.location)}</span></li>` : ''}
+            </ul>`).join('')}
+          <p class="contact-general">For general enquiries, write to
+            <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>.</p>
           <h3>Trade &amp; corporate</h3>
           <p>We work with interior designers, art consultants and corporate art
              programmes on curated sourcing, with trade terms available. Mention your
