@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "catalog": "node scripts/build-catalog.cjs"
+    "catalog": "node scripts/build-catalog.cjs",
+    "add-art": "node scripts/add-art.cjs"
   },
   "devDependencies": {
     "exceljs": "^4.4.0",

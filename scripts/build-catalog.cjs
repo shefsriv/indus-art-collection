@@ -184,7 +184,7 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
   }
   artistList.sort((a, b) => a.name.localeCompare(b.name));
 
-  fs.writeFileSync(DATA_FILE, JSON.stringify({ artists: artistList, works: catalog }, null, 2));
+  fs.writeFileSync(DATA_FILE, JSON.stringify({ artists: artistList, works: catalog }, null, 2) + '\n');
   console.log(`${catalog.length} works, ${artistList.length} artists, ${skipped} skipped`);
 
   // ---- spreadsheet ----
