@@ -74,17 +74,27 @@ start with a key from the list above. Rename it and run the command again.
 
 ---
 
-## Writing descriptions for the paintings
+## Filling in the painting details
 
 Open **`Indus Art Collection - Catalogue.xlsx`** in the project folder. It has one
-row per painting, with the artist, title, size and medium already filled in from
-the images. Type your description into the last column, replacing the grey
-placeholder text.
+row per painting. Five columns are yours to fill in, and the headings say so:
 
-Save the spreadsheet, then run `npm.cmd run add-art` — the same command picks up
-your descriptions and publishes them.
+**Title · Size · Medium · Year · Description**
 
-**Do not edit the ID column** — that is what matches each row to its image.
+Whatever you type into those is kept and appears on the website when a visitor
+opens the painting. Anything left blank shows as *On request*.
+
+**Do not edit the ID, Artist or Style columns.** The ID is what matches each row
+to its image; the other two are rebuilt from the artist list every run.
+
+When you are done:
+
+1. **Save the file and close Excel** — leaving it open can lock the file
+2. Run `npm.cmd run add-art`
+3. Answer **y** to publish
+
+A cell you leave empty falls back to whatever was read off the painting's
+caption, so clearing one never destroys the original reading.
 
 ---
 

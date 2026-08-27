@@ -392,6 +392,28 @@ h3 { font-size: 1.3rem; }
 }
 .lb-info strong { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; display: block; }
 .lb-info span { font-size: 0.82rem; color: rgba(255, 255, 255, 0.66); }
+/* One labelled line per detail — artist, medium, size and price — so every
+   painting reads the same way whether or not its details are catalogued. */
+.lb-row { display: flex; gap: 10px; align-items: baseline; margin-top: 3px; }
+.lb-row b {
+  min-width: 62px;
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.lb-desc {
+  margin: 9px 0 0;
+  max-width: 62ch;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+.lb-btn-gold {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.lb-btn-gold:hover { background: var(--gold); color: var(--ink); }
 .lb-actions { display: flex; gap: 10px; align-items: center; }
 .lb-btn {
   background: none;
@@ -576,6 +598,14 @@ h3 { font-size: 1.3rem; }
 
 /* Long addresses must be allowed to wrap rather than force the page wider. */
 .info-list span, .info-list a, .footer-contacts a { overflow-wrap: anywhere; }
+
+/* Confirms which painting a visitor arrived from, above the enquiry form. */
+.enquiry-about {
+  margin: 14px 0 0;
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+}
+.enquiry-about strong { color: var(--ink); font-weight: 500; }
 
 /* Opens the contact page's details column, above the email and phone list. */
 .contact-lead { margin: 0; font-size: 0.98rem; }

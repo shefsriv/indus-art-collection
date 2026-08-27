@@ -160,7 +160,7 @@ function artistGrid(artists: Artist[]): string {
     </a>`).join('')}</div>`;
 }
 
-function enquiryForm(subject: string): string {
+function enquiryForm(subject: string, message = ''): string {
   const action = site.formspree
     ? `action="${esc(site.formspree)}" method="POST"`
     : `action="mailto:${esc(site.email)}" method="POST" enctype="text/plain"`;
@@ -170,7 +170,8 @@ function enquiryForm(subject: string): string {
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" required /></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required /></div>
       <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message"
-        placeholder="Tell us which works interest you, or what you are looking for."></textarea></div>
+        placeholder="Tell us which works interest you, or what you are looking for."
+        >${esc(message)}</textarea></div>
       <button class="btn btn-dark" type="submit" style="width:100%">Send enquiry</button>
       <p class="form-status" hidden></p>
       <p class="privacy">100% privacy — your details are never shared.</p>
@@ -415,7 +416,17 @@ function newsPage(): string {
     </section>`;
 }
 
-function contactPage(): string {
+function contactPage(workId?: string): string {
+  // Arriving from a painting's Enquire Now button, the form already names it.
+  const work = workId ? catalog.works.find((w) => w.id === workId) : undefined;
+  const subject = work
+    ? `Indus Art Collection — enquiry: ${workLabel(work)}`
+    : 'Indus Art Collection — enquiry';
+  const prefill = work
+    ? `I would like to enquire about ${workLabel(work)}${work.size ? ` (${work.size})` : ''}. `
+      + 'Please send price, availability and shipping.'
+    : '';
+
   return `
     <div class="wrap page-head">
       <span class="eyebrow">Contact</span>
@@ -423,6 +434,8 @@ function contactPage(): string {
       <p class="lede">Tell us which works interest you and we will reply with price,
         availability and shipping. We welcome collectors, interior designers, galleries
         and corporate buyers.</p>
+      ${work ? `<p class="enquiry-about">Enquiring about
+        <strong>${esc(workLabel(work))}</strong>.</p>` : ''}
     </div>
     <section class="section">
       <div class="wrap contact-grid">
@@ -440,7 +453,7 @@ function contactPage(): string {
              programmes on curated sourcing, with trade terms available. Mention your
              project in the message and we will send our trade pack.</p>
         </div>
-        <div>${enquiryForm('Indus Art Collection — enquiry')}</div>
+        <div>${enquiryForm(subject, prefill)}</div>
       </div>
     </section>`;
 }
@@ -459,6 +472,14 @@ function notFound(): string {
 let lightboxWorks: Work[] = [];
 let lightboxIndex = 0;
 
+// Prices are never published; every work is quoted individually.
+const ON_REQUEST = 'On request';
+
+/** How a work is named in an enquiry — "Nandi by Ashok Rathod". */
+function workLabel(w: Work): string {
+  return `${w.title || 'Untitled work'} by ${w.artist}`;
+}
+
 function lightboxMarkup(): string {
   return `
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
@@ -470,7 +491,7 @@ function lightboxMarkup(): string {
           <button class="lb-btn" id="lbPrev">← Prev</button>
           <button class="lb-btn" id="lbZoom">Zoom in</button>
           <button class="lb-btn" id="lbNext">Next →</button>
-          <a class="lb-btn" id="lbEnquire" href="#/contact">Inquire</a>
+          <a class="lb-btn lb-btn-gold" id="lbEnquire" href="#/contact">Enquire Now</a>
         </div>
       </div>
     </div>`;
@@ -491,9 +512,22 @@ function showLightbox(index: number): void {
   stage.scrollTo(0, 0);
   (document.getElementById('lbZoom') as HTMLButtonElement).textContent = 'Zoom in';
 
-  const bits = [w.artist, w.size, w.medium, w.year].filter(Boolean).join('  ·  ');
-  info.innerHTML = (w.title ? `<strong>${esc(w.title)}</strong>` : '') + `<span>${esc(bits)}</span>` +
-    (w.description ? `<span style="display:block;margin-top:6px">${esc(w.description)}</span>` : '');
+  // Anything not yet catalogued is offered on request rather than left blank,
+  // so every painting presents the same four lines.
+  const row = (label: string, value: string) =>
+    `<div class="lb-row"><b>${label}</b><span>${esc(value)}</span></div>`;
+
+  info.innerHTML =
+    (w.title ? `<strong>${esc(w.title)}</strong>` : '') +
+    row('Artist', w.artist) +
+    row('Medium', w.medium || ON_REQUEST) +
+    row('Size', w.size || ON_REQUEST) +
+    row('Price', ON_REQUEST) +
+    (w.description ? `<p class="lb-desc">${esc(w.description)}</p>` : '');
+
+  // Carry the painting into the enquiry form so its message names the work.
+  (document.getElementById('lbEnquire') as HTMLAnchorElement).href =
+    `#/contact?work=${encodeURIComponent(w.id)}`;
 
   box.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -585,7 +619,7 @@ function render(): void {
   else if (parts[0] === 'about') body = aboutPage();
   else if (parts[0] === 'news') body = newsPage();
   else if (parts[0] === 'register') body = registerPage();
-  else if (parts[0] === 'contact') body = contactPage();
+  else if (parts[0] === 'contact') body = contactPage(query.get('work') || undefined);
   else body = notFound();
 
   app.innerHTML = header(routeKey, search) + `<main>${body}</main>` + footer() + lightboxMarkup() +

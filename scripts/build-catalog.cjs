@@ -153,7 +153,19 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
     }
   }
 
-  // merge any descriptions previously typed into the spreadsheet
+  // Carry back everything typed into the spreadsheet. This file is rewritten on
+  // every run, so any editable column that is not read here would be silently
+  // discarded — which is exactly what used to happen to Title, Size and Medium.
+  // A cell left empty falls back to the value in metadata.cjs rather than
+  // wiping it, so clearing a cell never destroys the original caption reading.
+  const EDITABLE = [
+    { column: 4, field: 'title' },
+    { column: 5, field: 'size' },
+    { column: 6, field: 'medium' },
+    { column: 7, field: 'year' },
+    { column: 8, field: 'description' },
+  ];
+
   if (fs.existsSync(XLSX_FILE)) {
     const wbOld = new ExcelJS.Workbook();
     await wbOld.xlsx.readFile(XLSX_FILE);
@@ -163,12 +175,29 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
       ws.eachRow((row, n) => {
         if (n === 1) return;
         const id = String(row.getCell(1).value ?? '').trim();
-        const desc = String(row.getCell(8).value ?? '').trim();
-        // the untouched placeholder is not a description
-        if (id && desc && desc !== PLACEHOLDER) byId.set(id, desc);
+        if (!id) return;
+        const edits = {};
+        for (const { column, field } of EDITABLE) {
+          const cell = row.getCell(column).value;
+          // a formula cell reports as an object; take what it evaluated to
+          const raw = cell && typeof cell === 'object' && 'result' in cell ? cell.result : cell;
+          const value = String(raw ?? '').trim();
+          // the untouched grey placeholder is not a description
+          if (value && value !== PLACEHOLDER) edits[field] = value;
+        }
+        if (Object.keys(edits).length) byId.set(id, edits);
       });
-      for (const w of catalog) if (byId.has(w.id)) w.description = byId.get(w.id);
-      if (byId.size) console.log(`carried over ${byId.size} descriptions`);
+
+      let cells = 0;
+      for (const w of catalog) {
+        const edits = byId.get(w.id);
+        if (!edits) continue;
+        for (const [field, value] of Object.entries(edits)) {
+          if (w[field] !== value) cells++;
+          w[field] = value;
+        }
+      }
+      if (byId.size) console.log(`carried over details for ${byId.size} works (${cells} cells changed)`);
     }
   }
 
@@ -192,13 +221,13 @@ const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
   const ws = wb.addWorksheet('Catalogue', { views: [{ state: 'frozen', ySplit: 1 }] });
   ws.columns = [
     { header: 'ID (do not edit)', key: 'id', width: 46 },
-    { header: 'Artist', key: 'artist', width: 24 },
-    { header: 'Style', key: 'style', width: 14 },
-    { header: 'Title', key: 'title', width: 24 },
-    { header: 'Size', key: 'size', width: 26 },
-    { header: 'Medium', key: 'medium', width: 24 },
-    { header: 'Year', key: 'year', width: 10 },
-    { header: 'Description (fill this in)', key: 'description', width: 70 },
+    { header: 'Artist (do not edit)', key: 'artist', width: 24 },
+    { header: 'Style (do not edit)', key: 'style', width: 14 },
+    { header: 'Title (editable)', key: 'title', width: 24 },
+    { header: 'Size (editable)', key: 'size', width: 26 },
+    { header: 'Medium (editable)', key: 'medium', width: 24 },
+    { header: 'Year (editable)', key: 'year', width: 10 },
+    { header: 'Description (editable)', key: 'description', width: 70 },
   ];
   ws.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
   ws.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1B3A4B' } };
