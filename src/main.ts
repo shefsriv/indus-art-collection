@@ -27,7 +27,12 @@ const esc = (s: string) =>
 const base = import.meta.env.BASE_URL;
 const asset = (p: string) => `${base}${p}`;
 
-/** Line under a thumbnail: "24 x 24 in · Acrylic on canvas" etc. */
+// Small counts read better as words in a sentence than as digits. Anything
+// larger than the list falls back to the numeral.
+const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six',
+  'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+const spell = (n: number) => NUMBER_WORDS[n] ?? String(n);
+
 // Prices are never published; every work is quoted individually.
 const ON_REQUEST = 'On request';
 
@@ -35,6 +40,7 @@ const ON_REQUEST = 'On request';
 // catalogued. Do not type this into the spreadsheet — the site supplies it.
 const DETAILS_ON_REQUEST = 'Details on request';
 
+/** Line under a thumbnail: "24 x 24 in · Acrylic on canvas" etc. */
 const workLine = (w: Work) =>
   [w.size, w.medium].filter(Boolean).join('  ·  ') || DETAILS_ON_REQUEST;
 
@@ -220,7 +226,9 @@ function homePage(): string {
           <span class="eyebrow">Our artists</span>
           <h2>The painters we represent</h2>
           <div class="rule"></div>
-          <p>Select an artist to see their complete body of work.</p>
+          <p>Our collection brings together ${spell(catalog.artists.length)} artists working in contemporary,
+            traditional and folk painting. Please select an artist to see their
+            complete collection.</p>
         </div>
         ${artistGrid(orderedArtists)}
       </div>
@@ -275,8 +283,9 @@ function artistsPage(): string {
     <div class="wrap page-head">
       <span class="eyebrow">Artists</span>
       <h1>The painters we represent</h1>
-      <p class="lede">${catalog.artists.length} artists working across contemporary,
-        traditional and folk idioms. Select a name to open that artist's full collection.</p>
+      <p class="lede">Our collection brings together ${spell(catalog.artists.length)} artists working in
+        contemporary, traditional and folk painting. Please select an artist to see
+        their complete collection.</p>
     </div>
     <section class="section"><div class="wrap">${artistGrid(orderedArtists)}</div></section>`;
 }
