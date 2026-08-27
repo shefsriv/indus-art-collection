@@ -28,8 +28,15 @@ const base = import.meta.env.BASE_URL;
 const asset = (p: string) => `${base}${p}`;
 
 /** Line under a thumbnail: "24 x 24 in · Acrylic on canvas" etc. */
+// Prices are never published; every work is quoted individually.
+const ON_REQUEST = 'On request';
+
+// Shown once, at the foot of a painting, when its size and medium are not yet
+// catalogued. Do not type this into the spreadsheet — the site supplies it.
+const DETAILS_ON_REQUEST = 'Details on request';
+
 const workLine = (w: Work) =>
-  [w.size, w.medium].filter(Boolean).join('  ·  ') || 'Details on request';
+  [w.size, w.medium].filter(Boolean).join('  ·  ') || DETAILS_ON_REQUEST;
 
 // Most works carry no title, and a wall of "Untitled" says nothing — those
 // tiles simply lead with the artist's name instead.
@@ -472,8 +479,6 @@ function notFound(): string {
 let lightboxWorks: Work[] = [];
 let lightboxIndex = 0;
 
-// Prices are never published; every work is quoted individually.
-const ON_REQUEST = 'On request';
 
 /** How a work is named in an enquiry — "Nandi by Ashok Rathod". */
 function workLabel(w: Work): string {
@@ -517,13 +522,18 @@ function showLightbox(index: number): void {
   const row = (label: string, value: string) =>
     `<div class="lb-row"><b>${label}</b><span>${esc(value)}</span></div>`;
 
+  // A painting with nothing catalogued says so once, at the foot of the panel,
+  // rather than repeating "On request" against every empty line.
+  const known = Boolean(w.medium || w.size);
+
   info.innerHTML =
     (w.title ? `<strong>${esc(w.title)}</strong>` : '') +
     row('Artist', w.artist) +
-    row('Medium', w.medium || ON_REQUEST) +
-    row('Size', w.size || ON_REQUEST) +
+    (w.medium ? row('Medium', w.medium) : '') +
+    (w.size ? row('Size', w.size) : '') +
     row('Price', ON_REQUEST) +
-    (w.description ? `<p class="lb-desc">${esc(w.description)}</p>` : '');
+    (w.description ? `<p class="lb-desc">${esc(w.description)}</p>` : '') +
+    (known ? '' : `<p class="lb-note">${DETAILS_ON_REQUEST}</p>`);
 
   // Carry the painting into the enquiry form so its message names the work.
   (document.getElementById('lbEnquire') as HTMLAnchorElement).href =
