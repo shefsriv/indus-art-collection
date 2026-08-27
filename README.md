@@ -82,7 +82,11 @@ row per painting. Five columns are yours to fill in, and the headings say so:
 **Title · Size · Medium · Year · Description**
 
 Whatever you type into those is kept and appears on the website when a visitor
-opens the painting. Anything left blank shows as *On request*.
+opens the painting.
+
+**Leave a cell blank when you do not know the answer.** The site then says
+*Details on request* by itself, once, under the painting. Typing that phrase in
+yourself makes it appear three times over.
 
 **Do not edit the ID, Artist or Style columns.** The ID is what matches each row
 to its image; the other two are rebuilt from the artist list every run.
@@ -98,10 +102,13 @@ caption, so clearing one never destroys the original reading.
 
 ---
 
-## Adding a new artist
+## Artists — names and biographies
 
-A new artist needs a biography, which has to be written by hand once. Open
-**`scripts/metadata.cjs`** and copy an existing entry near the top:
+Artist details are **not** in the spreadsheet. They live in
+**`scripts/metadata.cjs`**, which you open with Notepad (right-click the file →
+Open with → Notepad — not Word, which adds formatting and breaks it).
+
+Near the top there is one block per artist:
 
 ```js
 'gopal-naskar': {
@@ -112,12 +119,50 @@ A new artist needs a biography, which has to be written by hand once. Open
 },
 ```
 
-Change the key, the name, the style (`Contemporary`, `Traditional` or `Folk`)
-and the biography. Name that artist's photos to match the new key, then run
-`npm.cmd run add-art` as usual.
+| Part | What it is | Safe to change? |
+| --- | --- | --- |
+| `'gopal-naskar'` | the **key**, matching the start of that artist's photo filenames | only if you rename the photos too |
+| `name` | how the name is shown on the site | yes |
+| `style` | exactly `Contemporary`, `Traditional` or `Folk` | yes |
+| `bio` | the biography on the artist's page | yes |
 
-Titles, sizes and mediums are optional. To record them, add a line per painting
-to the `works` list further down the same file:
+### Updating an existing artist
+
+Change the text inside the quote marks and save. A long biography is written as
+pieces joined by `+`, each piece in its own quotes, with a space before the
+closing quote so words do not run together:
+
+```js
+bio: 'First sentence goes here. '
+  + 'Second sentence goes here. '
+  + 'Third sentence.',
+```
+
+⚠️ **Renaming an artist changes their web address.** The site builds each
+artist's link from their name, so renaming *Nirakaar Chaudhary* to *Nirakar
+Chowdhury* changes `#/artist/nirakaar-chaudhary` to `#/artist/nirakar-chowdhury`.
+Two consequences: any link you have already shared stops working, and the
+**hanging order in `src/config.ts` must be updated to the new spelling** or that
+artist drops to the end of every listing.
+
+### Adding a new artist
+
+Copy a whole block, paste it below, and change all four values. The key must
+match how the photos are named — key `meera-devi` means `meera-devi-1.jpg`,
+`meera-devi-2.jpg`, and so on. Add the new key to `ARTIST_ORDER` in
+`src/config.ts` if you want them in a particular position.
+
+### Then publish
+
+Save the file, close Notepad, and run `npm.cmd run add-art`.
+
+If a quote mark or comma is lost, the site will not build — but the tool checks
+that at step 3 and refuses to publish, so a broken site cannot go live. You
+would see *"The website failed to build"*; undo the edit and try again.
+
+Painting titles, sizes and mediums are normally typed into the spreadsheet, but
+they can also be set here, one line per painting, in the `works` list further
+down the same file:
 
 ```js
 'gopal-naskar-5': { title: 'Evening Catch', size: '24 x 24 in', medium: 'Acrylic on canvas' },
