@@ -14,7 +14,7 @@ export const site = {
   // Paste the Formspree endpoint here once the form is created at
   // https://formspree.io — it looks like https://formspree.io/f/abcdwxyz
   // Until then both forms fall back to opening the visitor's email client.
-  formspree: 'https://formspree.io/f/mljrvbwq',
+  formspree: 'https://formspree.io/f/xjyvbwpa',
 };
 
 // Where a visitor can telephone, by country. Shown on the contact page and in
