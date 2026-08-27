@@ -42,11 +42,22 @@ finds the edges and crops the background away by itself.
 
 ### Step 3 — run one command
 
-Open the project folder in a terminal and run:
+**Opening the terminal in the right folder.** In File Explorer, go to
+`C:\Users\shefs\indus-art-collection`, right-click any empty white space inside
+the folder, and choose **Open in Terminal** (it may be under *Show more
+options*). The window opens already pointing at the project.
+
+Then run:
 
 ```
-npm run add-art
+npm.cmd run add-art
 ```
+
+Note the **`.cmd`**. Windows disables PowerShell scripts by default, so plain
+`npm` fails here with *"running scripts is disabled on this system"*. The
+`npm.cmd` launcher is not a PowerShell script, so it runs normally — same npm,
+same result. (In Command Prompt rather than PowerShell, plain `npm run add-art`
+works too.)
 
 It prepares the images, checks the site still builds, tells you exactly which
 paintings it found, and then asks whether to publish. Nothing goes live until
@@ -55,7 +66,7 @@ you answer **y**. About two minutes later the paintings are on the website.
 To rehearse without touching the live site:
 
 ```
-npm run add-art -- --no-publish
+npm.cmd run add-art -- --no-publish
 ```
 
 **If it says a photo could not be matched to an artist,** the filename does not
@@ -70,7 +81,7 @@ row per painting, with the artist, title, size and medium already filled in from
 the images. Type your description into the last column, replacing the grey
 placeholder text.
 
-Save the spreadsheet, then run `npm run add-art` — the same command picks up
+Save the spreadsheet, then run `npm.cmd run add-art` — the same command picks up
 your descriptions and publishes them.
 
 **Do not edit the ID column** — that is what matches each row to its image.
@@ -93,7 +104,7 @@ A new artist needs a biography, which has to be written by hand once. Open
 
 Change the key, the name, the style (`Contemporary`, `Traditional` or `Folk`)
 and the biography. Name that artist's photos to match the new key, then run
-`npm run add-art` as usual.
+`npm.cmd run add-art` as usual.
 
 Titles, sizes and mediums are optional. To record them, add a line per painting
 to the `works` list further down the same file:
@@ -115,7 +126,7 @@ Then open the address it prints (usually <http://localhost:5173>).
 
 ## Publishing changes
 
-`npm run add-art` publishes for you, so you normally never need this section.
+`npm.cmd run add-art` publishes for you, so you normally never need this section.
 
 Underneath, every push to the `main` branch rebuilds and republishes the site
 automatically, which takes about two minutes.
@@ -139,8 +150,8 @@ Everything routine lives in **`src/config.ts`**:
 
 | Setting | What it does |
 | --- | --- |
-| `email` | Where enquiries are sent, shown in the footer and contact page |
-| `phone` | Optional; hidden when left blank |
+| `email` | The address shown on the site and used by the enquiry forms |
+| `CONTACTS` | The phone numbers listed by country on the contact page and footer |
 | `instagram`, `facebook` | Social links; the icons are hidden when blank |
 | `formspree` | The endpoint that makes the enquiry forms actually send email |
 
