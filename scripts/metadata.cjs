@@ -49,8 +49,8 @@ const artists = {
   'umendra-p-singh': {
     name: 'Umendra P. Singh',
     style: 'Contemporary',
-    bio: 'Umendra P. Singh works almost entirely in darkness, coaxing monuments, '
-      + 'figures and night skies out of deep, near-black grounds. '
+    bio: 'Umendra P. Singh paints on deep, near-black grounds, coaxing '
+      + 'monuments, figures and night skies out of the shadows. '
       + 'Umendra\'s paintings depict physical remnants of the past — artifacts and '
       + 'sculptures — that encapsulate the cultural heritage of civilizations, '
       + 'providing insights into beliefs and traditions while granting access '
