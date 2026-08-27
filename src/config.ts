@@ -37,7 +37,7 @@ export const CONTACTS: Contact[] = [
 export const ARTIST_ORDER = [
   'umesh-kumar-saxena',
   'kandan-g',
-  'nirakaar-chaudhary',
+  'nirakar-chowdhury',
   'ashok-rathod',
   'gopal-naskar',
   'umendra-p-singh',

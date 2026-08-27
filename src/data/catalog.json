@@ -49,10 +49,10 @@
       "cover": "art/thumb/n-k-mishra-1.jpg"
     },
     {
-      "slug": "nirakaar-chaudhary",
-      "name": "Nirakaar Chaudhary",
+      "slug": "nirakar-chowdhury",
+      "name": "Nirakar Chowdhury",
       "style": "Contemporary",
-      "bio": "Nirakaar Chaudhary composes crisp geometric abstractions, folding planes of colour into faceted, architectural space.",
+      "bio": "Nirakar Chowdhury is an Indian artist from Odisha, known for his nature-inspired and conceptual paintings that often incorporate elements of Cubism, influenced by artists like Braque and Picasso. He works primarily with acrylics on canvas and creates abstract depictions of nature and animals, exploring the value of life in his artwork.",
       "count": 2,
       "cover": "art/thumb/nirakaar-chaudhary-painting-1.jpg"
     },
@@ -1452,8 +1452,8 @@
     },
     {
       "id": "nirakaar-chaudhary-painting-1",
-      "artist": "Nirakaar Chaudhary",
-      "artistSlug": "nirakaar-chaudhary",
+      "artist": "Nirakar Chowdhury",
+      "artistSlug": "nirakar-chowdhury",
       "style": "Contemporary",
       "title": "",
       "size": "140 x 85 cm",
@@ -1468,8 +1468,8 @@
     },
     {
       "id": "nirakaar-chaudhary-painting-2",
-      "artist": "Nirakaar Chaudhary",
-      "artistSlug": "nirakaar-chaudhary",
+      "artist": "Nirakar Chowdhury",
+      "artistSlug": "nirakar-chowdhury",
       "style": "Contemporary",
       "title": "",
       "size": "153 x 191 cm",

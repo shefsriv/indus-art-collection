@@ -41,10 +41,14 @@ const artists = {
       + 'wash tradition, with devotional figures emerging from drifting colour.',
   },
   'nirakaar-chaudhary-painting': {
-    name: 'Nirakaar Chaudhary',
+    name: 'Nirakar Chowdhury',
     style: 'Contemporary',
-    bio: 'Nirakaar Chaudhary composes crisp geometric abstractions, folding '
-      + 'planes of colour into faceted, architectural space.',
+    bio: 'Nirakar Chowdhury is an Indian artist from Odisha, known for his '
+      + 'nature-inspired and conceptual paintings that often incorporate '
+      + 'elements of Cubism, influenced by artists like Braque and Picasso. '
+      + 'He works primarily with acrylics on canvas and creates abstract '
+      + 'depictions of nature and animals, exploring the value of life in his '
+      + 'artwork.',
   },
   'umendra-p-singh': {
     name: 'Umendra P. Singh',
