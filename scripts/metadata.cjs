@@ -43,7 +43,7 @@ const artists = {
   'nirakaar-chaudhary-painting': {
     name: 'Nirakar Chowdhury',
     style: 'Contemporary',
-    bio: 'Nirakar Chowdhury is an Indian artist from Odisha, known for his '
+    bio: 'Nirakar Chowdhury is an Indian artist from Odisha, India, known for his '
       + 'nature-inspired and conceptual paintings that often incorporate '
       + 'elements of Cubism, influenced by artists like Braque and Picasso. '
       + 'He works primarily with acrylics on canvas and creates abstract '
