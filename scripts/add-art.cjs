@@ -36,11 +36,16 @@ function fail(heading, lines) {
   process.exit(1);
 }
 
+// npm on Windows is a .cmd wrapper, and Node refuses to spawn one without a
+// shell, so it gets one. Everything else must NOT have a shell: it re-splits
+// arguments on spaces, which turned a commit message into stray filenames.
+// Nothing passed to npm here contains a space, so quoting is not a concern.
 function run(cmd, cmdArgs, opts = {}) {
+  const needsShell = process.platform === 'win32' && cmd === 'npm';
   return spawnSync(cmd, cmdArgs, {
     cwd: ROOT,
     encoding: 'utf8',
-    shell: process.platform === 'win32',
+    shell: needsShell,
     ...opts,
   });
 }
@@ -149,11 +154,16 @@ function readCatalog() {
 
   const siteBuild = run('npm', ['run', 'build'], { env: { ...process.env, VITE_BASE: '/' } });
   if (siteBuild.status !== 0) {
+    // A command that could not start at all reports no output, only an error,
+    // so say which it was rather than printing an empty box.
+    const output = ((siteBuild.stdout || '') + (siteBuild.stderr || '')).trim();
     fail('The website failed to build, so nothing was published.', [
       'This usually means a detail in the catalogue is malformed.',
       'The full message was:',
       '',
-      ...((siteBuild.stdout || '') + (siteBuild.stderr || '')).trim().split('\n').slice(-25).map((l) => `  ${l}`),
+      ...(output
+        ? output.split('\n').slice(-25).map((l) => `  ${l}`)
+        : [`  (no output — the build command could not run: ${siteBuild.error || 'unknown error'})`]),
     ]);
   }
   bullet('Builds cleanly.');
