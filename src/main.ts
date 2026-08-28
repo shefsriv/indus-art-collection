@@ -1,7 +1,7 @@
 import './styles.css';
 import catalogData from './data/catalog.json';
 import type { Catalog, Work, Artist } from './types';
-import { site, NAV, ARTIST_ORDER, CONTACTS } from './config';
+import { site, NAV, ARTIST_ORDER, CONTACTS, TEXT } from './config';
 
 const catalog = catalogData as Catalog;
 
@@ -32,6 +32,10 @@ const asset = (p: string) => `${base}${p}`;
 const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six',
   'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 const spell = (n: number) => NUMBER_WORDS[n] ?? String(n);
+
+/** Fills {n} in the editable wording with the number of artists, in words. */
+const artistsIntro = () =>
+  TEXT.artistsIntro.replace('{n}', spell(catalog.artists.length));
 
 // Prices are never published; every work is quoted individually.
 const ON_REQUEST = 'On request';
@@ -224,11 +228,9 @@ function homePage(): string {
       <div class="wrap">
         <div class="section-head">
           <span class="eyebrow">Our artists</span>
-          <h2>The painters we represent</h2>
+          <h2>${esc(TEXT.artistsHeading)}</h2>
           <div class="rule"></div>
-          <p>Our collection brings together ${spell(catalog.artists.length)} artists working in contemporary,
-            traditional and folk painting. Please select an artist to see their
-            complete collection.</p>
+          <p>${esc(artistsIntro())}</p>
         </div>
         ${artistGrid(orderedArtists)}
       </div>
@@ -282,10 +284,8 @@ function artistsPage(): string {
   return `
     <div class="wrap page-head">
       <span class="eyebrow">Artists</span>
-      <h1>The painters we represent</h1>
-      <p class="lede">Our collection brings together ${spell(catalog.artists.length)} artists working in
-        contemporary, traditional and folk painting. Please select an artist to see
-        their complete collection.</p>
+      <h1>${esc(TEXT.artistsHeading)}</h1>
+      <p class="lede">${esc(artistsIntro())}</p>
     </div>
     <section class="section"><div class="wrap">${artistGrid(orderedArtists)}</div></section>`;
 }

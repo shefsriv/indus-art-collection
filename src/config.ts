@@ -17,6 +17,24 @@ export const site = {
   formspree: 'https://formspree.io/f/xjyvbwpa',
 };
 
+// ---------------------------------------------------------------------------
+// WORDING YOU CAN CHANGE
+//
+// Edit the text between the quote marks, save, and run npm.cmd run add-art.
+// Keep the quote marks and the comma at the end of each line.
+// Write {n} where you want the number of artists — it fills itself in, so it
+// stays right when you add an artist. Leave it out if you would rather not
+// mention a number at all.
+// ---------------------------------------------------------------------------
+export const TEXT = {
+  // Shown on the Artists page and on the home page, above the artist photographs.
+  artistsHeading: 'The painters we represent',
+
+  artistsIntro: 'Our collection brings together {n} artists working in '
+    + 'contemporary, traditional and folk painting. Please select an artist to '
+    + 'see their complete collection.',
+};
+
 // Where a visitor can telephone, by country. Shown on the contact page and in
 // the footer of every page; add or remove an entry and both update themselves.
 // Every written enquiry goes to `site.email` above, so the individual
