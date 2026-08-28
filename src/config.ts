@@ -30,9 +30,10 @@ export const TEXT = {
   // Shown on the Artists page and on the home page, above the artist photographs.
   artistsHeading: 'The painters we represent',
 
-  artistsIntro: 'Our collection brings together {n} artists working in '
-    + 'contemporary, traditional and folk painting. Please select an artist to '
-    + 'see their complete collection.',
+  artistsIntro: 'Our collection brings together '
+    + 'contemporary, traditional and folk paintings, promoting artists from India '
+    + 'and giving them an international platform to showcase their work. Please select '
+    + 'an artist to see their complete collection.',
 };
 
 // Where a visitor can telephone, by country. Shown on the contact page and in
