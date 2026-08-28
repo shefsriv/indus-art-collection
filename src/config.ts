@@ -85,8 +85,8 @@ export const TEXT = {
     // The others — Contemporary, Traditional, Folk — come from the paintings
     // themselves, so a new style appears here on its own.
     allStyles: 'All paintings',
-    styleLabel: 'Painting style',
-    placeholder: 'Or search by artist, medium or size — then press Enter',
+    stylesHeading: 'Browse by style',
+    placeholder: 'Search, or click to browse by style',
     button: 'Search',
   },
 

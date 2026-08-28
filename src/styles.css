@@ -129,20 +129,51 @@ h3 { font-size: 1.3rem; }
   border-radius: 3px;
 }
 .search-bar input:focus { outline: none; border-color: var(--gold); }
-/* Browsing by style comes first: most visitors know the kind of painting they
-   want long before they know an artist's name. */
-.search-style {
-  padding: 12px 16px;
-  font: inherit;
-  font-size: 0.92rem;
-  color: var(--ink);
+/* The styles drop out of the search field itself: most visitors know the kind
+   of painting they want long before they know an artist's name. */
+.search-field { position: relative; flex: 1; }
+.search-field input { width: 100%; }
+.search-suggest {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 40;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 3px;
-  cursor: pointer;
-  min-width: 180px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+  padding: 6px;
+  max-height: 320px;
+  overflow-y: auto;
 }
-.search-style:focus { outline: none; border-color: var(--gold); }
+.search-suggest[hidden] { display: none; }
+.suggest-heading {
+  padding: 8px 12px 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.suggest {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 0.94rem;
+  color: var(--ink);
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.suggest[hidden] { display: none; }
+.suggest:hover, .suggest:focus-visible { background: var(--sand, rgba(0, 0, 0, 0.05)); outline: none; }
+.suggest-count { font-size: 0.78rem; color: var(--ink-soft); }
 .clear-search { color: var(--gold); border-bottom: 1px solid currentColor; }
 
 .nav {
@@ -672,8 +703,6 @@ h3 { font-size: 1.3rem; }
   .nav .nav-register { display: block; }
   .header-inner { padding-right: 104px; }
   .search-bar { flex-direction: column; padding-bottom: 14px; }
-  /* stacked on a phone, so the dropdown spans the width like the other fields */
-  .search-style { min-width: 0; width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .hero-bg { grid-template-columns: repeat(2, 1fr); }
   /* The label column leaves too little room for an email address on a phone,
