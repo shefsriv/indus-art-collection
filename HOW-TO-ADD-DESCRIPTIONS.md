@@ -1,7 +1,28 @@
-# Adding painting descriptions — the short version
+# Changing the website — the short version
 
 Keep this open the first few times. Nothing here can break the website: the
 tool checks everything before publishing and refuses if anything is wrong.
+
+---
+
+## Where everything lives
+
+There are only three places, and only three.
+
+| To change | Open |
+| --- | --- |
+| A painting's **title, size, medium, year, description** | `Indus Art Collection - Catalogue.xlsx` (Excel) |
+| An artist's **name, style or biography** | `scripts\metadata.cjs` (Notepad) |
+| **Any wording on any page** — headings, paragraphs, buttons | `src\config.ts` (Notepad) |
+
+Contact details — your email address and the two phone numbers — are also in
+`src\config.ts`, at the top.
+
+Whichever you change, the last three steps are always the same:
+
+**save → close → `npm.cmd run add-art` → answer `y`**
+
+The rest of this note walks through that in full.
 
 ---
 
@@ -75,6 +96,51 @@ refresh.
 Close the dark window. Done.
 
 ---
+
+## Changing the wording on a page
+
+Every word on every page lives in **`src\config.ts`**, under a big block
+headed *EVERY WORD ON THE WEBSITE*. Open the file in Notepad (right-click →
+Open with → Notepad; not Word) and you will find the pages listed in the order
+a visitor meets them — home, artists, gallery, about, news, register, contact,
+footer.
+
+Change the text between the quote marks. Four rules:
+
+1. Keep the quote marks `'  '` and the comma at the end of the line.
+2. A long sentence is split across lines joined by `+`. Each piece keeps its
+   own quotes and needs **a space before the closing quote**, or words run
+   together:
+   ```js
+   intro: 'This is the first part '
+     + 'and this is the second.',
+   ```
+3. For an apostrophe inside the text, write `\'` — as in `'the artist\'s work'`.
+4. Two words fill themselves in, so they never go stale:
+   `{artists}` becomes the number of artists in words ("nine"), and `{works}`
+   becomes the number of paintings in figures ("100"). Leave them out if you
+   would rather not mention a number.
+
+Then save, close Notepad, and run the command as below.
+
+## Changing an artist's name or biography
+
+Open **`scripts\metadata.cjs`** in Notepad. Each artist is a block:
+
+```js
+'gopal-naskar': {
+  name: 'Gopal Naskar',
+  style: 'Contemporary',
+  bio: 'Gopal Naskar works in flat, saturated colour...',
+},
+```
+
+Change `name`, `style` (`Contemporary`, `Traditional` or `Folk`) or `bio`.
+Leave the key on the first line alone — it matches that artist's photographs.
+
+⚠️ Renaming an artist changes their web address, so `ARTIST_ORDER` in
+`src\config.ts` must be updated to the new spelling too, or they drop to the
+end of every listing.
 
 ## To practise without publishing
 

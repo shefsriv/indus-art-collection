@@ -33,9 +33,23 @@ const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six',
   'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 const spell = (n: number) => NUMBER_WORDS[n] ?? String(n);
 
-/** Fills {n} in the editable wording with the number of artists, in words. */
-const artistsIntro = () =>
-  TEXT.artistsIntro.replace('{n}', spell(catalog.artists.length));
+/**
+ * Renders a line of editable wording from config.ts. The text is escaped, so
+ * whatever Shefali types is shown literally, then {artists} and {works} are
+ * filled in. `vars` carries anything that must stay as markup, such as the
+ * email address rendered as a link.
+ */
+const t = (template: string, vars: Record<string, string> = {}): string => {
+  let out = esc(template)
+    .replace(/\{artists\}/g, spell(catalog.artists.length))
+    .replace(/\{works\}/g, String(catalog.works.length));
+  for (const [key, value] of Object.entries(vars)) out = out.split(`{${key}}`).join(value);
+  return out;
+};
+
+/** The email address as a clickable link, for wording that mentions it. */
+const emailLink = () =>
+  `<a href="mailto:${esc(site.email)}">${esc(site.email)}</a>`;
 
 // Prices are never published; every work is quoted individually.
 const ON_REQUEST = 'On request';
@@ -105,15 +119,14 @@ function footer(): string {
               <img src="${asset('logo-mark.png')}" alt="" />
               <p style="margin:0">${esc(site.tagline)}</p>
             </div>
-            <p>Curating authentic paintings by Indian artists for collectors,
-               galleries, designers and corporate spaces.</p>
+            <p>${t(TEXT.footer.blurb)}</p>
             <div class="socials">
               ${social(site.instagram, 'Instagram', 'IG')}
               ${social(site.facebook, 'Facebook', 'FB')}
             </div>
           </div>
           <div>
-            <h4>Explore</h4>
+            <h4>${t(TEXT.footer.exploreHeading)}</h4>
             <ul>
               <li><a href="#/artists">Artists</a> — the painters we represent</li>
               <li><a href="#/gallery">Gallery</a> — the full catalogue</li>
@@ -122,16 +135,13 @@ function footer(): string {
             </ul>
           </div>
           <div>
-            <h4>Collecting</h4>
+            <h4>${t(TEXT.footer.collectingHeading)}</h4>
             <ul>
-              <li>Certificate of Authenticity with every original</li>
-              <li>Inquire for pricing and availability</li>
-              <li>Trade terms for designers and galleries</li>
-              <li>Worldwide shipping arranged</li>
+              ${TEXT.footer.collecting.map((c) => `<li>${t(c)}</li>`).join('')}
             </ul>
           </div>
           <div>
-            <h4>Contact</h4>
+            <h4>${t(TEXT.footer.contactHeading)}</h4>
             <ul class="footer-contacts">
               <li><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></li>
               ${CONTACTS.filter((c) => c.phone).map((c) => `
@@ -139,7 +149,7 @@ function footer(): string {
                   <b>${esc(c.region)}</b>
                   <a href="${telHref(c.phone!)}">${esc(c.phone!)}</a>
                 </li>`).join('')}
-              <li><a href="#/contact">Send an enquiry</a></li>
+              <li><a href="#/contact">${t(TEXT.footer.enquiryLink)}</a></li>
             </ul>
           </div>
         </div>
@@ -184,14 +194,14 @@ function enquiryForm(subject: string, message = ''): string {
   return `
     <form class="form-card" ${action}>
       <input type="hidden" name="_subject" value="${esc(subject)}" />
-      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" required /></div>
-      <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required /></div>
-      <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message"
-        placeholder="Tell us which works interest you, or what you are looking for."
+      <div class="field"><label for="f-name">${t(TEXT.form.nameLabel)}</label><input id="f-name" name="name" required /></div>
+      <div class="field"><label for="f-email">${t(TEXT.form.emailLabel)}</label><input id="f-email" type="email" name="email" required /></div>
+      <div class="field"><label for="f-msg">${t(TEXT.form.messageLabel)}</label><textarea id="f-msg" name="message"
+        placeholder="${t(TEXT.form.messagePlaceholder)}"
         >${esc(message)}</textarea></div>
-      <button class="btn btn-dark" type="submit" style="width:100%">Send enquiry</button>
+      <button class="btn btn-dark" type="submit" style="width:100%">${t(TEXT.form.button)}</button>
       <p class="form-status" hidden></p>
-      <p class="privacy">100% privacy — your details are never shared.</p>
+      <p class="privacy">${t(TEXT.form.privacy)}</p>
       ${site.formspree ? '' : `<div class="form-note">Set up is not finished: add your
         Formspree endpoint in <code>src/config.ts</code> so enquiries arrive by email.
         Until then this opens the visitor's mail app.</div>`}
@@ -212,14 +222,12 @@ function homePage(): string {
     <section class="hero">
       <div class="hero-bg">${heroImgs}</div>
       <div class="hero-inner">
-        <span class="eyebrow">Est. 2026 · United States</span>
-        <h1>Indus Art Collection</h1>
-        <p>We curate authentic contemporary, traditional and folk paintings by Indian
-           artists — bringing works straight from the studio to collectors, galleries
-           and designed spaces around the world.</p>
+        <span class="eyebrow">${t(TEXT.home.eyebrow)}</span>
+        <h1>${t(TEXT.home.heading)}</h1>
+        <p>${t(TEXT.home.intro)}</p>
         <div class="btn-row">
-          <a class="btn btn-light" href="#/gallery">View the collection</a>
-          <a class="btn btn-light" href="#/artists">Meet the artists</a>
+          <a class="btn btn-light" href="#/gallery">${t(TEXT.home.galleryButton)}</a>
+          <a class="btn btn-light" href="#/artists">${t(TEXT.home.artistsButton)}</a>
         </div>
       </div>
     </section>
@@ -227,10 +235,10 @@ function homePage(): string {
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Our artists</span>
-          <h2>${esc(TEXT.artistsHeading)}</h2>
+          <span class="eyebrow">${t(TEXT.artists.eyebrow)}</span>
+          <h2>${t(TEXT.artists.heading)}</h2>
           <div class="rule"></div>
-          <p>${esc(artistsIntro())}</p>
+          <p>${t(TEXT.artists.intro)}</p>
         </div>
         ${artistGrid(orderedArtists)}
       </div>
@@ -239,14 +247,14 @@ function homePage(): string {
     <section class="section section-alt">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Featured</span>
-          <h2>Contemporary works</h2>
+          <span class="eyebrow">${t(TEXT.featured.eyebrow)}</span>
+          <h2>${t(TEXT.featured.heading)}</h2>
           <div class="rule"></div>
-          <p>Modern paintings from our represented artists. Click any work to enlarge.</p>
+          <p>${t(TEXT.featured.intro)}</p>
         </div>
         ${artGrid(featured)}
         <div class="btn-row" style="margin-top:40px">
-          <a class="btn btn-dark" href="#/gallery">See all ${catalog.works.length} works</a>
+          <a class="btn btn-dark" href="#/gallery">${t(TEXT.featured.button)}</a>
         </div>
       </div>
     </section>
@@ -254,15 +262,14 @@ function homePage(): string {
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Folk &amp; Tribal</span>
-          <h2>Painted traditions</h2>
+          <span class="eyebrow">${t(TEXT.folk.eyebrow)}</span>
+          <h2>${t(TEXT.folk.heading)}</h2>
           <div class="rule"></div>
-          <p>Madhubani, Warli and allied village traditions, made by artists working
-             in forms handed down through generations.</p>
+          <p>${t(TEXT.folk.intro)}</p>
         </div>
         ${artGrid(folk)}
         <div class="btn-row" style="margin-top:40px">
-          <a class="btn btn-dark" href="#/gallery?style=Folk">Explore the folk collection</a>
+          <a class="btn btn-dark" href="#/gallery?style=Folk">${t(TEXT.folk.button)}</a>
         </div>
       </div>
     </section>
@@ -270,10 +277,10 @@ function homePage(): string {
     <section class="section section-alt">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Join us</span>
-          <h2>Register with us</h2>
+          <span class="eyebrow">${t(TEXT.register.homeEyebrow)}</span>
+          <h2>${t(TEXT.register.heading)}</h2>
           <div class="rule"></div>
-          <p>Be first to hear about new arrivals, artist features and exhibitions.</p>
+          <p>${t(TEXT.register.homeIntro)}</p>
         </div>
         ${enquiryForm('Indus Art Collection — registration')}
       </div>
@@ -283,9 +290,9 @@ function homePage(): string {
 function artistsPage(): string {
   return `
     <div class="wrap page-head">
-      <span class="eyebrow">Artists</span>
-      <h1>${esc(TEXT.artistsHeading)}</h1>
-      <p class="lede">${esc(artistsIntro())}</p>
+      <span class="eyebrow">${t(TEXT.artists.pageEyebrow)}</span>
+      <h1>${t(TEXT.artists.heading)}</h1>
+      <p class="lede">${t(TEXT.artists.intro)}</p>
     </div>
     <section class="section"><div class="wrap">${artistGrid(orderedArtists)}</div></section>`;
 }
@@ -336,13 +343,12 @@ function galleryPage(styleFilter: string, query: string): string {
   const lede = terms.length
     ? `${works.length} work${works.length === 1 ? '' : 's'} matching
        “${esc(query)}”. <a href="#/gallery" class="clear-search">Clear the search</a>`
-    : `${catalog.works.length} paintings across contemporary, traditional and folk
-       traditions. Click any work to view it large and zoom in.`;
+    : t(TEXT.gallery.intro);
 
   return `
     <div class="wrap page-head">
-      <span class="eyebrow">Catalogue</span>
-      <h1>The collection</h1>
+      <span class="eyebrow">${t(TEXT.gallery.eyebrow)}</span>
+      <h1>${t(TEXT.gallery.heading)}</h1>
       <p class="lede">${lede}</p>
     </div>
     <section class="section">
@@ -356,11 +362,9 @@ function galleryPage(styleFilter: string, query: string): string {
 function registerPage(): string {
   return `
     <div class="wrap page-head">
-      <span class="eyebrow">Register</span>
-      <h1>Register with us</h1>
-      <p class="lede">Join the collection's list to hear first about new arrivals,
-        artist features and exhibitions. We write occasionally and never share
-        your details.</p>
+      <span class="eyebrow">${t(TEXT.register.eyebrow)}</span>
+      <h1>${t(TEXT.register.heading)}</h1>
+      <p class="lede">${t(TEXT.register.lede)}</p>
     </div>
     <section class="section">
       <div class="wrap">${enquiryForm('Indus Art Collection — registration')}</div>
@@ -370,43 +374,25 @@ function registerPage(): string {
 function aboutPage(): string {
   return `
     <div class="wrap page-head">
-      <span class="eyebrow">About</span>
-      <h1>About Indus Art Collection</h1>
-      <p class="lede">A family venture built on a simple conviction: that the best
-        Indian painting deserves a wider audience, and that artists deserve a fair
-        and direct route to it.</p>
+      <span class="eyebrow">${t(TEXT.about.eyebrow)}</span>
+      <h1>${t(TEXT.about.heading)}</h1>
+      <p class="lede">${t(TEXT.about.lede)}</p>
     </div>
     <section class="section">
       <div class="wrap prose">
-        <p>Indus Art Collection curates original paintings by Indian artists — the
-           contemporary studio painters and the folk and tribal masters carrying
-           forward Madhubani, Warli and allied traditions.</p>
-        <p>We work directly with the artists. Every painting in the collection is an
-           original, sourced from the studio rather than a secondary market, and every
-           original is sold with a Certificate of Authenticity.</p>
+        ${TEXT.about.paragraphs.map((p) => `<p>${t(p)}</p>`).join('')}
 
-        <h3>What we offer</h3>
+        <h3>${t(TEXT.about.offerHeading)}</h3>
         <ul class="info-list">
-          <li><b>Collectors</b><span>Original works with full provenance, framing advice and
-            shipping arranged worldwide.</span></li>
-          <li><b>Designers</b><span>Curated selections for corporate offices, hospitality and
-            residential projects, with trade terms available.</span></li>
-          <li><b>Galleries</b><span>Guest exhibitions and representation for a specialised
-            regional collection.</span></li>
+          ${TEXT.about.offers.map((o) =>
+            `<li><b>${t(o.who)}</b><span>${t(o.what)}</span></li>`).join('')}
         </ul>
 
-        <h3>Authenticity</h3>
-        <p>Each original is accompanied by a signed Certificate of Authenticity recording
-           the artist, title, medium, dimensions and year. Digital copies are available
-           on request.</p>
-
-        <h3>Pricing</h3>
-        <p>Because works vary widely in scale and medium we price on enquiry. Tell us
-           which pieces interest you and we will come back with price, availability and
-           shipping.</p>
+        ${TEXT.about.sections.map((s) =>
+          `<h3>${t(s.heading)}</h3><p>${t(s.body)}</p>`).join('')}
 
         <div class="btn-row" style="justify-content:flex-start;margin-top:34px">
-          <a class="btn btn-dark" href="#/contact">Get in touch</a>
+          <a class="btn btn-dark" href="#/contact">${t(TEXT.about.button)}</a>
         </div>
       </div>
     </section>`;
@@ -415,18 +401,15 @@ function aboutPage(): string {
 function newsPage(): string {
   return `
     <div class="wrap page-head">
-      <span class="eyebrow">News &amp; Events</span>
-      <h1>News &amp; Events</h1>
-      <p class="lede">Exhibitions, new arrivals and artist features.</p>
+      <span class="eyebrow">${t(TEXT.news.eyebrow)}</span>
+      <h1>${t(TEXT.news.heading)}</h1>
+      <p class="lede">${t(TEXT.news.lede)}</p>
     </div>
     <section class="section">
       <div class="wrap prose">
-        <h3>The collection goes online</h3>
-        <p>Indus Art Collection opens with ${catalog.works.length} works by
-           ${catalog.artists.length} artists, spanning contemporary canvases and a large
-           collection of folk and tribal painting.</p>
-        <p style="color:var(--ink-soft)">Exhibition dates and gallery events will be
-           announced here. Register below to be notified.</p>
+        <h3>${t(TEXT.news.itemHeading)}</h3>
+        <p>${t(TEXT.news.itemBody)}</p>
+        <p style="color:var(--ink-soft)">${t(TEXT.news.note)}</p>
         <div style="margin-top:40px">${enquiryForm('Indus Art Collection — news updates')}</div>
       </div>
     </section>`;
@@ -445,29 +428,23 @@ function contactPage(workId?: string): string {
 
   return `
     <div class="wrap page-head">
-      <span class="eyebrow">Contact</span>
-      <h1>Enquiries</h1>
-      <p class="lede">Tell us which works interest you and we will reply with price,
-        availability and shipping. We welcome collectors, interior designers, galleries
-        and corporate buyers.</p>
+      <span class="eyebrow">${t(TEXT.contact.eyebrow)}</span>
+      <h1>${t(TEXT.contact.heading)}</h1>
+      <p class="lede">${t(TEXT.contact.lede)}</p>
       ${work ? `<p class="enquiry-about">Enquiring about
         <strong>${esc(workLabel(work))}</strong>.</p>` : ''}
     </div>
     <section class="section">
       <div class="wrap contact-grid">
         <div class="prose">
-          <p class="contact-lead">Write to us at
-            <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>, or call
-            whichever office is nearer to you.</p>
+          <p class="contact-lead">${t(TEXT.contact.lead, { email: emailLink() })}</p>
           <ul class="info-list">
             <li><b>Email</b><span><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></span></li>
             ${CONTACTS.filter((c) => c.phone).map((c) => `
               <li><b>${esc(c.region)}</b><span><a href="${telHref(c.phone!)}">${esc(c.phone!)}</a></span></li>`).join('')}
           </ul>
-          <h3>Trade &amp; corporate</h3>
-          <p>We work with interior designers, art consultants and corporate art
-             programmes on curated sourcing, with trade terms available. Mention your
-             project in the message and we will send our trade pack.</p>
+          <h3>${t(TEXT.contact.tradeHeading)}</h3>
+          <p>${t(TEXT.contact.tradeBody)}</p>
         </div>
         <div>${enquiryForm(subject, prefill)}</div>
       </div>
@@ -477,8 +454,9 @@ function contactPage(workId?: string): string {
 function notFound(): string {
   return `
     <div class="wrap page-head">
-      <h1>Page not found</h1>
-      <p class="lede">That page does not exist. <a href="#/" style="color:var(--gold)">Return home</a>.</p>
+      <h1>${t(TEXT.notFound.heading)}</h1>
+      <p class="lede">${t(TEXT.notFound.body)}
+        <a href="#/" style="color:var(--gold)">${t(TEXT.notFound.link)}</a>.</p>
     </div>
     <section class="section"></section>`;
 }
@@ -668,7 +646,7 @@ function render(): void {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         button.disabled = true;
-        button.textContent = 'Sending…';
+        button.textContent = TEXT.form.sending;
         status.hidden = true;
         try {
           const res = await fetch(form.action, {
@@ -679,15 +657,14 @@ function render(): void {
           if (!res.ok) throw new Error(String(res.status));
           form.reset();
           status.className = 'form-status ok';
-          status.textContent = 'Thank you — your message is on its way. We will be in touch shortly.';
+          status.textContent = TEXT.form.thanks;
         } catch {
           status.className = 'form-status bad';
-          status.innerHTML = `Sorry, that did not send. Please email us at
-            <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>.`;
+          status.innerHTML = t(TEXT.form.failed, { email: emailLink() });
         } finally {
           status.hidden = false;
           button.disabled = false;
-          button.textContent = 'Send enquiry';
+          button.textContent = TEXT.form.button;
         }
       });
     });

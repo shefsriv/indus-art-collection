@@ -15,6 +15,23 @@ finish the request first, then offer it in a sentence and let her decide — do
 not build it unprompted. She is cost-conscious, so prefer solutions she can run
 herself with tools already installed over anything that assumes paid help.
 
+## The three places anything is edited
+
+Shefali maintains this site herself, and every routine change is made in one of
+three files — never in `main.ts`:
+
+| Change | File |
+| --- | --- |
+| A painting's title, size, medium, year, description | `Indus Art Collection - Catalogue.xlsx` |
+| An artist's name, style, biography | `scripts/metadata.cjs` |
+| Any page wording, contact details, settings | `src/config.ts` (`TEXT`) |
+
+`TEXT` in `src/config.ts` holds the copy for every page, grouped by page, with
+`{artists}`, `{works}` and `{email}` filled in at render time by the `t()`
+helper in `main.ts`. If she asks to change wording that is still hard-coded in
+`main.ts`, move it into `TEXT` and show her where — do not simply edit it for
+her.
+
 ## Adding artwork
 
 Source photographs live **outside** the repo, in `C:\Users\shefs\indus-art-source`,

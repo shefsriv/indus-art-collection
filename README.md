@@ -199,7 +199,17 @@ address; without it the site is built for the wrong address and loads nothing.
 
 ---
 
-## Settings you may want to change
+## Where each kind of change is made
+
+| To change | Open |
+| --- | --- |
+| A painting's title, size, medium, year, description | `Indus Art Collection - Catalogue.xlsx` |
+| An artist's name, style or biography | `scripts/metadata.cjs` |
+| Any wording on any page, contact details, settings | `src/config.ts` |
+
+Then always: save, close, `npm.cmd run add-art`, answer `y`.
+
+## Settings and wording
 
 Everything routine lives in **`src/config.ts`**:
 
@@ -209,6 +219,32 @@ Everything routine lives in **`src/config.ts`**:
 | `CONTACTS` | The phone numbers listed by country on the contact page and footer |
 | `instagram`, `facebook` | Social links; the icons are hidden when blank |
 | `formspree` | The endpoint that makes the enquiry forms actually send email |
+| `TEXT` | **Every word on every page** — see below |
+| `ARTIST_ORDER` | The order artists are hung in; any artist not listed follows alphabetically |
+
+### TEXT — the wording of the site
+
+`TEXT` holds the headings, paragraphs and button labels of every page, grouped
+by page in the order a visitor meets them: `home`, `artists`, `featured`,
+`folk`, `gallery`, `about`, `news`, `register`, `contact`, `footer`, `form` and
+`notFound`. Change the text between the quote marks and publish.
+
+Longer entries are split across lines joined by `+`; each piece keeps its own
+quotes and needs a space before the closing quote. An apostrophe inside the
+text is written `\'`.
+
+Two placeholders fill themselves in, so counts never go stale:
+
+| Placeholder | Becomes |
+| --- | --- |
+| `{artists}` | the number of artists, in words — "nine" |
+| `{works}` | the number of paintings, in figures — "100" |
+
+`TEXT.contact.lead` and `TEXT.form.failed` also accept `{email}`, which becomes
+the address in `email` above, rendered as a clickable link.
+
+Whatever is typed here is shown literally, so `&`, `<` and quotation marks are
+safe to use — they cannot break the page.
 
 ### The enquiry forms
 
