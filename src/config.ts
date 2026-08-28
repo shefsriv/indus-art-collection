@@ -79,17 +79,6 @@ export const TEXT = {
     button: 'Explore the folk collection',
   },
 
-  // ---- THE SEARCH BAR, behind the magnifying glass in the header ----
-  search: {
-    // The first choice in the style dropdown, meaning "do not narrow by style".
-    // The others — Contemporary, Traditional, Folk — come from the paintings
-    // themselves, so a new style appears here on its own.
-    allStyles: 'All paintings',
-    stylesHeading: 'Browse by style',
-    placeholder: 'Search, or click to browse by style',
-    button: 'Search',
-  },
-
   // ---- GALLERY PAGE ----
   gallery: {
     eyebrow: 'Catalogue',

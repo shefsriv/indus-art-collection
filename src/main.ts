@@ -68,14 +68,7 @@ const workAlt = (w: Work) => (w.title ? `${w.title} by ${w.artist}` : `Painting 
 
 /* ------------------------------------------------------------------ layout */
 
-/** Every style in the collection. Grows by itself as new work is added. */
-const STYLES = Array.from(new Set(allWorks.map((w) => w.style)));
-
-/** How many paintings a style holds, for the count beside each choice. */
-const countByStyle = (style: string) =>
-  style === 'All' ? allWorks.length : allWorks.filter((w) => w.style === style).length;
-
-function header(route: string, query: string, style = 'All'): string {
+function header(route: string, query: string): string {
   const links = NAV.map((n) => {
     const active = n.href === route || (n.href !== '#/' && route.startsWith(n.href));
     return `<a href="${n.href}" class="${active ? 'active' : ''}">${n.label}</a>`;
@@ -102,23 +95,9 @@ function header(route: string, query: string, style = 'All'): string {
       </div>
       <nav class="nav" id="nav">${links}<a class="nav-register" href="#/register">Register</a></nav>
       <form class="search-bar" id="searchBar" role="search" hidden>
-        <div class="search-field">
-          <input id="searchInput" type="search" name="q" value="${esc(query)}" autocomplete="off"
-            role="combobox" aria-expanded="false" aria-controls="searchSuggest"
-            placeholder="${t(TEXT.search.placeholder)}" />
-          <!-- Drops open under the field so a visitor who knows the kind of
-               painting, but not an artist, can pick a style straight away. -->
-          <div class="search-suggest" id="searchSuggest" role="listbox" hidden>
-            <div class="suggest-heading">${t(TEXT.search.stylesHeading)}</div>
-            ${['All', ...STYLES].map((s) => `
-              <button type="button" class="suggest" role="option" data-style="${esc(s)}"
-                aria-selected="${s === style}">
-                <span>${s === 'All' ? t(TEXT.search.allStyles) : esc(s)}</span>
-                <span class="suggest-count">${countByStyle(s)}</span>
-              </button>`).join('')}
-          </div>
-        </div>
-        <button class="btn btn-dark btn-small" type="submit">${t(TEXT.search.button)}</button>
+        <input id="searchInput" type="search" name="q" value="${esc(query)}" autocomplete="off"
+          placeholder="Search by artist, style, medium or size — then press Enter" />
+        <button class="btn btn-dark btn-small" type="submit">Search</button>
       </form>
     </header>`;
 }
@@ -629,8 +608,6 @@ function render(): void {
   let body: string;
   let routeKey = `#${path}`;
   const search = query.get('q') || '';
-  // The header's style dropdown shows what the gallery is currently filtered to.
-  const currentStyle = parts[0] === 'gallery' ? query.get('style') || 'All' : 'All';
 
   if (parts.length === 0) body = homePage();
   else if (parts[0] === 'artists') body = artistsPage();
@@ -642,7 +619,7 @@ function render(): void {
   else if (parts[0] === 'contact') body = contactPage(query.get('work') || undefined);
   else body = notFound();
 
-  app.innerHTML = header(routeKey, search, currentStyle) + `<main>${body}</main>` + footer() + lightboxMarkup() +
+  app.innerHTML = header(routeKey, search) + `<main>${body}</main>` + footer() + lightboxMarkup() +
     `<button class="to-top" id="toTop" aria-label="Back to top">↑</button>`;
 
   // whatever the last page did, this one starts scrollable
@@ -696,73 +673,20 @@ function render(): void {
   // search: the bar drops out of the header and hands the term to the gallery
   const searchBar = document.getElementById('searchBar') as HTMLFormElement;
   const searchInput = document.getElementById('searchInput') as HTMLInputElement;
-  const suggest = document.getElementById('searchSuggest')!;
   const searchToggle = document.getElementById('searchToggle')!;
-
-  const showSuggest = (open: boolean) => {
-    suggest.hidden = !open;
-    searchInput.setAttribute('aria-expanded', String(open));
-  };
-
   const openSearch = (open: boolean) => {
     searchBar.hidden = !open;
     searchToggle.setAttribute('aria-expanded', String(open));
-    if (open) searchInput.focus(); else showSuggest(false);
+    if (open) searchInput.focus();
   };
   searchToggle.addEventListener('click', () => openSearch(Boolean(searchBar.hidden)));
-
-  const goToGallery = (style: string, q: string) => {
-    const params = new URLSearchParams();
-    if (style && style !== 'All') params.set('style', style);
-    if (q) params.set('q', q);
-    const qs = params.toString();
-    location.hash = qs ? `#/gallery?${qs}` : '#/gallery';
-  };
-
-  // The list opens on focus, so the styles are offered before anything is typed.
-  searchInput.addEventListener('focus', () => showSuggest(true));
-
-  // Typing narrows the offered styles, and hides the list once nothing matches
-  // so a free-text search is never obstructed.
-  searchInput.addEventListener('input', () => {
-    const term = searchInput.value.trim().toLowerCase();
-    let visible = 0;
-    suggest.querySelectorAll<HTMLElement>('.suggest').forEach((el) => {
-      const label = el.textContent!.toLowerCase();
-      const match = !term || label.includes(term);
-      el.hidden = !match;
-      if (match) visible++;
-    });
-    showSuggest(visible > 0);
-  });
-
-  // Choosing a style goes straight there, keeping any term already typed.
-  suggest.querySelectorAll<HTMLButtonElement>('.suggest').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      showSuggest(false);
-      goToGallery(btn.dataset.style!, searchInput.value.trim());
-    });
-  });
-
   searchBar.addEventListener('submit', (e) => {
     e.preventDefault();
-    showSuggest(false);
-    goToGallery(currentStyle, searchInput.value.trim());
+    const q = searchInput.value.trim();
+    location.hash = q ? `#/gallery?q=${encodeURIComponent(q)}` : '#/gallery';
   });
-
-  // Clicking away or pressing Escape puts the list away again. The magnifying
-  // glass is exempt: its own click opens the bar and focuses the field, and
-  // this handler would otherwise close the list in the same breath.
-  document.addEventListener('click', (e) => {
-    const target = e.target as Node;
-    if (!searchBar.contains(target) && !searchToggle.contains(target)) showSuggest(false);
-  });
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') showSuggest(false);
-  });
-
-  // a search or a chosen style keeps the bar open, so either can be adjusted
-  if (search || currentStyle !== 'All') openSearch(true);
+  // a search already in play keeps its bar open, so the term can be edited
+  if (search) openSearch(true);
 
   // gallery filters, which keep any search term in play
   document.querySelectorAll<HTMLButtonElement>('.filter').forEach((btn) => {
