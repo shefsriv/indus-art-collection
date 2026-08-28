@@ -68,7 +68,10 @@ const workAlt = (w: Work) => (w.title ? `${w.title} by ${w.artist}` : `Painting 
 
 /* ------------------------------------------------------------------ layout */
 
-function header(route: string, query: string): string {
+/** Every style in the collection, with "all" first. Grows by itself. */
+const STYLES = Array.from(new Set(allWorks.map((w) => w.style)));
+
+function header(route: string, query: string, style = 'All'): string {
   const links = NAV.map((n) => {
     const active = n.href === route || (n.href !== '#/' && route.startsWith(n.href));
     return `<a href="${n.href}" class="${active ? 'active' : ''}">${n.label}</a>`;
@@ -95,9 +98,14 @@ function header(route: string, query: string): string {
       </div>
       <nav class="nav" id="nav">${links}<a class="nav-register" href="#/register">Register</a></nav>
       <form class="search-bar" id="searchBar" role="search" hidden>
+        <select id="searchStyle" class="search-style" aria-label="${t(TEXT.search.styleLabel)}">
+          <option value="All"${style === 'All' ? ' selected' : ''}>${t(TEXT.search.allStyles)}</option>
+          ${STYLES.map((s) =>
+            `<option value="${esc(s)}"${s === style ? ' selected' : ''}>${esc(s)}</option>`).join('')}
+        </select>
         <input id="searchInput" type="search" name="q" value="${esc(query)}" autocomplete="off"
-          placeholder="Search by artist, style, medium or size — then press Enter" />
-        <button class="btn btn-dark btn-small" type="submit">Search</button>
+          placeholder="${t(TEXT.search.placeholder)}" />
+        <button class="btn btn-dark btn-small" type="submit">${t(TEXT.search.button)}</button>
       </form>
     </header>`;
 }
@@ -608,6 +616,8 @@ function render(): void {
   let body: string;
   let routeKey = `#${path}`;
   const search = query.get('q') || '';
+  // The header's style dropdown shows what the gallery is currently filtered to.
+  const currentStyle = parts[0] === 'gallery' ? query.get('style') || 'All' : 'All';
 
   if (parts.length === 0) body = homePage();
   else if (parts[0] === 'artists') body = artistsPage();
@@ -619,7 +629,7 @@ function render(): void {
   else if (parts[0] === 'contact') body = contactPage(query.get('work') || undefined);
   else body = notFound();
 
-  app.innerHTML = header(routeKey, search) + `<main>${body}</main>` + footer() + lightboxMarkup() +
+  app.innerHTML = header(routeKey, search, currentStyle) + `<main>${body}</main>` + footer() + lightboxMarkup() +
     `<button class="to-top" id="toTop" aria-label="Back to top">↑</button>`;
 
   // whatever the last page did, this one starts scrollable
@@ -673,6 +683,7 @@ function render(): void {
   // search: the bar drops out of the header and hands the term to the gallery
   const searchBar = document.getElementById('searchBar') as HTMLFormElement;
   const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+  const searchStyle = document.getElementById('searchStyle') as HTMLSelectElement;
   const searchToggle = document.getElementById('searchToggle')!;
   const openSearch = (open: boolean) => {
     searchBar.hidden = !open;
@@ -680,13 +691,28 @@ function render(): void {
     if (open) searchInput.focus();
   };
   searchToggle.addEventListener('click', () => openSearch(Boolean(searchBar.hidden)));
+
+  // Either half of the bar can narrow the gallery, and they combine: a style
+  // chosen here survives a later search, and a search survives a style change.
+  const goToGallery = (style: string, q: string) => {
+    const params = new URLSearchParams();
+    if (style && style !== 'All') params.set('style', style);
+    if (q) params.set('q', q);
+    const qs = params.toString();
+    location.hash = qs ? `#/gallery?${qs}` : '#/gallery';
+  };
+
+  // Choosing a style shows those paintings at once — no need to press Search.
+  searchStyle.addEventListener('change', () =>
+    goToGallery(searchStyle.value, searchInput.value.trim()));
+
   searchBar.addEventListener('submit', (e) => {
     e.preventDefault();
-    const q = searchInput.value.trim();
-    location.hash = q ? `#/gallery?q=${encodeURIComponent(q)}` : '#/gallery';
+    goToGallery(searchStyle.value, searchInput.value.trim());
   });
-  // a search already in play keeps its bar open, so the term can be edited
-  if (search) openSearch(true);
+
+  // a search or a chosen style keeps the bar open, so either can be adjusted
+  if (search || currentStyle !== 'All') openSearch(true);
 
   // gallery filters, which keep any search term in play
   document.querySelectorAll<HTMLButtonElement>('.filter').forEach((btn) => {
