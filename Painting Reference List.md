@@ -8,7 +8,7 @@ every time new artwork is added, so do not type into it — it is for looking up
 
 167 paintings · 10 painters · updated 2026-09-03
 
-## Umesh Kumar Saxena — Contemporary · 8 works
+## Umesh Kumar Saxena — Abstract · 8 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ every time new artwork is added, so do not type into it — it is for looking up
 | IAC-007 | Triptych | 18 x 60 in each | Acrylic on canvas | umesh-kumar-saxena-painting-1-1 |
 | IAC-008 | Triptych | 18 x 60 in each | Acrylic on canvas | umesh-kumar-saxena-painting-1-2 |
 
-## Kandan G — Contemporary · 4 works
+## Kandan G — Modern · 4 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |
@@ -30,14 +30,14 @@ every time new artwork is added, so do not type into it — it is for looking up
 | IAC-011 | Banaras Series | 36 x 60 in / 92 x 153 cm | Acrylic on canvas | kandan-g-3 |
 | IAC-012 | Banaras Series | 36 x 60 in / 92 x 153 cm | Acrylic on canvas | kandan-g-4 |
 
-## Nirakar Chowdhury — Contemporary · 2 works
+## Nirakar Chowdhury — Modern · 2 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |
 | IAC-013 | — | 140 x 85 cm | Acrylic on canvas | nirakaar-chaudhary-painting-1 |
 | IAC-014 | — | 153 x 191 cm | Acrylic on canvas | nirakaar-chaudhary-painting-2 |
 
-## M. D. Ishak — Traditional · 67 works
+## M. D. Ishak — Realism · 67 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |
@@ -137,7 +137,7 @@ every time new artwork is added, so do not type into it — it is for looking up
 | IAC-093 | — | — | Oil on Canvas | umendra-p-singh-3 |
 | IAC-094 | — | — | Oil on Canvas | umendra-p-singh-4 |
 
-## M. Salim — Traditional · 4 works
+## M. Salim — Impressionism · 4 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |
@@ -146,7 +146,7 @@ every time new artwork is added, so do not type into it — it is for looking up
 | IAC-097 | Landscape | — | Mix Medium | m-salim-painting-3 |
 | IAC-098 | Landscape | — | Mix Medium | m-salim-painting-4 |
 
-## Folk & Tribal Masters — Folk · 65 works
+## Folk & Tribal Masters — Traditional Folk Art · 65 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |
@@ -216,7 +216,7 @@ every time new artwork is added, so do not type into it — it is for looking up
 | IAC-162 | — | — | — | india-folk-tribal-paintings-song-collection-2604-260408-001807-83 |
 | IAC-163 | — | — | — | india-folk-tribal-paintings-song-collection-2604-260408-001807-86 |
 
-## N. K. Mishra — Traditional · 4 works
+## N. K. Mishra — Impressionism · 4 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |

@@ -57,18 +57,20 @@ export const TEXT = {
   artists: {
     eyebrow: 'Our collection',
     heading: 'The artwork we present',
-    intro: 'Our collection brings together contemporary, traditional and folk '
-      + 'paintings by {artists} artists, promoting painters from India and giving '
-      + 'them an international platform to showcase their work. Every painting '
-      + 'carries a reference number — quote it and we will send you the full '
-      + 'details of the work and the artist behind it.',
+    intro: 'Our collection brings together paintings in many styles by {artists} '
+      + 'artists, promoting painters from India and giving them an international '
+      + 'platform to showcase their work. Every painting carries a reference '
+      + 'number — quote it and we will send you the full details of the work and '
+      + 'the artist behind it.',
   },
 
-  // ---- HOME PAGE, the contemporary paintings section ----
-  featured: {
-    eyebrow: 'Featured',
-    heading: 'Contemporary works',
-    intro: 'Modern paintings from our represented artists. Click any work to enlarge.',
+  // ---- HOME PAGE, this week's paintings ----
+  // Which paintings appear here is set by NEW_COLLECTION further down.
+  newCollection: {
+    eyebrow: 'This week',
+    heading: 'New Collection',
+    intro: 'A changing selection from the collection, shown here first. '
+      + 'Click any work to enlarge.',
     button: 'See all {works} works',
   },
 
@@ -85,8 +87,8 @@ export const TEXT = {
   gallery: {
     eyebrow: 'Catalogue',
     heading: 'The collection',
-    intro: '{works} paintings across contemporary, traditional and folk traditions. '
-      + 'Click any work to view it large and zoom in.',
+    intro: '{works} paintings across every style we collect. Choose a style below, '
+      + 'or click any work to view it large and zoom in.',
   },
 
   // ---- ABOUT PAGE ----
@@ -216,6 +218,41 @@ export type Contact = {
 export const CONTACTS: Contact[] = [
   { region: 'United States', phone: '602-741-4861' },
   { region: 'India', phone: '+91 7800353989' },
+];
+
+// ===========================================================================
+// THIS WEEK'S NEW COLLECTION
+//
+// The paintings shown in the "New Collection" section on the home page. Change
+// this whenever you want to put a different artist forward — once a week, or
+// whenever new work arrives.
+//
+// Write the reference numbers from `Painting Reference List.md`. A range needs
+// its first and last number; a single painting needs only its own:
+//
+//     'IAC-001 - IAC-008',      a whole artist
+//     'IAC-042',                one painting
+//
+// Add as many lines as you like, each in quotes and ending with a comma. They
+// appear in the order you list them. If none of the numbers can be found the
+// section falls back to the first twelve paintings, so the page is never bare.
+// ===========================================================================
+export const NEW_COLLECTION = [
+  'IAC-001 - IAC-008',   // Umesh Kumar Saxena
+  'IAC-009 - IAC-012',   // Kandan G
+];
+
+// The gallery's tabs, in the order they are shown. A tab appears only when
+// there are paintings of that kind, so a new one can be listed here before the
+// first painting arrives. Anything not listed follows at the end.
+// A painting's kind is set per artist, in `scripts/metadata.cjs`.
+export const STYLE_ORDER = [
+  'Modern',
+  'Contemporary',
+  'Abstract',
+  'Impressionism',
+  'Realism',
+  'Traditional Folk Art',
 ];
 
 // The order the paintings hang in is set in `scripts/metadata.cjs`, alongside

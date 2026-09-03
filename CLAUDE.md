@@ -92,6 +92,20 @@ reference back through the previous `refs.json` to its photograph before
 matching. Without that step every row's title and size would land on whichever
 painting inherited its old number.
 
+## The home page shows new work, not the gallery again
+
+Shefali objected to the home page repeating what the gallery already holds:
+"the point of all in next page gallery defeats the purpose". So the one grid of
+paintings on the home page is the **New Collection** — a rotating selection she
+changes weekly, chosen by reference number in `NEW_COLLECTION` in
+`src/config.ts` (ranges like `'IAC-001 - IAC-008'`, one line per artist). Keep
+that section a selection; do not let it drift back into showing everything.
+
+Gallery tabs come from each artist's `style` in `scripts/metadata.cjs`, ordered
+by `STYLE_ORDER` in `src/config.ts`: Modern, Contemporary, Abstract,
+Impressionism, Realism, Traditional Folk Art. A tab is rendered only when works
+of that style exist, so new styles can be listed before their first painting.
+
 ## The blank-page trap
 
 `public/CNAME` must exist and contain `indusartcollection.com`. The deploy

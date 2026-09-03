@@ -1,13 +1,34 @@
 import './styles.css';
 import catalogData from './data/catalog.json';
 import type { Catalog, Work } from './types';
-import { site, NAV, CONTACTS, TEXT } from './config';
+import { site, NAV, CONTACTS, TEXT, NEW_COLLECTION, STYLE_ORDER } from './config';
 
 const catalog = catalogData as Catalog;
 
 // Every view of the collection reads from this. The catalogue is written in
 // hanging order when it is built, so nothing needs sorting here.
 const allWorks = catalog.works;
+
+/**
+ * The paintings named by NEW_COLLECTION in config.ts. Each line is read for the
+ * reference numbers in it: two make a range, one names a single painting. The
+ * numbers are matched against the catalogue rather than trusted, so a typo
+ * quietly drops out instead of breaking the page — and if nothing at all
+ * matches, the first twelve works stand in so the section is never empty.
+ */
+const newCollection = (): Work[] => {
+  const chosen: Work[] = [];
+  for (const line of NEW_COLLECTION) {
+    const refs = line.toUpperCase().match(/IAC-\d+/g);
+    if (!refs?.length) continue;
+    const first = refs[0]!;
+    const last = refs[refs.length - 1]!;
+    for (const w of allWorks) {
+      if (w.ref >= first && w.ref <= last && !chosen.includes(w)) chosen.push(w);
+    }
+  }
+  return chosen.length ? chosen : allWorks.slice(0, 12);
+};
 
 const app = document.getElementById('app')!;
 
@@ -195,9 +216,9 @@ function homePage(): string {
   const heroImgs = allWorks.slice(0, 8).map(
     (w) => `<img src="${asset(w.thumb)}" alt="" />`).join('');
 
+  const thisWeek = newCollection();
   // multiples of three so the rows stay complete
-  const featured = allWorks.filter((w) => w.style !== 'Folk').slice(0, 12);
-  const folk = allWorks.filter((w) => w.style === 'Folk').slice(0, 9);
+  const folk = allWorks.filter((w) => w.style === 'Traditional Folk Art').slice(0, 9);
 
   return `
     <section class="hero">
@@ -226,14 +247,14 @@ function homePage(): string {
     <section class="section section-alt">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">${t(TEXT.featured.eyebrow)}</span>
-          <h2>${t(TEXT.featured.heading)}</h2>
+          <span class="eyebrow">${t(TEXT.newCollection.eyebrow)}</span>
+          <h2>${t(TEXT.newCollection.heading)}</h2>
           <div class="rule"></div>
-          <p>${t(TEXT.featured.intro)}</p>
+          <p>${t(TEXT.newCollection.intro)}</p>
         </div>
-        ${artGrid(featured)}
+        ${artGrid(thisWeek)}
         <div class="btn-row" style="margin-top:40px">
-          <a class="btn btn-dark" href="#/gallery">${t(TEXT.featured.button)}</a>
+          <a class="btn btn-dark" href="#/gallery">${t(TEXT.newCollection.button)}</a>
         </div>
       </div>
     </section>
@@ -248,7 +269,8 @@ function homePage(): string {
         </div>
         ${artGrid(folk)}
         <div class="btn-row" style="margin-top:40px">
-          <a class="btn btn-dark" href="#/gallery?style=Folk">${t(TEXT.folk.button)}</a>
+          <a class="btn btn-dark" href="#/gallery?style=${encodeURIComponent('Traditional Folk Art')}"
+            >${t(TEXT.folk.button)}</a>
         </div>
       </div>
     </section>
@@ -275,7 +297,14 @@ const matchesQuery = (w: Work, terms: string[]) => {
 
 function galleryPage(styleFilter: string, query: string): string {
   const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-  const styles = ['All', ...Array.from(new Set(allWorks.map((w) => w.style)))];
+
+  // A tab per kind of painting actually in the collection, in the order set in
+  // config.ts — a kind with nothing in it shows no tab, and a kind nobody
+  // thought to list still gets one, at the end.
+  const present = new Set(allWorks.map((w) => w.style));
+  const styles = ['All',
+    ...STYLE_ORDER.filter((s) => present.has(s)),
+    ...Array.from(present).filter((s) => !STYLE_ORDER.includes(s)).sort()];
   const works = allWorks
     .filter((w) => styleFilter === 'All' || w.style === styleFilter)
     .filter((w) => !terms.length || matchesQuery(w, terms));

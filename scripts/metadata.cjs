@@ -17,7 +17,7 @@ const artists = {
   },
   'kandan-g': {
     name: 'Kandan G',
-    style: 'Contemporary',
+    style: 'Modern',
     bio: 'Kandan G uses colour in a highly symbolic manner, and his handling of '
       + 'it gives meaning to the meaningless. In red he symbolises meditation. '
       + 'White represents emptiness, or the absence of everything, ready to be '
@@ -37,13 +37,13 @@ const artists = {
   },
   'm-salim': {
     name: 'M. Salim',
-    style: 'Traditional',
+    style: 'Impressionism',
     bio: 'M. Salim is a landscape painter whose washes capture Indian hill '
       + 'villages, riverbeds and monsoon light with great delicacy.',
   },
   'm-d-ishak': {
     name: 'M. D. Ishak',
-    style: 'Traditional',
+    style: 'Realism',
     bio: 'M. D. Ishak is a landscape painter in oils, working across forest '
       + 'interiors, waterfalls, coastlines and Himalayan peaks. Many of the '
       + 'paintings are built up in heavy impasto, and a recurring group is '
@@ -58,13 +58,13 @@ const artists = {
   },
   'n-k-mishra': {
     name: 'N. K. Mishra',
-    style: 'Traditional',
+    style: 'Impressionism',
     bio: 'N. K. Mishra paints in a fluid, wash-based idiom rooted in the Indian '
       + 'wash tradition, with devotional figures emerging from drifting colour.',
   },
   'nirakaar-chaudhary-painting': {
     name: 'Nirakar Chowdhury',
-    style: 'Contemporary',
+    style: 'Modern',
     bio: 'Nirakar Chowdhury is an Indian artist from Odisha, India, known for his '
       + 'nature-inspired and conceptual paintings that often incorporate '
       + 'elements of Cubism, influenced by artists like Braque and Picasso. '
@@ -85,19 +85,19 @@ const artists = {
   },
   'umesh-ji': {
     name: 'Umesh Kumar Saxena',
-    style: 'Contemporary',
+    style: 'Abstract',
     bio: 'Umesh Kumar Saxena paints translucent, petal-like forms that float '
       + 'against dark grounds, suspended between botanical study and abstraction.',
   },
   'umesh-kumar-saxena-painting-1': {
     name: 'Umesh Kumar Saxena',
-    style: 'Contemporary',
+    style: 'Abstract',
     bio: 'Umesh Kumar Saxena paints translucent, petal-like forms that float '
       + 'against dark grounds, suspended between botanical study and abstraction.',
   },
   'india-folk-tribal-paintings-song-collection-2604-260408-001807': {
     name: 'Folk & Tribal Masters',
-    style: 'Folk',
+    style: 'Traditional Folk Art',
     bio: 'A collection of Madhubani, Warli and allied folk and tribal paintings '
       + 'from across India, made by village artists working in traditions passed '
       + 'down through generations. Artist attributions for these works are being '

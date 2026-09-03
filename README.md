@@ -245,15 +245,43 @@ Everything routine lives in **`src/config.ts`**:
 | `instagram`, `facebook` | Social links; the icons are hidden when blank |
 | `formspree` | The endpoint that makes the enquiry forms actually send email |
 | `TEXT` | **Every word on every page** — see below |
+| `NEW_COLLECTION` | Which paintings appear in the New Collection on the home page |
+| `STYLE_ORDER` | The gallery's tabs, in the order they are shown |
 
 The order the paintings hang in is **not** here: it is `ORDER` in
 `scripts/metadata.cjs`, alongside the artists themselves, so that no painter's
 name is carried into the website.
 
+### The New Collection on the home page
+
+The home page shows one changing selection of paintings, headed *New
+Collection*, so a visitor meets new work rather than the same pictures the
+gallery already holds. Choose it by reference number:
+
+```js
+export const NEW_COLLECTION = [
+  'IAC-001 - IAC-008',   // Umesh Kumar Saxena
+  'IAC-009 - IAC-012',   // Kandan G
+];
+```
+
+One line per artist, a range or a single reference, shown in the order listed.
+A number that matches nothing is skipped; if none match at all the section falls
+back to the first twelve paintings, so the page is never bare.
+
+### The gallery's tabs
+
+A painting's style is set per artist, by the `style` line in
+`scripts/metadata.cjs`, and must match one of the names in `STYLE_ORDER`
+exactly. **A tab appears only when there are paintings of that kind**, so a new
+style can be listed before its first painting arrives, and a style that empties
+out disappears by itself. A style used by an artist but missing from
+`STYLE_ORDER` still gets a tab, at the end.
+
 ### TEXT — the wording of the site
 
 `TEXT` holds the headings, paragraphs and button labels of every page, grouped
-by page in the order a visitor meets them: `home`, `artists`, `featured`,
+by page in the order a visitor meets them: `home`, `artists`, `newCollection`,
 `folk`, `gallery`, `about`, `news`, `register`, `contact`, `footer`, `form` and
 `notFound`. Change the text between the quote marks and publish.
 

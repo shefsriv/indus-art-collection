@@ -107,6 +107,36 @@ Close the dark window. Done.
 
 ---
 
+## Changing the New Collection each week
+
+The home page shows one section of paintings, headed **New Collection**. You
+choose which paintings appear there.
+
+1. Open **`Painting Reference List.md`** and find the artist you want to show
+   this week. Note their first and last reference number — say IAC-082 to
+   IAC-086 for Ashok Rathod.
+2. Open **`src\config.ts`** in Notepad and find the block headed
+   *THIS WEEK'S NEW COLLECTION*. It looks like this:
+
+   ```js
+   export const NEW_COLLECTION = [
+     'IAC-001 - IAC-008',   // Umesh Kumar Saxena
+     'IAC-009 - IAC-012',   // Kandan G
+   ];
+   ```
+
+3. Change the numbers between the quote marks to the ones you noted. The words
+   after the `//` are only a note to yourself — write whichever artist it is,
+   and nobody but you ever sees it.
+4. One line per artist. Show one artist, or three, by adding or removing lines —
+   each line in quotes, each ending with a comma. A single painting needs only
+   its own number: `'IAC-042',`
+5. Save, close Notepad, and run `npm.cmd run add-art`.
+
+If a number is mistyped the site quietly leaves that painting out rather than
+breaking, so it is worth opening the home page afterwards to check the paintings
+you expected are the ones showing.
+
 ## Changing the wording on a page
 
 Every word on every page lives in **`src\config.ts`**, under a big block
