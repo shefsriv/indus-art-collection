@@ -55,8 +55,8 @@ export const TEXT = {
   // reference number instead — quote that number in an enquiry and the
   // painting, and its painter, can be looked up in the catalogue spreadsheet.
   artists: {
-    eyebrow: 'Our artists',
-    heading: 'The painters we represent',
+    eyebrow: 'Our collection',
+    heading: 'The artwork we present',
     intro: 'Our collection brings together contemporary, traditional and folk '
       + 'paintings by {artists} artists, promoting painters from India and giving '
       + 'them an international platform to showcase their work. Every painting '
