@@ -1,24 +1,14 @@
 import './styles.css';
 import catalogData from './data/catalog.json';
-import type { Catalog, Work, Artist } from './types';
-import { site, NAV, ARTIST_ORDER, CONTACTS, TEXT } from './config';
+import type { Catalog, Work } from './types';
+import { site, NAV, CONTACTS, TEXT } from './config';
 
 const catalog = catalogData as Catalog;
 
-/** Artists run in the order Shefali hangs them; unnamed ones follow. */
-const artistRank = (slug: string) => {
-  const i = ARTIST_ORDER.indexOf(slug);
-  return i === -1 ? ARTIST_ORDER.length : i;
-};
+// Every view of the collection reads from this. The catalogue is written in
+// hanging order when it is built, so nothing needs sorting here.
+const allWorks = catalog.works;
 
-// Every view of the collection reads from this: artists in the hanging order,
-// and within the folk collection the monochrome works before the coloured.
-const allWorks = [...catalog.works].sort((a, b) =>
-  artistRank(a.artistSlug) - artistRank(b.artistSlug) ||
-  Number(b.mono) - Number(a.mono));
-
-const orderedArtists = [...catalog.artists].sort((a, b) =>
-  artistRank(a.slug) - artistRank(b.slug));
 const app = document.getElementById('app')!;
 
 const esc = (s: string) =>
@@ -41,7 +31,7 @@ const spell = (n: number) => NUMBER_WORDS[n] ?? String(n);
  */
 const t = (template: string, vars: Record<string, string> = {}): string => {
   let out = esc(template)
-    .replace(/\{artists\}/g, spell(catalog.artists.length))
+    .replace(/\{artists\}/g, spell(catalog.artistCount))
     .replace(/\{works\}/g, String(catalog.works.length));
   for (const [key, value] of Object.entries(vars)) out = out.split(`{${key}}`).join(value);
   return out;
@@ -62,9 +52,10 @@ const DETAILS_ON_REQUEST = 'Details on request';
 const workLine = (w: Work) =>
   [w.size, w.medium].filter(Boolean).join('  ·  ') || DETAILS_ON_REQUEST;
 
-// Most works carry no title, and a wall of "Untitled" says nothing — those
-// tiles simply lead with the artist's name instead.
-const workAlt = (w: Work) => (w.title ? `${w.title} by ${w.artist}` : `Painting by ${w.artist}`);
+// Artists are not named on the website, so a painting is described — and
+// identified in an enquiry — by its reference number.
+const workAlt = (w: Work) =>
+  (w.title ? `${w.title}, painting ${w.ref}` : `Painting ${w.ref}`);
 
 /* ------------------------------------------------------------------ layout */
 
@@ -96,7 +87,7 @@ function header(route: string, query: string): string {
       <nav class="nav" id="nav">${links}<a class="nav-register" href="#/register">Register</a></nav>
       <form class="search-bar" id="searchBar" role="search" hidden>
         <input id="searchInput" type="search" name="q" value="${esc(query)}" autocomplete="off"
-          placeholder="Search by artist, style, medium or size — then press Enter" />
+          placeholder="Search by reference, style, medium or size — then press Enter" />
         <button class="btn btn-dark btn-small" type="submit">Search</button>
       </form>
     </header>`;
@@ -128,7 +119,6 @@ function footer(): string {
           <div>
             <h4>${t(TEXT.footer.exploreHeading)}</h4>
             <ul>
-              <li><a href="#/artists">Artists</a> — the painters we represent</li>
               <li><a href="#/gallery">Gallery</a> — the full catalogue</li>
               <li><a href="#/about">About</a> — who we are</li>
               <li><a href="#/news">News &amp; Events</a> — exhibitions</li>
@@ -155,7 +145,7 @@ function footer(): string {
         </div>
         <div class="footer-bottom">
           <span>© ${new Date().getFullYear()} ${esc(site.name)}. All artwork © the respective artists.</span>
-          <span>${catalog.works.length} works · ${catalog.artists.length} artists</span>
+          <span>${catalog.works.length} works · ${catalog.artistCount} artists</span>
         </div>
       </div>
     </footer>`;
@@ -172,19 +162,10 @@ function artGrid(works: Work[]): string {
       </div>
       <figcaption>
         ${w.title ? `<strong>${esc(w.title)}</strong>` : ''}
-        <span class="by">${esc(w.artist)}</span>
+        <span class="by">${esc(w.ref)}</span>
         <span class="spec">${esc(workLine(w))}</span>
       </figcaption>
     </figure>`).join('')}</div>`;
-}
-
-function artistGrid(artists: Artist[]): string {
-  return `<div class="artist-grid">${artists.map((a) => `
-    <a class="artist-card" href="#/artist/${esc(a.slug)}">
-      <div class="frame"><img src="${asset(a.cover)}" alt="Work by ${esc(a.name)}" loading="lazy" /></div>
-      <h3>${esc(a.name)}</h3>
-      <div class="meta">${esc(a.style)} · ${a.count} work${a.count === 1 ? '' : 's'}</div>
-    </a>`).join('')}</div>`;
 }
 
 function enquiryForm(subject: string, message = ''): string {
@@ -227,7 +208,6 @@ function homePage(): string {
         <p>${t(TEXT.home.intro)}</p>
         <div class="btn-row">
           <a class="btn btn-light" href="#/gallery">${t(TEXT.home.galleryButton)}</a>
-          <a class="btn btn-light" href="#/artists">${t(TEXT.home.artistsButton)}</a>
         </div>
       </div>
     </section>
@@ -240,7 +220,6 @@ function homePage(): string {
           <div class="rule"></div>
           <p>${t(TEXT.artists.intro)}</p>
         </div>
-        ${artistGrid(orderedArtists)}
       </div>
     </section>
 
@@ -287,44 +266,9 @@ function homePage(): string {
     </section>`;
 }
 
-function artistsPage(): string {
-  return `
-    <div class="wrap page-head">
-      <span class="eyebrow">${t(TEXT.artists.pageEyebrow)}</span>
-      <h1>${t(TEXT.artists.heading)}</h1>
-      <p class="lede">${t(TEXT.artists.intro)}</p>
-    </div>
-    <section class="section"><div class="wrap">${artistGrid(orderedArtists)}</div></section>`;
-}
-
-function artistPage(slug: string): string {
-  const artist = catalog.artists.find((a) => a.slug === slug);
-  if (!artist) return notFound();
-  const works = allWorks.filter((w) => w.artistSlug === slug);
-
-  return `
-    <div class="wrap page-head">
-      <a class="back" href="#/artists">← All artists</a>
-      <h1>${esc(artist.name)}</h1>
-      <p class="lede">${esc(artist.bio)}</p>
-      <div class="meta" style="margin-top:16px;font-size:0.74rem;letter-spacing:0.14em;
-        text-transform:uppercase;color:var(--ink-soft)">
-        ${esc(artist.style)} · ${works.length} work${works.length === 1 ? '' : 's'}
-      </div>
-    </div>
-    <section class="section">
-      <div class="wrap">
-        ${artGrid(works)}
-        <div class="btn-row" style="margin-top:48px">
-          <a class="btn btn-dark" href="#/contact">Enquire about ${esc(artist.name)}</a>
-        </div>
-      </div>
-    </section>`;
-}
-
 /** Everything a visitor might reasonably type is matched against. */
 const matchesQuery = (w: Work, terms: string[]) => {
-  const hay = [w.artist, w.title, w.style, w.medium, w.size, w.year, w.description]
+  const hay = [w.ref, w.title, w.style, w.medium, w.size, w.year, w.description]
     .join(' ').toLowerCase();
   return terms.every((t) => hay.includes(t));
 };
@@ -467,9 +411,9 @@ let lightboxWorks: Work[] = [];
 let lightboxIndex = 0;
 
 
-/** How a work is named in an enquiry — "Nandi by Ashok Rathod". */
+/** How a work is named in an enquiry — "Nandi (IAC-014)". */
 function workLabel(w: Work): string {
-  return `${w.title || 'Untitled work'} by ${w.artist}`;
+  return w.title ? `${w.title} (${w.ref})` : `painting ${w.ref}`;
 }
 
 function lightboxMarkup(): string {
@@ -515,7 +459,7 @@ function showLightbox(index: number): void {
 
   info.innerHTML =
     (w.title ? `<strong>${esc(w.title)}</strong>` : '') +
-    row('Artist', w.artist) +
+    row('Reference', w.ref) +
     (w.medium ? row('Medium', w.medium) : '') +
     (w.size ? row('Size', w.size) : '') +
     row('Price', ON_REQUEST) +
@@ -610,8 +554,8 @@ function render(): void {
   const search = query.get('q') || '';
 
   if (parts.length === 0) body = homePage();
-  else if (parts[0] === 'artists') body = artistsPage();
-  else if (parts[0] === 'artist' && parts[1]) { body = artistPage(parts[1]); routeKey = '#/artists'; }
+  // the artist pages have been retired; an old link lands on the collection
+  else if (parts[0] === 'artists' || parts[0] === 'artist') { body = galleryPage('All', search); routeKey = '#/gallery'; }
   else if (parts[0] === 'gallery') body = galleryPage(query.get('style') || 'All', search);
   else if (parts[0] === 'about') body = aboutPage();
   else if (parts[0] === 'news') body = newsPage();

@@ -1,13 +1,13 @@
 export interface Work {
   id: string;
-  artist: string;
-  artistSlug: string;
+  /** How the painting is named in public — "IAC-001". No artist name is
+   *  published; the reference is what an enquiry quotes. */
+  ref: string;
   style: string;
   title: string;
   size: string;
   medium: string;
   year: string;
-  ref: string;
   description: string;
   /** Painted in a single pigment — these hang before the coloured works. */
   mono: boolean;
@@ -16,16 +16,9 @@ export interface Work {
   full: string;
 }
 
-export interface Artist {
-  slug: string;
-  name: string;
-  style: string;
-  bio: string;
-  count: number;
-  cover: string;
-}
-
 export interface Catalog {
-  artists: Artist[];
+  /** How many painters are represented. Their names stay out of the website. */
+  artistCount: number;
+  /** Already in hanging order, arranged when the catalogue is built. */
   works: Work[];
 }

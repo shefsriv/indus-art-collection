@@ -9,8 +9,6 @@ const BASE = process.argv[3] || 'http://localhost:5173';
 
 const PAGES = [
   ['home', '/#/'],
-  ['artists', '/#/artists'],
-  ['artist', '/#/artist/kandan-g'],
   ['gallery', '/#/gallery'],
   ['contact', '/#/contact'],
 ];

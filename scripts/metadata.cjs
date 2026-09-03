@@ -152,4 +152,21 @@ const works = {
   'umesh-kumar-saxena-painting-1-2': { title: 'Triptych', size: '18 x 60 in each', medium: 'Acrylic on canvas' },
 };
 
-module.exports = { artists, works };
+// The order the painters are hung in wherever the collection is shown. Artist
+// names are never published on the website, so this ordering is applied here,
+// when the catalogue is built, rather than in the site's own settings — that
+// way no painter's name is carried into the pages a visitor can read.
+// Any painter left off this list follows the named ones, alphabetically.
+const ORDER = [
+  'Umesh Kumar Saxena',
+  'Kandan G',
+  'Nirakar Chowdhury',
+  'Ashok Rathod',
+  'Gopal Naskar',
+  'Umendra P. Singh',
+  'M. Salim',
+  'Folk & Tribal Masters',
+  'N. K. Mishra',
+];
+
+module.exports = { artists, works, ORDER };

@@ -44,7 +44,12 @@ One row per painting. Five columns are yours:
 
 - Leave a cell **blank** if you do not know it — the site then says
   *Details on request* by itself. Do not type that phrase in.
-- Do **not** touch the **ID**, **Artist** or **Style** columns.
+- Do **not** touch the **Reference**, **Artist** or **Style** columns.
+
+The **Reference** column (IAC-001, IAC-002 …) is how each painting is named on
+the website — artist names are not shown there at all. When someone asks about a
+number, find it in this spreadsheet, or in **`Painting Reference List.md`**,
+which lists the same numbers grouped by painter. Neither file is published.
 
 ## 3. Save and close Excel
 
@@ -102,8 +107,8 @@ Close the dark window. Done.
 Every word on every page lives in **`src\config.ts`**, under a big block
 headed *EVERY WORD ON THE WEBSITE*. Open the file in Notepad (right-click →
 Open with → Notepad; not Word) and you will find the pages listed in the order
-a visitor meets them — home, artists, gallery, about, news, register, contact,
-footer.
+a visitor meets them — home, artists (the "painters we represent" section),
+gallery, about, news, register, contact, footer.
 
 Change the text between the quote marks. Four rules:
 
@@ -138,9 +143,12 @@ Open **`scripts\metadata.cjs`** in Notepad. Each artist is a block:
 Change `name`, `style` (`Contemporary`, `Traditional` or `Folk`) or `bio`.
 Leave the key on the first line alone — it matches that artist's photographs.
 
-⚠️ Renaming an artist changes their web address, so `ARTIST_ORDER` in
-`src\config.ts` must be updated to the new spelling too, or they drop to the
-end of every listing.
+Artist names are not shown on the website; they are kept here, and in the
+catalogue spreadsheet, so you can look up who painted which reference number.
+
+⚠️ If you change a `name`, change it in **`ORDER`** too — the list lower down
+the same file that sets which painter's works hang first. A different spelling
+in the two places drops that painter to the end of every listing.
 
 ## To practise without publishing
 

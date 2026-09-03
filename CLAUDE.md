@@ -23,7 +23,7 @@ three files — never in `main.ts`:
 | Change | File |
 | --- | --- |
 | A painting's title, size, medium, year, description | `Indus Art Collection - Catalogue.xlsx` |
-| An artist's name, style, biography | `scripts/metadata.cjs` |
+| An artist's name, style, biography, hanging order | `scripts/metadata.cjs` |
 | Any page wording, contact details, settings | `src/config.ts` (`TEXT`) |
 
 `TEXT` in `src/config.ts` holds the copy for every page, grouped by page, with
@@ -50,8 +50,27 @@ renders a 760×950 thumbnail on a cream mat so the grid lines up, writes a 2000p
 version, regenerates `src/data/catalog.json`, and round-trips descriptions
 through `Indus Art Collection - Catalogue.xlsx`.
 
-Artist names, styles and biographies are hand-written in `scripts/metadata.cjs`.
-A new artist needs an entry there before their photos will publish.
+Artist names, styles, biographies and the hanging order (`ORDER`) are
+hand-written in `scripts/metadata.cjs`. A new artist needs an entry there before
+their photos will publish.
+
+## No artist names on the website
+
+Nothing published names a painter. Every painting is identified in public by a
+reference — `IAC-001`, `IAC-002` — shown under its thumbnail, in the enlarged
+view and in any enquiry it starts. Keeping that true means more than not
+printing the name: `src/data/catalog.json` carries no artist field, the image
+files are named after the reference rather than the photograph, and the hanging
+order lives in `scripts/metadata.cjs` instead of `src/config.ts`, because
+anything under `src/` is bundled into the JavaScript a visitor can read. There
+are no Artists pages and no `#/artist/...` routes; the old addresses land on the
+gallery.
+
+`scripts/refs.json` remembers which reference belongs to which photograph, so a
+number, once quoted to a customer, never comes to mean a different painting.
+Never edit or delete it. The painter behind each reference is recorded in the
+catalogue spreadsheet and in `Painting Reference List.md`, both regenerated on
+every build and neither published.
 
 ## The blank-page trap
 

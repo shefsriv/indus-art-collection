@@ -48,18 +48,20 @@ export const TEXT = {
       + 'Indian artists — bringing works straight from the studio to collectors, '
       + 'galleries and designed spaces around the world.',
     galleryButton: 'View the collection',
-    artistsButton: 'Meet the artists',
   },
 
-  // ---- The artists section, shown on the home page AND the Artists page ----
+  // ---- The painters section on the home page ----
+  // Artists are not named anywhere on the website. Each painting carries a
+  // reference number instead — quote that number in an enquiry and the
+  // painting, and its painter, can be looked up in the catalogue spreadsheet.
   artists: {
-    eyebrow: 'Our artists',      // the small label on the home page
-    pageEyebrow: 'Artists',      // the small label on the Artists page
+    eyebrow: 'Our artists',
     heading: 'The painters we represent',
     intro: 'Our collection brings together contemporary, traditional and folk '
-      + 'paintings, promoting artists from India and giving them an international '
-      + 'platform to showcase their work. Please select an artist to see their '
-      + 'complete collection.',
+      + 'paintings by {artists} artists, promoting painters from India and giving '
+      + 'them an international platform to showcase their work. Every painting '
+      + 'carries a reference number — quote it and we will send you the full '
+      + 'details of the work and the artist behind it.',
   },
 
   // ---- HOME PAGE, the contemporary paintings section ----
@@ -216,24 +218,11 @@ export const CONTACTS: Contact[] = [
   { region: 'India', phone: '+91 7800353989' },
 ];
 
-// The order artists are hung in wherever the whole collection is shown — the
-// Gallery "All" view, the home page and the artists list. Any artist missing
-// from this list follows the named ones, alphabetically.
-export const ARTIST_ORDER = [
-  'umesh-kumar-saxena',
-  'kandan-g',
-  'nirakar-chowdhury',
-  'ashok-rathod',
-  'gopal-naskar',
-  'umendra-p-singh',
-  'm-salim',
-  'folk-tribal-masters',
-  'n-k-mishra',
-];
+// The order the paintings hang in is set in `scripts/metadata.cjs`, alongside
+// the artists themselves, so that no painter's name reaches the website.
 
 export const NAV = [
   { label: 'Home', href: '#/' },
-  { label: 'Artists', href: '#/artists' },
   { label: 'Gallery', href: '#/gallery' },
   { label: 'About', href: '#/about' },
   { label: 'News & Events', href: '#/news' },

@@ -88,8 +88,16 @@ opens the painting.
 *Details on request* by itself, once, under the painting. Typing that phrase in
 yourself makes it appear three times over.
 
-**Do not edit the ID, Artist or Style columns.** The ID is what matches each row
-to its image; the other two are rebuilt from the artist list every run.
+**Do not edit the Reference, Artist or Style columns.** The reference (IAC-001,
+IAC-002 …) is what matches each row to its painting, and it is also the only
+name the painting has on the website; the other two are rebuilt from the artist
+list every run.
+
+**This spreadsheet is your private list of who painted what.** Artist names are
+not shown anywhere on the website, so when someone enquires about *IAC-042* look
+the number up here — or in **`Painting Reference List.md`**, the same list
+grouped by painter, which is rewritten each time you publish. Neither file is
+part of the website.
 
 When you are done:
 
@@ -124,7 +132,7 @@ Near the top there is one block per artist:
 | `'gopal-naskar'` | the **key**, matching the start of that artist's photo filenames | only if you rename the photos too |
 | `name` | how the name is shown on the site | yes |
 | `style` | exactly `Contemporary`, `Traditional` or `Folk` | yes |
-| `bio` | the biography on the artist's page | yes |
+| `bio` | the biography — kept for your records; it is not published | yes |
 
 ### Updating an existing artist
 
@@ -138,19 +146,17 @@ bio: 'First sentence goes here. '
   + 'Third sentence.',
 ```
 
-⚠️ **Renaming an artist changes their web address.** The site builds each
-artist's link from their name, so renaming *Nirakaar Chaudhary* to *Nirakar
-Chowdhury* changes `#/artist/nirakaar-chaudhary` to `#/artist/nirakar-chowdhury`.
-Two consequences: any link you have already shared stops working, and the
-**hanging order in `src/config.ts` must be updated to the new spelling** or that
-artist drops to the end of every listing.
+⚠️ **If you change an artist's `name`, change it in `ORDER` too.** `ORDER` is
+the list further down the same file that decides which painter's works hang
+first. A name spelt differently in the two places drops that painter to the end
+of every listing.
 
 ### Adding a new artist
 
 Copy a whole block, paste it below, and change all four values. The key must
 match how the photos are named — key `meera-devi` means `meera-devi-1.jpg`,
-`meera-devi-2.jpg`, and so on. Add the new key to `ARTIST_ORDER` in
-`src/config.ts` if you want them in a particular position.
+`meera-devi-2.jpg`, and so on. Add the new name to `ORDER`, lower down the same
+file, if you want them in a particular position.
 
 ### Then publish
 
@@ -220,7 +226,10 @@ Everything routine lives in **`src/config.ts`**:
 | `instagram`, `facebook` | Social links; the icons are hidden when blank |
 | `formspree` | The endpoint that makes the enquiry forms actually send email |
 | `TEXT` | **Every word on every page** — see below |
-| `ARTIST_ORDER` | The order artists are hung in; any artist not listed follows alphabetically |
+
+The order the paintings hang in is **not** here: it is `ORDER` in
+`scripts/metadata.cjs`, alongside the artists themselves, so that no painter's
+name is carried into the website.
 
 ### TEXT — the wording of the site
 
