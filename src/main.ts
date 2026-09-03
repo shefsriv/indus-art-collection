@@ -217,8 +217,6 @@ function homePage(): string {
     (w) => `<img src="${asset(w.thumb)}" alt="" />`).join('');
 
   const thisWeek = newCollection();
-  // multiples of three so the rows stay complete
-  const folk = allWorks.filter((w) => w.style === 'Traditional Folk Art').slice(0, 9);
 
   return `
     <section class="hero">
@@ -260,22 +258,6 @@ function homePage(): string {
     </section>
 
     <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">${t(TEXT.folk.eyebrow)}</span>
-          <h2>${t(TEXT.folk.heading)}</h2>
-          <div class="rule"></div>
-          <p>${t(TEXT.folk.intro)}</p>
-        </div>
-        ${artGrid(folk)}
-        <div class="btn-row" style="margin-top:40px">
-          <a class="btn btn-dark" href="#/gallery?style=${encodeURIComponent('Traditional Folk Art')}"
-            >${t(TEXT.folk.button)}</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
       <div class="wrap">
         <div class="section-head">
           <span class="eyebrow">${t(TEXT.register.homeEyebrow)}</span>

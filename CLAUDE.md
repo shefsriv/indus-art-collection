@@ -99,7 +99,10 @@ Shefali objected to the home page repeating what the gallery already holds:
 paintings on the home page is the **New Collection** — a rotating selection she
 changes weekly, chosen by reference number in `NEW_COLLECTION` in
 `src/config.ts` (ranges like `'IAC-001 - IAC-008'`, one line per artist). Keep
-that section a selection; do not let it drift back into showing everything.
+that section a selection; do not let it drift back into showing everything. The
+home page is now banner → *The artwork we present* → *New Collection* →
+sign-up, and nothing else: the folk and tribal section that used to sit below
+was removed for the same reason. Everything else belongs in the gallery.
 
 Gallery tabs come from each artist's `style` in `scripts/metadata.cjs`, ordered
 by `STYLE_ORDER` in `src/config.ts`: Modern, Contemporary, Abstract,

@@ -74,15 +74,6 @@ export const TEXT = {
     button: 'See all {works} works',
   },
 
-  // ---- HOME PAGE, the folk and tribal section ----
-  folk: {
-    eyebrow: 'Folk & Tribal',
-    heading: 'Painted traditions',
-    intro: 'Madhubani, Warli and allied village traditions, made by artists working '
-      + 'in forms handed down through generations.',
-    button: 'Explore the folk collection',
-  },
-
   // ---- GALLERY PAGE ----
   gallery: {
     eyebrow: 'Catalogue',

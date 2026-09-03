@@ -282,7 +282,7 @@ out disappears by itself. A style used by an artist but missing from
 
 `TEXT` holds the headings, paragraphs and button labels of every page, grouped
 by page in the order a visitor meets them: `home`, `artists`, `newCollection`,
-`folk`, `gallery`, `about`, `news`, `register`, `contact`, `footer`, `form` and
+`gallery`, `about`, `news`, `register`, `contact`, `footer`, `form` and
 `notFound`. Change the text between the quote marks and publish.
 
 Longer entries are split across lines joined by `+`; each piece keeps its own
