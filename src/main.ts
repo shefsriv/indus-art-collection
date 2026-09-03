@@ -304,7 +304,7 @@ function galleryPage(styleFilter: string, query: string): string {
     <div class="wrap page-head">
       <span class="eyebrow">${t(TEXT.gallery.eyebrow)}</span>
       <h1>${t(TEXT.gallery.heading)}</h1>
-      <p class="lede">${lede}</p>
+      ${lede ? `<p class="lede">${lede}</p>` : ''}
     </div>
     <section class="section">
       <div class="wrap">

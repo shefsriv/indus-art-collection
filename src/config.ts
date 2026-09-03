@@ -78,8 +78,9 @@ export const TEXT = {
   gallery: {
     eyebrow: 'Catalogue',
     heading: 'The collection',
-    intro: '{works} paintings across every style we collect. Choose a style below, '
-      + 'or click any work to view it large and zoom in.',
+    // Left empty on purpose: the page opens straight onto the paintings. Put a
+    // sentence back between the quote marks and it appears under the heading.
+    intro: '',
   },
 
   // ---- ABOUT PAGE ----
@@ -238,11 +239,11 @@ export const NEW_COLLECTION = [
 // first painting arrives. Anything not listed follows at the end.
 // A painting's kind is set per artist, in `scripts/metadata.cjs`.
 export const STYLE_ORDER = [
-  'Modern',
-  'Contemporary',
   'Abstract',
+  'Modern',
   'Impressionism',
   'Realism',
+  'Contemporary',
   'Traditional Folk Art',
 ];
 
