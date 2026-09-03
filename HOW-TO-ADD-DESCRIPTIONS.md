@@ -7,13 +7,15 @@ tool checks everything before publishing and refuses if anything is wrong.
 
 ## Where everything lives
 
-There are only three places, and only three.
+There are only three files, and only three.
 
 | To change | Open |
 | --- | --- |
 | A painting's **title, size, medium, year, description** | `Indus Art Collection - Catalogue.xlsx` (Excel) |
-| An artist's **name, style or biography** | `scripts\metadata.cjs` (Notepad) |
+| An artist's **name, gallery tab or biography** | `scripts\metadata.cjs` (Notepad) |
 | **Any wording on any page** — headings, paragraphs, buttons | `src\config.ts` (Notepad) |
+| **This week's New Collection** on the home page | `src\config.ts` (Notepad) |
+| **The gallery tabs** and their order | `src\config.ts` (Notepad) |
 
 Contact details — your email address and the two phone numbers — are also in
 `src\config.ts`, at the top.
@@ -175,8 +177,18 @@ Open **`scripts\metadata.cjs`** in Notepad. Each artist is a block:
 },
 ```
 
-Change `name`, `style` (`Contemporary`, `Traditional` or `Folk`) or `bio`.
-Leave the key on the first line alone — it matches that artist's photographs.
+Change `name`, `style` or `bio`. Leave the key on the first line alone — it
+matches that artist's photographs.
+
+**`style` is the gallery tab that painter's work appears under**, and must be
+spelt exactly as one of these:
+
+`Abstract` · `Modern` · `Impressionism` · `Realism` · `Contemporary` ·
+`Traditional Folk Art`
+
+Change it and that painter's whole collection moves to another tab. A tab with
+nothing in it is not shown at all, so a painter moved out of a style empties it
+off the page by itself.
 
 Artist names are not shown on the website; they are kept here, and in the
 catalogue spreadsheet, so you can look up who painted which reference number.

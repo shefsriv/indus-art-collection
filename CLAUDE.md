@@ -23,8 +23,10 @@ three files — never in `main.ts`:
 | Change | File |
 | --- | --- |
 | A painting's title, size, medium, year, description | `Indus Art Collection - Catalogue.xlsx` |
-| An artist's name, style, biography, hanging order | `scripts/metadata.cjs` |
+| An artist's name, style (= gallery tab), biography, hanging order | `scripts/metadata.cjs` |
 | Any page wording, contact details, settings | `src/config.ts` (`TEXT`) |
+| This week's home-page selection | `src/config.ts` (`NEW_COLLECTION`) |
+| The gallery's tabs and their order | `src/config.ts` (`STYLE_ORDER`) |
 
 `TEXT` in `src/config.ts` holds the copy for every page, grouped by page, with
 `{artists}`, `{works}` and `{email}` filled in at render time by the `t()`
@@ -52,7 +54,23 @@ through `Indus Art Collection - Catalogue.xlsx`.
 
 Artist names, styles, biographies and the hanging order (`ORDER`) are
 hand-written in `scripts/metadata.cjs`. A new artist needs an entry there before
-their photos will publish.
+their photos will publish, and their `style` must match a gallery tab (see
+below) or they get a tab to themselves.
+
+Artwork sometimes arrives as a PDF or .docx rather than loose photographs. Both
+store their pictures whole, so the images can be lifted out without extra tools
+— for a PDF, copy each JPEG stream between `stream` and `endstream`. Check what
+you extracted on a contact sheet before publishing: these documents also carry
+locator maps, workshop shots and duplicate angles, which is what `FOLK_EXCLUDE`
+in `build-catalog.cjs` exists to drop.
+
+`findCropBox` deliberately leaves dark-edged photographs alone, since a dark
+border is usually the painting. A work photographed **in its frame** therefore
+needs its filename listed in `FRAMED` in `metadata.cjs`, which switches it to
+`findFrameBox`: that tells frame from painting by flatness rather than colour —
+board and mount are flat, paint has texture everywhere — then runs the ordinary
+crop again inside to shed any pale mount. Judge which photographs need it from a
+contact sheet; the list is data, not a heuristic applied to the collection.
 
 ## No artist names on the website
 

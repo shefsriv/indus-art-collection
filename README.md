@@ -32,13 +32,28 @@ Carry on from the highest number already there for that artist. The artist keys
 in use today are:
 
 ```
-ashok-rathod-painting      gopal-naskar        kandan-g       m-salim
-n-k-mishra                 nirakaar-chaudhary-painting
+ashok-rathod-painting      gopal-naskar        kandan-g       m-d-ishak
+m-salim                    n-k-mishra          nirakaar-chaudhary-painting
 umendra-p-singh            umesh-ji            umesh-kumar-saxena-painting-1
 ```
 
 JPG and PNG both work. Photograph the painting square-on if you can — the tool
 finds the edges and crops the background away by itself.
+
+**A painting photographed in its frame** needs one extra line, because the tool
+leaves dark borders alone by default: a black edge is usually part of the
+painting, not a frame around it. Add the filename to the `FRAMED` list in
+`scripts/metadata.cjs` and the frame and any mount are cropped away, leaving the
+picture alone:
+
+```js
+const FRAMED = [
+  'm-d-ishak-43',
+  'm-d-ishak-44',
+];
+```
+
+Better still, photograph the canvas before it is framed.
 
 ### Step 3 — run one command
 
@@ -149,9 +164,21 @@ Near the top there is one block per artist:
 | Part | What it is | Safe to change? |
 | --- | --- | --- |
 | `'gopal-naskar'` | the **key**, matching the start of that artist's photo filenames | only if you rename the photos too |
-| `name` | how the name is shown on the site | yes |
-| `style` | exactly `Contemporary`, `Traditional` or `Folk` | yes |
+| `name` | the painter's name — for your reference list only; it is never shown on the site | yes |
+| `style` | which gallery tab their paintings appear under — see below | yes |
 | `bio` | the biography — kept for your records; it is not published | yes |
+
+`style` must be spelt exactly as one of the gallery's tabs:
+
+`Abstract` · `Modern` · `Impressionism` · `Realism` · `Contemporary` ·
+`Traditional Folk Art`
+
+Today: Umesh Kumar Saxena is Abstract; Kandan G and Nirakar Chowdhury are
+Modern; M. Salim and N. K. Mishra are Impressionism; M. D. Ishak is Realism;
+Ashok Rathod, Gopal Naskar and Umendra P. Singh are Contemporary; the folk and
+tribal collection is Traditional Folk Art. Change a line here and that painter's
+whole collection moves to another tab. A new name spelt differently from the
+ones above simply gets a tab of its own, at the end.
 
 ### Updating an existing artist
 
@@ -229,8 +256,10 @@ address; without it the site is built for the wrong address and loads nothing.
 | To change | Open |
 | --- | --- |
 | A painting's title, size, medium, year, description | `Indus Art Collection - Catalogue.xlsx` |
-| An artist's name, style or biography | `scripts/metadata.cjs` |
+| An artist's name, gallery tab (`style`) or biography | `scripts/metadata.cjs` |
 | Any wording on any page, contact details, settings | `src/config.ts` |
+| This week's New Collection on the home page | `src/config.ts` (`NEW_COLLECTION`) |
+| Which gallery tabs there are, and their order | `src/config.ts` (`STYLE_ORDER`) |
 
 Then always: save, close, `npm.cmd run add-art`, answer `y`.
 
