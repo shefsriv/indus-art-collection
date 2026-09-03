@@ -51,6 +51,11 @@ the website — artist names are not shown there at all. When someone asks about
 number, find it in this spreadsheet, or in **`Painting Reference List.md`**,
 which lists the same numbers grouped by painter. Neither file is published.
 
+The numbers run in the same order as the gallery, with no gaps. If a new painter
+is ever added in the *middle* of the collection, everything after them has to be
+renumbered to keep it that way — ask for that when you send the photographs, and
+send the fresh reference list to anyone holding an old number.
+
 ## 3. Save and close Excel
 
 Both. Leaving the file open can lock it and lose your work.

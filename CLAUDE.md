@@ -68,9 +68,29 @@ gallery.
 
 `scripts/refs.json` remembers which reference belongs to which photograph, so a
 number, once quoted to a customer, never comes to mean a different painting.
-Never edit or delete it. The painter behind each reference is recorded in the
-catalogue spreadsheet and in `Painting Reference List.md`, both regenerated on
-every build and neither published.
+Never edit or delete it by hand. The painter behind each reference is recorded
+in the catalogue spreadsheet and in `Painting Reference List.md`, both
+regenerated on every build and neither published.
+
+**The numbers must read in order.** Shefali does not want gaps: IAC-014 is
+followed on screen by IAC-015. A painter added part-way along the collection
+would otherwise take numbers from the end, so after inserting one, renumber:
+
+```
+node scripts/build-catalog.cjs --renumber
+```
+
+That throws away the remembered numbers and numbers the whole collection afresh
+in hanging order. It is deliberate and disruptive — every painting after the
+insertion point changes reference — so do it as part of the same change that
+inserts the artwork, never quietly afterwards. Anything already sent to a
+customer under the old numbers is invalidated; say so when reporting.
+
+Note what a renumber does to the spreadsheet round-trip: rows are keyed by
+reference, so `asRef` in `build-catalog.cjs` translates each row's old
+reference back through the previous `refs.json` to its photograph before
+matching. Without that step every row's title and size would land on whichever
+painting inherited its old number.
 
 ## The blank-page trap
 

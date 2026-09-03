@@ -99,6 +99,25 @@ the number up here — or in **`Painting Reference List.md`**, the same list
 grouped by painter, which is rewritten each time you publish. Neither file is
 part of the website.
 
+### The reference numbers
+
+They run in the order the paintings hang, IAC-001 upwards, with no gaps. A new
+painter added to the end of the collection simply carries on from the last
+number, and nothing else moves.
+
+A painter added **in the middle** is different: their paintings would otherwise
+take numbers from the end, leaving the gallery reading IAC-014, IAC-101,
+IAC-102. To keep the sequence tidy the whole collection is renumbered:
+
+```
+node scripts/build-catalog.cjs --renumber
+```
+
+Every painting after the insertion point changes number, so anything you have
+already sent out under the old numbers — an email, a quote, a certificate — now
+points at a different painting. Send the updated reference list to anyone who
+has the old one.
+
 When you are done:
 
 1. **Save the file and close Excel** — leaving it open can lock the file

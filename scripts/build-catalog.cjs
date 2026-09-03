@@ -104,11 +104,23 @@ const artistRank = (name) => {
 // reference, once given out, always means the same painting. New photographs
 // take the next unused number; a photograph that is removed keeps its number
 // reserved rather than handing it on to something else.
+//
+// The references are meant to be read in order, so a painter added part-way
+// along the collection leaves a gap — their works take numbers from the end.
+// Running the build with --renumber throws the remembered numbers away and
+// numbers the whole collection afresh, in the order it hangs:
+//
+//     node scripts/build-catalog.cjs --renumber
+//
+// Do that deliberately and rarely. Every painting after the insertion point
+// changes number, so any reference already quoted to a customer, printed on a
+// certificate or written in an email then points at a different painting.
 // ---------------------------------------------------------------------------
 const REF_PREFIX = 'IAC-';
+const RENUMBER = process.argv.includes('--renumber');
 
 function loadRefs() {
-  if (!fs.existsSync(REFS_FILE)) return {};
+  if (RENUMBER || !fs.existsSync(REFS_FILE)) return {};
   return JSON.parse(fs.readFileSync(REFS_FILE, 'utf8'));
 }
 
@@ -157,6 +169,7 @@ function refFor(refs, base) {
     Number(b.mono) - Number(a.mono) ||
     a.base.localeCompare(b.base, undefined, { numeric: true }));
 
+  const previous = fs.existsSync(REFS_FILE) ? JSON.parse(fs.readFileSync(REFS_FILE, 'utf8')) : {};
   const refs = loadRefs();
   const painterOf = new Map();   // reference → painter, for the private list
 
@@ -205,6 +218,11 @@ function refFor(refs, base) {
 
   fs.writeFileSync(REFS_FILE, JSON.stringify(refs, null, 2) + '\n');
 
+  if (RENUMBER) {
+    const moved = Object.keys(refs).filter((base) => previous[base] && previous[base] !== refs[base]);
+    console.log(`renumbered in hanging order — ${moved.length} paintings changed reference`);
+  }
+
   // Drop assets left behind by works that have since been excluded, so the
   // published site never ships an image nothing links to.
   const live = new Set(catalog.map((w) => `${w.id}.jpg`));
@@ -232,10 +250,18 @@ function refFor(refs, base) {
     await wbOld.xlsx.readFile(XLSX_FILE);
     const ws = wbOld.getWorksheet('Catalogue');
     if (ws) {
-      // Rows used to be keyed by the source filename and are now keyed by the
-      // reference, so an older spreadsheet is read through refs.json — nothing
-      // typed into one is lost when the numbering is introduced.
-      const asRef = (key) => (refs[key] ? refs[key] : key);
+      // A spreadsheet row names its painting by the reference the painting had
+      // when the sheet was written — which is not the reference it has now if
+      // the collection has just been renumbered, and was the source filename in
+      // the very first sheets. Both are translated back to the photograph they
+      // mean, then forward to the reference it holds today; otherwise a row's
+      // details would land on whichever painting inherited its old number.
+      const baseOfOldRef = new Map(Object.entries(previous).map(([base, ref]) => [ref, base]));
+      const asRef = (key) => {
+        if (refs[key]) return refs[key];                       // a source filename
+        const base = baseOfOldRef.get(key);
+        return base && refs[base] ? refs[base] : key;          // a reference, old or current
+      };
 
       const byId = new Map();
       ws.eachRow((row, n) => {
