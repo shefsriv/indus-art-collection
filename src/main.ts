@@ -129,7 +129,6 @@ function footer(): string {
             <div class="footer-brand">
               <h4>${esc(site.name)}</h4>
               <img src="${asset('logo-mark.png')}" alt="" />
-              <p style="margin:0">${esc(site.tagline)}</p>
             </div>
             <p>${t(TEXT.footer.blurb)}</p>
             <div class="socials">

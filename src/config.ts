@@ -2,7 +2,6 @@
 
 export const site = {
   name: 'Indus Art Collection',
-  tagline: 'Contemporary, Traditional & Folk Art',
 
   // The general business address. Enquiry forms and any "email us" link on the
   // site use this one, so a personal address never appears publicly.
