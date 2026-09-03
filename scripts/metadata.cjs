@@ -41,6 +41,14 @@ const artists = {
     bio: 'M. Salim is a landscape painter whose washes capture Indian hill '
       + 'villages, riverbeds and monsoon light with great delicacy.',
   },
+  'm-d-ishak': {
+    name: 'M. D. Ishak',
+    style: 'Traditional',
+    bio: 'M. D. Ishak is a landscape painter in oils, working across forest '
+      + 'interiors, waterfalls, coastlines and Himalayan peaks. Many of the '
+      + 'paintings are built up in heavy impasto, and a recurring group is '
+      + 'painted entirely in greys and whites.',
+  },
   'mehnaaz-bano-painting': {
     name: 'Mainaz Bano',
     style: 'Contemporary',
@@ -152,6 +160,21 @@ const works = {
   'umesh-kumar-saxena-painting-1-2': { title: 'Triptych', size: '18 x 60 in each', medium: 'Acrylic on canvas' },
 };
 
+// Photographs that show the painting in its frame, or on a mount, rather than
+// the canvas alone. These are cropped down to the picture itself so the tiles
+// match the rest of the gallery; judged by eye from the contact sheets.
+// key = source filename without extension
+const FRAMED = [
+  'm-d-ishak-43',
+  'm-d-ishak-44',
+  'm-d-ishak-45',
+  'm-d-ishak-47',
+  'm-d-ishak-48',
+  'm-d-ishak-52',
+  'm-d-ishak-53',
+  'm-d-ishak-64',
+];
+
 // The order the painters are hung in wherever the collection is shown. Artist
 // names are never published on the website, so this ordering is applied here,
 // when the catalogue is built, rather than in the site's own settings — that
@@ -161,6 +184,7 @@ const ORDER = [
   'Umesh Kumar Saxena',
   'Kandan G',
   'Nirakar Chowdhury',
+  'M. D. Ishak',
   'Ashok Rathod',
   'Gopal Naskar',
   'Umendra P. Singh',
@@ -169,4 +193,4 @@ const ORDER = [
   'N. K. Mishra',
 ];
 
-module.exports = { artists, works, ORDER };
+module.exports = { artists, works, ORDER, FRAMED };

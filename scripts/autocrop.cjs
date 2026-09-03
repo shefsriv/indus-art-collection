@@ -104,4 +104,88 @@ async function findCropBox(file) {
   return box;
 }
 
-module.exports = { findCropBox };
+/**
+ * Finds the painting inside a photograph taken of a *framed* work, discarding
+ * the frame and any mount around it.
+ *
+ * `findCropBox` above deliberately leaves dark borders alone, because a dark
+ * edge is usually part of the painting. A frame is different, and it cannot be
+ * told apart by colour — a black frame and a black-grounded painting are the
+ * same colour. What separates them is detail: paint has texture everywhere,
+ * while a frame and a mount are flat. So rows and columns are scored by how
+ * much their brightness varies, and the largest band of varied ones is kept.
+ *
+ * Only used for the photographs named in FRAMED in metadata.cjs — it is not
+ * applied to the collection at large.
+ */
+const FLAT = 9;            // brightness spread below this reads as flat board
+const FRAME_INSET = 0.012; // trim a sliver more, to clear the mount's shadow
+
+async function findFrameBox(file) {
+  const meta = await sharp(file).metadata();
+  const { width: W, height: H } = meta;
+
+  const scale = Math.min(1, SCAN_W / W);
+  const sw = Math.max(1, Math.round(W * scale));
+  const sh = Math.max(1, Math.round(H * scale));
+
+  const { data } = await sharp(file)
+    .resize(sw, sh, { fit: 'fill' })
+    .removeAlpha()
+    .greyscale()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  const spread = (values) => {
+    let sum = 0;
+    for (const v of values) sum += v;
+    const mean = sum / values.length;
+    let acc = 0;
+    for (const v of values) acc += (v - mean) * (v - mean);
+    return Math.sqrt(acc / values.length);
+  };
+
+  const rowVaried = new Array(sh);
+  for (let y = 0; y < sh; y++) {
+    const row = new Array(sw);
+    for (let x = 0; x < sw; x++) row[x] = data[y * sw + x];
+    rowVaried[y] = spread(row) > FLAT;
+  }
+  const [y0, y1] = longestRun(rowVaried);
+
+  const colVaried = new Array(sw);
+  for (let x = 0; x < sw; x++) {
+    const col = new Array(y1 - y0);
+    for (let y = y0; y < y1; y++) col[y - y0] = data[y * sw + x];
+    colVaried[x] = spread(col) > FLAT;
+  }
+  const [x0, x1] = longestRun(colVaried);
+
+  const inset = Math.round(Math.max(W, H) * FRAME_INSET);
+  const left = Math.round((x0 / sw) * W) + inset;
+  const top = Math.round((y0 / sh) * H) + inset;
+  const right = Math.round((x1 / sw) * W) - inset;
+  const bottom = Math.round((y1 / sh) * H) - inset;
+
+  const box = { left, top, width: right - left, height: bottom - top };
+  const areaShare = (box.width * box.height) / (W * H);
+  // A frame is a border, not most of the picture; anything that small means the
+  // detector lost its way, and the untouched photograph is the safer answer.
+  if (box.width < 40 || box.height < 40 || areaShare < 0.15) {
+    return { left: 0, top: 0, width: W, height: H };
+  }
+
+  // Inside the frame there is often a pale mount as well. That is the ordinary
+  // white-background case, so the everyday crop finishes the job — run over the
+  // framed-off picture and folded back into whole-photograph coordinates.
+  const inner = await sharp(file).extract(box).toBuffer();
+  const m = await findCropBox(inner);
+  return {
+    left: box.left + m.left,
+    top: box.top + m.top,
+    width: m.width,
+    height: m.height,
+  };
+}
+
+module.exports = { findCropBox, findFrameBox };

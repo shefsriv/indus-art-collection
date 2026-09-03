@@ -6,7 +6,7 @@ its reference number instead, and this list says which painter each one is by.
 **This list is not published on the website.** It is rewritten automatically
 every time new artwork is added, so do not type into it — it is for looking up.
 
-100 paintings · 9 painters · updated 2026-09-03
+167 paintings · 10 painters · updated 2026-09-03
 
 ## Umesh Kumar Saxena — Contemporary · 8 works
 
@@ -36,6 +36,78 @@ every time new artwork is added, so do not type into it — it is for looking up
 | --- | --- | --- | --- | --- |
 | IAC-013 | — | 140 x 85 cm | Acrylic on canvas | nirakaar-chaudhary-painting-1 |
 | IAC-014 | — | 153 x 191 cm | Acrylic on canvas | nirakaar-chaudhary-painting-2 |
+
+## M. D. Ishak — Traditional · 67 works
+
+| Reference | Title | Size | Medium | Photograph |
+| --- | --- | --- | --- | --- |
+| IAC-101 | — | — | — | m-d-ishak-1 |
+| IAC-102 | — | — | — | m-d-ishak-2 |
+| IAC-103 | — | — | — | m-d-ishak-3 |
+| IAC-104 | — | — | — | m-d-ishak-4 |
+| IAC-105 | — | — | — | m-d-ishak-5 |
+| IAC-106 | — | — | — | m-d-ishak-6 |
+| IAC-107 | — | — | — | m-d-ishak-7 |
+| IAC-108 | — | — | — | m-d-ishak-8 |
+| IAC-109 | — | — | — | m-d-ishak-9 |
+| IAC-110 | — | — | — | m-d-ishak-10 |
+| IAC-111 | — | — | — | m-d-ishak-11 |
+| IAC-112 | — | — | — | m-d-ishak-12 |
+| IAC-113 | — | — | — | m-d-ishak-13 |
+| IAC-114 | — | — | — | m-d-ishak-14 |
+| IAC-115 | — | — | — | m-d-ishak-15 |
+| IAC-116 | — | — | — | m-d-ishak-16 |
+| IAC-117 | — | — | — | m-d-ishak-17 |
+| IAC-118 | — | — | — | m-d-ishak-18 |
+| IAC-119 | — | — | — | m-d-ishak-19 |
+| IAC-120 | — | — | — | m-d-ishak-20 |
+| IAC-121 | — | — | — | m-d-ishak-21 |
+| IAC-122 | — | — | — | m-d-ishak-22 |
+| IAC-123 | — | — | — | m-d-ishak-23 |
+| IAC-124 | — | — | — | m-d-ishak-24 |
+| IAC-125 | — | — | — | m-d-ishak-25 |
+| IAC-126 | — | — | — | m-d-ishak-26 |
+| IAC-127 | — | — | — | m-d-ishak-27 |
+| IAC-128 | — | — | — | m-d-ishak-28 |
+| IAC-129 | — | — | — | m-d-ishak-29 |
+| IAC-130 | — | — | — | m-d-ishak-30 |
+| IAC-131 | — | — | — | m-d-ishak-31 |
+| IAC-132 | — | — | — | m-d-ishak-32 |
+| IAC-133 | — | — | — | m-d-ishak-33 |
+| IAC-134 | — | — | — | m-d-ishak-34 |
+| IAC-135 | — | — | — | m-d-ishak-35 |
+| IAC-136 | — | — | — | m-d-ishak-36 |
+| IAC-137 | — | — | — | m-d-ishak-37 |
+| IAC-138 | — | — | — | m-d-ishak-38 |
+| IAC-139 | — | — | — | m-d-ishak-39 |
+| IAC-140 | — | — | — | m-d-ishak-40 |
+| IAC-141 | — | — | — | m-d-ishak-41 |
+| IAC-142 | — | — | — | m-d-ishak-42 |
+| IAC-143 | — | — | — | m-d-ishak-43 |
+| IAC-144 | — | — | — | m-d-ishak-44 |
+| IAC-145 | — | — | — | m-d-ishak-45 |
+| IAC-146 | — | — | — | m-d-ishak-46 |
+| IAC-147 | — | — | — | m-d-ishak-47 |
+| IAC-148 | — | — | — | m-d-ishak-48 |
+| IAC-149 | — | — | — | m-d-ishak-49 |
+| IAC-150 | — | — | — | m-d-ishak-50 |
+| IAC-151 | — | — | — | m-d-ishak-51 |
+| IAC-152 | — | — | — | m-d-ishak-52 |
+| IAC-153 | — | — | — | m-d-ishak-53 |
+| IAC-154 | — | — | — | m-d-ishak-54 |
+| IAC-155 | — | — | — | m-d-ishak-55 |
+| IAC-156 | — | — | — | m-d-ishak-56 |
+| IAC-157 | — | — | — | m-d-ishak-57 |
+| IAC-158 | — | — | — | m-d-ishak-58 |
+| IAC-159 | — | — | — | m-d-ishak-59 |
+| IAC-160 | — | — | — | m-d-ishak-60 |
+| IAC-161 | — | — | — | m-d-ishak-61 |
+| IAC-162 | — | — | — | m-d-ishak-62 |
+| IAC-163 | — | — | — | m-d-ishak-63 |
+| IAC-164 | — | — | — | m-d-ishak-64 |
+| IAC-165 | — | — | — | m-d-ishak-65 |
+| IAC-166 | — | — | — | m-d-ishak-66 |
+| IAC-167 | — | — | — | m-d-ishak-67 |
 
 ## Ashok Rathod — Contemporary · 5 works
 

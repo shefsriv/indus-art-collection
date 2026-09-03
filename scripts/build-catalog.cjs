@@ -9,8 +9,8 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 const ExcelJS = require('exceljs');
-const { artists, works, ORDER } = require('./metadata.cjs');
-const { findCropBox } = require('./autocrop.cjs');
+const { artists, works, ORDER, FRAMED } = require('./metadata.cjs');
+const { findCropBox, findFrameBox } = require('./autocrop.cjs');
 
 const SRC = process.env.ART_SRC || 'C:/Users/shefs/indus-art-source';
 const ROOT = path.join(__dirname, '..');
@@ -170,8 +170,9 @@ function refFor(refs, base) {
 
     const src = path.join(SRC, file);
 
-    // Discard the page margin and the caption the artist printed under the work.
-    const box = await findCropBox(src);
+    // Discard the page margin and the caption the artist printed under the
+    // work — or, for a work photographed in its frame, the frame and mount.
+    const box = FRAMED.includes(base) ? await findFrameBox(src) : await findCropBox(src);
     const width = box.width;
     const height = box.height;
 
