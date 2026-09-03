@@ -42,7 +42,7 @@ export const site = {
 export const TEXT = {
   // ---- HOME PAGE, the big banner at the top ----
   home: {
-    eyebrow: 'Est. 2026 · United States',
+    eyebrow: 'Est. 2005 · United States',
     heading: 'Indus Art Collection',
     intro: 'We curate authentic contemporary, traditional and folk paintings by '
       + 'Indian artists — bringing works straight from the studio to collectors, '
