@@ -16,10 +16,10 @@
       "count": 4
     },
     {
-      "id": "nirakar-chowdhury",
-      "name": "Nirakar Chowdhury",
+      "id": "nirakar-chaudhary",
+      "name": "Nirakar Chaudhary",
       "style": "Modern",
-      "bio": "Nirakar Chowdhury is an Indian artist from Odisha, India, known for his nature-inspired and conceptual paintings that often incorporate elements of Cubism, influenced by artists like Braque and Picasso. He works primarily with acrylics on canvas and creates abstract depictions of nature and animals, exploring the value of life in his artwork.",
+      "bio": "Nirakar Chaudhary is an Indian artist from Odisha, India, known for his nature-inspired and conceptual paintings that often incorporate elements of Cubism, influenced by artists like Braque and Picasso. He works primarily with acrylics on canvas and creates abstract depictions of nature and animals, exploring the value of life in his artwork.",
       "count": 2
     },
     {
@@ -268,8 +268,8 @@
     {
       "id": "iac-013",
       "ref": "IAC-013",
-      "artist": "Nirakar Chowdhury",
-      "artistId": "nirakar-chowdhury",
+      "artist": "Nirakar Chaudhary",
+      "artistId": "nirakar-chaudhary",
       "style": "Modern",
       "title": "",
       "size": "140 x 85 cm",
@@ -284,8 +284,8 @@
     {
       "id": "iac-014",
       "ref": "IAC-014",
-      "artist": "Nirakar Chowdhury",
-      "artistId": "nirakar-chowdhury",
+      "artist": "Nirakar Chaudhary",
+      "artistId": "nirakar-chaudhary",
       "style": "Modern",
       "title": "",
       "size": "153 x 191 cm",

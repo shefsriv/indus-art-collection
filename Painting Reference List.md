@@ -30,7 +30,7 @@ every time new artwork is added, so do not type into it — it is for looking up
 | IAC-011 | Banaras Series | 36 x 60 in / 92 x 153 cm | Acrylic on canvas | kandan-g-3 |
 | IAC-012 | Banaras Series | 36 x 60 in / 92 x 153 cm | Acrylic on canvas | kandan-g-4 |
 
-## Nirakar Chowdhury — Modern · 2 works
+## Nirakar Chaudhary — Modern · 2 works
 
 | Reference | Title | Size | Medium | Photograph |
 | --- | --- | --- | --- | --- |

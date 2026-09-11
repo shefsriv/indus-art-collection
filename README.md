@@ -191,7 +191,7 @@ Near the top there is one block per artist:
 `Abstract` · `Modern` · `Impressionism` · `Realism` · `Contemporary` ·
 `Traditional Folk Art`
 
-Today: Umesh Kumar Saxena is Abstract; Kandan G and Nirakar Chowdhury are
+Today: Umesh Kumar Saxena is Abstract; Kandan G and Nirakar Chaudhary are
 Modern; M. Salim and N. K. Mishra are Impressionism; M. D. Ishak is Realism;
 Ashok Rathod, Gopal Naskar and Umendra P. Singh are Contemporary; the folk and
 tribal collection is Traditional Folk Art. Change a line here and that painter's

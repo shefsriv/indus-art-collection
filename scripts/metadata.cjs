@@ -63,9 +63,9 @@ const artists = {
       + 'wash tradition, with devotional figures emerging from drifting colour.',
   },
   'nirakaar-chaudhary-painting': {
-    name: 'Nirakar Chowdhury',
+    name: 'Nirakar Chaudhary',
     style: 'Modern',
-    bio: 'Nirakar Chowdhury is an Indian artist from Odisha, India, known for his '
+    bio: 'Nirakar Chaudhary is an Indian artist from Odisha, India, known for his '
       + 'nature-inspired and conceptual paintings that often incorporate '
       + 'elements of Cubism, influenced by artists like Braque and Picasso. '
       + 'He works primarily with acrylics on canvas and creates abstract '
@@ -181,7 +181,7 @@ const FRAMED = [
 const ORDER = [
   'Umesh Kumar Saxena',
   'Kandan G',
-  'Nirakar Chowdhury',
+  'Nirakar Chaudhary',
   'M. D. Ishak',
   'Ashok Rathod',
   'Gopal Naskar',
