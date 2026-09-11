@@ -50,17 +50,41 @@ export const TEXT = {
   },
 
   // ---- The painters section on the home page ----
-  // Artists are not named anywhere on the website. Each painting carries a
-  // reference number instead — quote that number in an enquiry and the
-  // painting, and its painter, can be looked up in the catalogue spreadsheet.
   artists: {
     eyebrow: 'Our collection',
     heading: 'The artwork we present',
     intro: 'Our collection brings together paintings in many styles by {artists} '
       + 'artists, promoting painters from India and giving them an international '
       + 'platform to showcase their work. Every painting carries a reference '
-      + 'number — quote it and we will send you the full details of the work and '
-      + 'the artist behind it.',
+      + 'number — quote it in an enquiry and we will send you the full details.',
+    button: 'Meet the artists',
+  },
+
+  // ---- MEET THE ARTISTS PAGE ----
+  // The artists themselves — names, styles and biographies — are written in
+  // scripts/metadata.cjs; this is only the wording around them.
+  artistsPage: {
+    eyebrow: 'Artists',
+    heading: 'Meet the Artists',
+    lede: 'The painters behind the collection — each working in their own idiom, '
+      + 'from studio abstraction to living folk traditions.',
+    // Shown under each artist; {count} becomes the number of their paintings.
+    worksLink: 'View all {count} works',
+    // On an individual artist's page
+    backLink: 'All artists',
+    worksHeading: 'Works in the collection',
+  },
+
+  // ---- Under every painting in the gallery ----
+  tile: {
+    enquire: 'Enquire',
+  },
+
+  // ---- The enlarged view of a painting ----
+  lightbox: {
+    // Shown beside a certificate seal, under the painting's details.
+    certified: 'Certified and authenticated by the artist. Sold with a signed '
+      + 'Certificate of Authenticity.',
   },
 
   // ---- HOME PAGE, this week's paintings ----
@@ -366,6 +390,7 @@ export const STYLE_ORDER = [
 export const NAV = [
   { label: 'Home', href: '#/' },
   { label: 'Gallery', href: '#/gallery' },
+  { label: 'Artists', href: '#/artists' },
   { label: 'About', href: '#/about' },
   { label: 'News & Events', href: '#/news' },
   { label: 'FAQ', href: '#/faq' },

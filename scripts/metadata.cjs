@@ -175,10 +175,8 @@ const FRAMED = [
   'm-d-ishak-64',
 ];
 
-// The order the painters are hung in wherever the collection is shown. Artist
-// names are never published on the website, so this ordering is applied here,
-// when the catalogue is built, rather than in the site's own settings — that
-// way no painter's name is carried into the pages a visitor can read.
+// The order the painters are hung in wherever the collection is shown — the
+// gallery, the Meet the Artists page, and the reference numbers themselves.
 // Any painter left off this list follows the named ones, alphabetically.
 const ORDER = [
   'Umesh Kumar Saxena',

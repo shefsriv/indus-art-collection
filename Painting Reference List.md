@@ -1,7 +1,7 @@
 # Painting reference list — private
 
-The website shows no artist names. Every painting is identified in public by
-its reference number instead, and this list says which painter each one is by.
+Every painting on the website carries a reference number, and this list says
+which painting and painter each number belongs to.
 
 **This list is not published on the website.** It is rewritten automatically
 every time new artwork is added, so do not type into it — it is for looking up.

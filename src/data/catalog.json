@@ -1,9 +1,83 @@
 {
   "artistCount": 10,
+  "artists": [
+    {
+      "id": "umesh-kumar-saxena",
+      "name": "Umesh Kumar Saxena",
+      "style": "Abstract",
+      "bio": "Umesh Kumar Saxena paints translucent, petal-like forms that float against dark grounds, suspended between botanical study and abstraction.",
+      "count": 8
+    },
+    {
+      "id": "kandan-g",
+      "name": "Kandan G",
+      "style": "Modern",
+      "bio": "Kandan G uses colour in a highly symbolic manner, and his handling of it gives meaning to the meaningless. In red he symbolises meditation. White represents emptiness, or the absence of everything, ready to be filled and ready to be engaged. Black symbolises the infinity of going beyond. Poetics of Emotions, his series of abstract works, brings together the whole of his experiments in art practice. A line in his work emotes many feelings and a quest for knowledge and wisdom, and swirling patterns take a predominant place in most of it. Vibrant reds and blacks give the space a much-needed energy. It is an experiment in creating something from zero, from total emptiness; as the experiment continues, the space becomes energetic out of nothingness. There is always something beyond everything, not felt and not seen, and yet it announces its presence boldly. His Poetics of Emotions signifies a quest to know what lies beyond, what is not decipherable. Quest is a natural trait, and art is one way of reaching for the unknown and the infinite.",
+      "count": 4
+    },
+    {
+      "id": "nirakar-chowdhury",
+      "name": "Nirakar Chowdhury",
+      "style": "Modern",
+      "bio": "Nirakar Chowdhury is an Indian artist from Odisha, India, known for his nature-inspired and conceptual paintings that often incorporate elements of Cubism, influenced by artists like Braque and Picasso. He works primarily with acrylics on canvas and creates abstract depictions of nature and animals, exploring the value of life in his artwork.",
+      "count": 2
+    },
+    {
+      "id": "m-d-ishak",
+      "name": "M. D. Ishak",
+      "style": "Realism",
+      "bio": "M. D. Ishak is a landscape painter in oils, working across forest interiors, waterfalls, coastlines and Himalayan peaks. Many of the paintings are built up in heavy impasto, and a recurring group is painted entirely in greys and whites.",
+      "count": 67
+    },
+    {
+      "id": "ashok-rathod",
+      "name": "Ashok Rathod",
+      "style": "Contemporary",
+      "bio": "Ashok Rathod paints the sacred bull Nandi as a study in texture and colour, setting luminous forms against weathered, fresco-like grounds.",
+      "count": 5
+    },
+    {
+      "id": "gopal-naskar",
+      "name": "Gopal Naskar",
+      "style": "Contemporary",
+      "bio": "Gopal Naskar works in flat, saturated colour and sinuous line, drawing on folk imagery of fish, water and village life.",
+      "count": 4
+    },
+    {
+      "id": "umendra-p-singh",
+      "name": "Umendra P. Singh",
+      "style": "Contemporary",
+      "bio": "Umendra P. Singh paints on deep, near-black grounds, coaxing monuments, figures and night skies out of the shadows. Umendra's paintings depict physical remnants of the past — artifacts and sculptures — that encapsulate the cultural heritage of civilizations, providing insights into beliefs and traditions while granting access to ancient wisdom for societies to learn from and preserve, shaping a better future.",
+      "count": 4
+    },
+    {
+      "id": "m-salim",
+      "name": "M. Salim",
+      "style": "Impressionism",
+      "bio": "M. Salim is a landscape painter whose washes capture Indian hill villages, riverbeds and monsoon light with great delicacy.",
+      "count": 4
+    },
+    {
+      "id": "folk-and-tribal-masters",
+      "name": "Folk & Tribal Masters",
+      "style": "Traditional Folk Art",
+      "bio": "A collection of Madhubani, Warli and allied folk and tribal paintings from across India, made by village artists working in traditions passed down through generations. Artist attributions for these works are being catalogued.",
+      "count": 65
+    },
+    {
+      "id": "n-k-mishra",
+      "name": "N. K. Mishra",
+      "style": "Impressionism",
+      "bio": "N. K. Mishra paints in a fluid, wash-based idiom rooted in the Indian wash tradition, with devotional figures emerging from drifting colour.",
+      "count": 4
+    }
+  ],
   "works": [
     {
       "id": "iac-001",
       "ref": "IAC-001",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "",
       "size": "70 x 70 in / 178 x 178 cm",
@@ -18,6 +92,8 @@
     {
       "id": "iac-002",
       "ref": "IAC-002",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "",
       "size": "36 x 72 in",
@@ -32,6 +108,8 @@
     {
       "id": "iac-003",
       "ref": "IAC-003",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "",
       "size": "36 x 72 in",
@@ -46,6 +124,8 @@
     {
       "id": "iac-004",
       "ref": "IAC-004",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "",
       "size": "36 x 72 in",
@@ -60,6 +140,8 @@
     {
       "id": "iac-005",
       "ref": "IAC-005",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "",
       "size": "36 x 72 in",
@@ -74,6 +156,8 @@
     {
       "id": "iac-006",
       "ref": "IAC-006",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "",
       "size": "36 x 72 in",
@@ -88,6 +172,8 @@
     {
       "id": "iac-007",
       "ref": "IAC-007",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "Triptych",
       "size": "18 x 60 in each",
@@ -102,6 +188,8 @@
     {
       "id": "iac-008",
       "ref": "IAC-008",
+      "artist": "Umesh Kumar Saxena",
+      "artistId": "umesh-kumar-saxena",
       "style": "Abstract",
       "title": "Triptych",
       "size": "18 x 60 in each",
@@ -116,6 +204,8 @@
     {
       "id": "iac-009",
       "ref": "IAC-009",
+      "artist": "Kandan G",
+      "artistId": "kandan-g",
       "style": "Modern",
       "title": "Banaras Series",
       "size": "24 x 48 in / 61 x 122 cm",
@@ -130,6 +220,8 @@
     {
       "id": "iac-010",
       "ref": "IAC-010",
+      "artist": "Kandan G",
+      "artistId": "kandan-g",
       "style": "Modern",
       "title": "Banaras Series",
       "size": "24 x 48 in / 61 x 122 cm",
@@ -144,6 +236,8 @@
     {
       "id": "iac-011",
       "ref": "IAC-011",
+      "artist": "Kandan G",
+      "artistId": "kandan-g",
       "style": "Modern",
       "title": "Banaras Series",
       "size": "36 x 60 in / 92 x 153 cm",
@@ -158,6 +252,8 @@
     {
       "id": "iac-012",
       "ref": "IAC-012",
+      "artist": "Kandan G",
+      "artistId": "kandan-g",
       "style": "Modern",
       "title": "Banaras Series",
       "size": "36 x 60 in / 92 x 153 cm",
@@ -172,6 +268,8 @@
     {
       "id": "iac-013",
       "ref": "IAC-013",
+      "artist": "Nirakar Chowdhury",
+      "artistId": "nirakar-chowdhury",
       "style": "Modern",
       "title": "",
       "size": "140 x 85 cm",
@@ -186,6 +284,8 @@
     {
       "id": "iac-014",
       "ref": "IAC-014",
+      "artist": "Nirakar Chowdhury",
+      "artistId": "nirakar-chowdhury",
       "style": "Modern",
       "title": "",
       "size": "153 x 191 cm",
@@ -200,6 +300,8 @@
     {
       "id": "iac-015",
       "ref": "IAC-015",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -214,6 +316,8 @@
     {
       "id": "iac-016",
       "ref": "IAC-016",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -228,6 +332,8 @@
     {
       "id": "iac-017",
       "ref": "IAC-017",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -242,6 +348,8 @@
     {
       "id": "iac-018",
       "ref": "IAC-018",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -256,6 +364,8 @@
     {
       "id": "iac-019",
       "ref": "IAC-019",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -270,6 +380,8 @@
     {
       "id": "iac-020",
       "ref": "IAC-020",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -284,6 +396,8 @@
     {
       "id": "iac-021",
       "ref": "IAC-021",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -298,6 +412,8 @@
     {
       "id": "iac-022",
       "ref": "IAC-022",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -312,6 +428,8 @@
     {
       "id": "iac-023",
       "ref": "IAC-023",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -326,6 +444,8 @@
     {
       "id": "iac-024",
       "ref": "IAC-024",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -340,6 +460,8 @@
     {
       "id": "iac-025",
       "ref": "IAC-025",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -354,6 +476,8 @@
     {
       "id": "iac-026",
       "ref": "IAC-026",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -368,6 +492,8 @@
     {
       "id": "iac-027",
       "ref": "IAC-027",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -382,6 +508,8 @@
     {
       "id": "iac-028",
       "ref": "IAC-028",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -396,6 +524,8 @@
     {
       "id": "iac-029",
       "ref": "IAC-029",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -410,6 +540,8 @@
     {
       "id": "iac-030",
       "ref": "IAC-030",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -424,6 +556,8 @@
     {
       "id": "iac-031",
       "ref": "IAC-031",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -438,6 +572,8 @@
     {
       "id": "iac-032",
       "ref": "IAC-032",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -452,6 +588,8 @@
     {
       "id": "iac-033",
       "ref": "IAC-033",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -466,6 +604,8 @@
     {
       "id": "iac-034",
       "ref": "IAC-034",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -480,6 +620,8 @@
     {
       "id": "iac-035",
       "ref": "IAC-035",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -494,6 +636,8 @@
     {
       "id": "iac-036",
       "ref": "IAC-036",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -508,6 +652,8 @@
     {
       "id": "iac-037",
       "ref": "IAC-037",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -522,6 +668,8 @@
     {
       "id": "iac-038",
       "ref": "IAC-038",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -536,6 +684,8 @@
     {
       "id": "iac-039",
       "ref": "IAC-039",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -550,6 +700,8 @@
     {
       "id": "iac-040",
       "ref": "IAC-040",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -564,6 +716,8 @@
     {
       "id": "iac-041",
       "ref": "IAC-041",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -578,6 +732,8 @@
     {
       "id": "iac-042",
       "ref": "IAC-042",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -592,6 +748,8 @@
     {
       "id": "iac-043",
       "ref": "IAC-043",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -606,6 +764,8 @@
     {
       "id": "iac-044",
       "ref": "IAC-044",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -620,6 +780,8 @@
     {
       "id": "iac-045",
       "ref": "IAC-045",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -634,6 +796,8 @@
     {
       "id": "iac-046",
       "ref": "IAC-046",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -648,6 +812,8 @@
     {
       "id": "iac-047",
       "ref": "IAC-047",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -662,6 +828,8 @@
     {
       "id": "iac-048",
       "ref": "IAC-048",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -676,6 +844,8 @@
     {
       "id": "iac-049",
       "ref": "IAC-049",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -690,6 +860,8 @@
     {
       "id": "iac-050",
       "ref": "IAC-050",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -704,6 +876,8 @@
     {
       "id": "iac-051",
       "ref": "IAC-051",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -718,6 +892,8 @@
     {
       "id": "iac-052",
       "ref": "IAC-052",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -732,6 +908,8 @@
     {
       "id": "iac-053",
       "ref": "IAC-053",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -746,6 +924,8 @@
     {
       "id": "iac-054",
       "ref": "IAC-054",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -760,6 +940,8 @@
     {
       "id": "iac-055",
       "ref": "IAC-055",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -774,6 +956,8 @@
     {
       "id": "iac-056",
       "ref": "IAC-056",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -788,6 +972,8 @@
     {
       "id": "iac-057",
       "ref": "IAC-057",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -802,6 +988,8 @@
     {
       "id": "iac-058",
       "ref": "IAC-058",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -816,6 +1004,8 @@
     {
       "id": "iac-059",
       "ref": "IAC-059",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -830,6 +1020,8 @@
     {
       "id": "iac-060",
       "ref": "IAC-060",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -844,6 +1036,8 @@
     {
       "id": "iac-061",
       "ref": "IAC-061",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -858,6 +1052,8 @@
     {
       "id": "iac-062",
       "ref": "IAC-062",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -872,6 +1068,8 @@
     {
       "id": "iac-063",
       "ref": "IAC-063",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -886,6 +1084,8 @@
     {
       "id": "iac-064",
       "ref": "IAC-064",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -900,6 +1100,8 @@
     {
       "id": "iac-065",
       "ref": "IAC-065",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -914,6 +1116,8 @@
     {
       "id": "iac-066",
       "ref": "IAC-066",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -928,6 +1132,8 @@
     {
       "id": "iac-067",
       "ref": "IAC-067",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -942,6 +1148,8 @@
     {
       "id": "iac-068",
       "ref": "IAC-068",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -956,6 +1164,8 @@
     {
       "id": "iac-069",
       "ref": "IAC-069",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -970,6 +1180,8 @@
     {
       "id": "iac-070",
       "ref": "IAC-070",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -984,6 +1196,8 @@
     {
       "id": "iac-071",
       "ref": "IAC-071",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -998,6 +1212,8 @@
     {
       "id": "iac-072",
       "ref": "IAC-072",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1012,6 +1228,8 @@
     {
       "id": "iac-073",
       "ref": "IAC-073",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1026,6 +1244,8 @@
     {
       "id": "iac-074",
       "ref": "IAC-074",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1040,6 +1260,8 @@
     {
       "id": "iac-075",
       "ref": "IAC-075",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1054,6 +1276,8 @@
     {
       "id": "iac-076",
       "ref": "IAC-076",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1068,6 +1292,8 @@
     {
       "id": "iac-077",
       "ref": "IAC-077",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1082,6 +1308,8 @@
     {
       "id": "iac-078",
       "ref": "IAC-078",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1096,6 +1324,8 @@
     {
       "id": "iac-079",
       "ref": "IAC-079",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1110,6 +1340,8 @@
     {
       "id": "iac-080",
       "ref": "IAC-080",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1124,6 +1356,8 @@
     {
       "id": "iac-081",
       "ref": "IAC-081",
+      "artist": "M. D. Ishak",
+      "artistId": "m-d-ishak",
       "style": "Realism",
       "title": "",
       "size": "",
@@ -1138,6 +1372,8 @@
     {
       "id": "iac-082",
       "ref": "IAC-082",
+      "artist": "Ashok Rathod",
+      "artistId": "ashok-rathod",
       "style": "Contemporary",
       "title": "Nandi",
       "size": "24 x 24 in",
@@ -1152,6 +1388,8 @@
     {
       "id": "iac-083",
       "ref": "IAC-083",
+      "artist": "Ashok Rathod",
+      "artistId": "ashok-rathod",
       "style": "Contemporary",
       "title": "Nandi",
       "size": "36 x 60 in",
@@ -1166,6 +1404,8 @@
     {
       "id": "iac-084",
       "ref": "IAC-084",
+      "artist": "Ashok Rathod",
+      "artistId": "ashok-rathod",
       "style": "Contemporary",
       "title": "Nandi",
       "size": "36 x 60 in",
@@ -1180,6 +1420,8 @@
     {
       "id": "iac-085",
       "ref": "IAC-085",
+      "artist": "Ashok Rathod",
+      "artistId": "ashok-rathod",
       "style": "Contemporary",
       "title": "Nandi",
       "size": "36 x 60 in",
@@ -1194,6 +1436,8 @@
     {
       "id": "iac-086",
       "ref": "IAC-086",
+      "artist": "Ashok Rathod",
+      "artistId": "ashok-rathod",
       "style": "Contemporary",
       "title": "Nandi",
       "size": "48 x 72 in",
@@ -1208,6 +1452,8 @@
     {
       "id": "iac-087",
       "ref": "IAC-087",
+      "artist": "Gopal Naskar",
+      "artistId": "gopal-naskar",
       "style": "Contemporary",
       "title": "",
       "size": "24 x 24 in",
@@ -1222,6 +1468,8 @@
     {
       "id": "iac-088",
       "ref": "IAC-088",
+      "artist": "Gopal Naskar",
+      "artistId": "gopal-naskar",
       "style": "Contemporary",
       "title": "",
       "size": "24 x 24 in",
@@ -1236,6 +1484,8 @@
     {
       "id": "iac-089",
       "ref": "IAC-089",
+      "artist": "Gopal Naskar",
+      "artistId": "gopal-naskar",
       "style": "Contemporary",
       "title": "",
       "size": "24 x 24 in",
@@ -1250,6 +1500,8 @@
     {
       "id": "iac-090",
       "ref": "IAC-090",
+      "artist": "Gopal Naskar",
+      "artistId": "gopal-naskar",
       "style": "Contemporary",
       "title": "",
       "size": "24 x 24 in",
@@ -1264,6 +1516,8 @@
     {
       "id": "iac-091",
       "ref": "IAC-091",
+      "artist": "Umendra P. Singh",
+      "artistId": "umendra-p-singh",
       "style": "Contemporary",
       "title": "",
       "size": "",
@@ -1278,6 +1532,8 @@
     {
       "id": "iac-092",
       "ref": "IAC-092",
+      "artist": "Umendra P. Singh",
+      "artistId": "umendra-p-singh",
       "style": "Contemporary",
       "title": "",
       "size": "",
@@ -1292,6 +1548,8 @@
     {
       "id": "iac-093",
       "ref": "IAC-093",
+      "artist": "Umendra P. Singh",
+      "artistId": "umendra-p-singh",
       "style": "Contemporary",
       "title": "",
       "size": "",
@@ -1306,6 +1564,8 @@
     {
       "id": "iac-094",
       "ref": "IAC-094",
+      "artist": "Umendra P. Singh",
+      "artistId": "umendra-p-singh",
       "style": "Contemporary",
       "title": "",
       "size": "",
@@ -1320,6 +1580,8 @@
     {
       "id": "iac-095",
       "ref": "IAC-095",
+      "artist": "M. Salim",
+      "artistId": "m-salim",
       "style": "Impressionism",
       "title": "Landscape",
       "size": "",
@@ -1334,6 +1596,8 @@
     {
       "id": "iac-096",
       "ref": "IAC-096",
+      "artist": "M. Salim",
+      "artistId": "m-salim",
       "style": "Impressionism",
       "title": "Landscape",
       "size": "",
@@ -1348,6 +1612,8 @@
     {
       "id": "iac-097",
       "ref": "IAC-097",
+      "artist": "M. Salim",
+      "artistId": "m-salim",
       "style": "Impressionism",
       "title": "Landscape",
       "size": "",
@@ -1362,6 +1628,8 @@
     {
       "id": "iac-098",
       "ref": "IAC-098",
+      "artist": "M. Salim",
+      "artistId": "m-salim",
       "style": "Impressionism",
       "title": "Landscape",
       "size": "",
@@ -1376,6 +1644,8 @@
     {
       "id": "iac-099",
       "ref": "IAC-099",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1390,6 +1660,8 @@
     {
       "id": "iac-100",
       "ref": "IAC-100",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1404,6 +1676,8 @@
     {
       "id": "iac-101",
       "ref": "IAC-101",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1418,6 +1692,8 @@
     {
       "id": "iac-102",
       "ref": "IAC-102",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1432,6 +1708,8 @@
     {
       "id": "iac-103",
       "ref": "IAC-103",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1446,6 +1724,8 @@
     {
       "id": "iac-104",
       "ref": "IAC-104",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1460,6 +1740,8 @@
     {
       "id": "iac-105",
       "ref": "IAC-105",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1474,6 +1756,8 @@
     {
       "id": "iac-106",
       "ref": "IAC-106",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1488,6 +1772,8 @@
     {
       "id": "iac-107",
       "ref": "IAC-107",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1502,6 +1788,8 @@
     {
       "id": "iac-108",
       "ref": "IAC-108",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1516,6 +1804,8 @@
     {
       "id": "iac-109",
       "ref": "IAC-109",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1530,6 +1820,8 @@
     {
       "id": "iac-110",
       "ref": "IAC-110",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1544,6 +1836,8 @@
     {
       "id": "iac-111",
       "ref": "IAC-111",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1558,6 +1852,8 @@
     {
       "id": "iac-112",
       "ref": "IAC-112",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1572,6 +1868,8 @@
     {
       "id": "iac-113",
       "ref": "IAC-113",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1586,6 +1884,8 @@
     {
       "id": "iac-114",
       "ref": "IAC-114",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1600,6 +1900,8 @@
     {
       "id": "iac-115",
       "ref": "IAC-115",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1614,6 +1916,8 @@
     {
       "id": "iac-116",
       "ref": "IAC-116",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1628,6 +1932,8 @@
     {
       "id": "iac-117",
       "ref": "IAC-117",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1642,6 +1948,8 @@
     {
       "id": "iac-118",
       "ref": "IAC-118",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1656,6 +1964,8 @@
     {
       "id": "iac-119",
       "ref": "IAC-119",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1670,6 +1980,8 @@
     {
       "id": "iac-120",
       "ref": "IAC-120",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1684,6 +1996,8 @@
     {
       "id": "iac-121",
       "ref": "IAC-121",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1698,6 +2012,8 @@
     {
       "id": "iac-122",
       "ref": "IAC-122",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1712,6 +2028,8 @@
     {
       "id": "iac-123",
       "ref": "IAC-123",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1726,6 +2044,8 @@
     {
       "id": "iac-124",
       "ref": "IAC-124",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1740,6 +2060,8 @@
     {
       "id": "iac-125",
       "ref": "IAC-125",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1754,6 +2076,8 @@
     {
       "id": "iac-126",
       "ref": "IAC-126",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1768,6 +2092,8 @@
     {
       "id": "iac-127",
       "ref": "IAC-127",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1782,6 +2108,8 @@
     {
       "id": "iac-128",
       "ref": "IAC-128",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1796,6 +2124,8 @@
     {
       "id": "iac-129",
       "ref": "IAC-129",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1810,6 +2140,8 @@
     {
       "id": "iac-130",
       "ref": "IAC-130",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1824,6 +2156,8 @@
     {
       "id": "iac-131",
       "ref": "IAC-131",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1838,6 +2172,8 @@
     {
       "id": "iac-132",
       "ref": "IAC-132",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1852,6 +2188,8 @@
     {
       "id": "iac-133",
       "ref": "IAC-133",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1866,6 +2204,8 @@
     {
       "id": "iac-134",
       "ref": "IAC-134",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1880,6 +2220,8 @@
     {
       "id": "iac-135",
       "ref": "IAC-135",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1894,6 +2236,8 @@
     {
       "id": "iac-136",
       "ref": "IAC-136",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1908,6 +2252,8 @@
     {
       "id": "iac-137",
       "ref": "IAC-137",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1922,6 +2268,8 @@
     {
       "id": "iac-138",
       "ref": "IAC-138",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1936,6 +2284,8 @@
     {
       "id": "iac-139",
       "ref": "IAC-139",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1950,6 +2300,8 @@
     {
       "id": "iac-140",
       "ref": "IAC-140",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1964,6 +2316,8 @@
     {
       "id": "iac-141",
       "ref": "IAC-141",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1978,6 +2332,8 @@
     {
       "id": "iac-142",
       "ref": "IAC-142",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -1992,6 +2348,8 @@
     {
       "id": "iac-143",
       "ref": "IAC-143",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2006,6 +2364,8 @@
     {
       "id": "iac-144",
       "ref": "IAC-144",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2020,6 +2380,8 @@
     {
       "id": "iac-145",
       "ref": "IAC-145",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2034,6 +2396,8 @@
     {
       "id": "iac-146",
       "ref": "IAC-146",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2048,6 +2412,8 @@
     {
       "id": "iac-147",
       "ref": "IAC-147",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2062,6 +2428,8 @@
     {
       "id": "iac-148",
       "ref": "IAC-148",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2076,6 +2444,8 @@
     {
       "id": "iac-149",
       "ref": "IAC-149",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2090,6 +2460,8 @@
     {
       "id": "iac-150",
       "ref": "IAC-150",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2104,6 +2476,8 @@
     {
       "id": "iac-151",
       "ref": "IAC-151",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2118,6 +2492,8 @@
     {
       "id": "iac-152",
       "ref": "IAC-152",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2132,6 +2508,8 @@
     {
       "id": "iac-153",
       "ref": "IAC-153",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2146,6 +2524,8 @@
     {
       "id": "iac-154",
       "ref": "IAC-154",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2160,6 +2540,8 @@
     {
       "id": "iac-155",
       "ref": "IAC-155",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2174,6 +2556,8 @@
     {
       "id": "iac-156",
       "ref": "IAC-156",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2188,6 +2572,8 @@
     {
       "id": "iac-157",
       "ref": "IAC-157",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2202,6 +2588,8 @@
     {
       "id": "iac-158",
       "ref": "IAC-158",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2216,6 +2604,8 @@
     {
       "id": "iac-159",
       "ref": "IAC-159",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2230,6 +2620,8 @@
     {
       "id": "iac-160",
       "ref": "IAC-160",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2244,6 +2636,8 @@
     {
       "id": "iac-161",
       "ref": "IAC-161",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2258,6 +2652,8 @@
     {
       "id": "iac-162",
       "ref": "IAC-162",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2272,6 +2668,8 @@
     {
       "id": "iac-163",
       "ref": "IAC-163",
+      "artist": "Folk & Tribal Masters",
+      "artistId": "folk-and-tribal-masters",
       "style": "Traditional Folk Art",
       "title": "",
       "size": "",
@@ -2286,6 +2684,8 @@
     {
       "id": "iac-164",
       "ref": "IAC-164",
+      "artist": "N. K. Mishra",
+      "artistId": "n-k-mishra",
       "style": "Impressionism",
       "title": "",
       "size": "21.5 x 15 in",
@@ -2300,6 +2700,8 @@
     {
       "id": "iac-165",
       "ref": "IAC-165",
+      "artist": "N. K. Mishra",
+      "artistId": "n-k-mishra",
       "style": "Impressionism",
       "title": "Parvati and Ganesha",
       "size": "13.2 x 7.1 in",
@@ -2314,6 +2716,8 @@
     {
       "id": "iac-166",
       "ref": "IAC-166",
+      "artist": "N. K. Mishra",
+      "artistId": "n-k-mishra",
       "style": "Impressionism",
       "title": "Ganesh",
       "size": "12.5 x 8.5 in",
@@ -2328,6 +2732,8 @@
     {
       "id": "iac-167",
       "ref": "IAC-167",
+      "artist": "N. K. Mishra",
+      "artistId": "n-k-mishra",
       "style": "Impressionism",
       "title": "Hanuman",
       "size": "19.5 x 19.5 in",

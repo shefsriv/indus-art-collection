@@ -86,6 +86,10 @@ const artistKeyOf = (base) => {
   return keys.find((k) => base.startsWith(k));
 };
 
+/** A painter's name as a web address: 'M. D. Ishak' → 'm-d-ishak'. */
+const slug = (name) => name.toLowerCase().replace(/&/g, 'and')
+  .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
 /** Where a painter hangs; anyone not listed in metadata's ORDER follows. */
 const artistRank = (name) => {
   const i = ORDER.indexOf(name);
@@ -95,10 +99,10 @@ const artistRank = (name) => {
 // ---------------------------------------------------------------------------
 // Reference numbers
 //
-// The website shows no artist names, so every painting is identified in public
-// by a reference — IAC-001, IAC-002 and so on. The number is what a visitor
-// quotes in an enquiry, and `Painting Reference List.md` (and the catalogue
-// spreadsheet) say which painter it belongs to.
+// Every painting is identified by a reference — IAC-001, IAC-002 and so on —
+// shown beside the artist's name. The number is what a visitor quotes in an
+// enquiry, and `Painting Reference List.md` (and the catalogue spreadsheet)
+// say which painting it is.
 //
 // scripts/refs.json remembers which number belongs to which photograph, so a
 // reference, once given out, always means the same painting. New photographs
@@ -197,12 +201,13 @@ function refFor(refs, base) {
       .resize({ width: FULL_W, withoutEnlargement: true })
       .jpeg({ quality: 86, mozjpeg: true }).toFile(path.join(FULL_DIR, `${id}.jpg`));
 
-    // Nothing that names the painter is written into the catalogue the website
-    // reads — only the reference. The painter is recorded in the spreadsheet
-    // and the reference list, neither of which is published.
+    // The painter is named on the website — above each painting and on the
+    // Meet the Artists page — and `artistId` is the address of their page.
     catalog.push({
       id,
       ref,
+      artist: artist.name,
+      artistId: slug(artist.name),
       style: artist.style,
       title: meta.title || '',
       size: meta.size || '',
@@ -294,18 +299,24 @@ function refFor(refs, base) {
   }
 
   // The painters, in hanging order, with the works belonging to each. Used for
-  // the private reference list and for the count the website quotes — the site
-  // is told how many painters there are, never who they are.
+  // the private reference list and for the Meet the Artists page.
   const painters = [];
   for (const w of catalog) {
     const name = painterOf.get(w.ref);
     let p = painters.find((x) => x.name === name);
-    if (!p) { p = { name, style: w.style, works: [] }; painters.push(p); }
+    if (!p) {
+      const bio = Object.values(artists).find((a) => a.name === name)?.bio || '';
+      p = { name, style: w.style, bio, works: [] };
+      painters.push(p);
+    }
     p.works.push(w);
   }
 
+  const artistList = painters.map((p) => ({
+    id: slug(p.name), name: p.name, style: p.style, bio: p.bio, count: p.works.length,
+  }));
   fs.writeFileSync(DATA_FILE,
-    JSON.stringify({ artistCount: painters.length, works: catalog }, null, 2) + '\n');
+    JSON.stringify({ artistCount: painters.length, artists: artistList, works: catalog }, null, 2) + '\n');
   console.log(`${catalog.length} works, ${painters.length} artists, ${skipped} skipped`);
 
   // ---- the private reference list -------------------------------------------
@@ -315,8 +326,8 @@ function refFor(refs, base) {
   const listLines = [
     '# Painting reference list — private',
     '',
-    'The website shows no artist names. Every painting is identified in public by',
-    'its reference number instead, and this list says which painter each one is by.',
+    'Every painting on the website carries a reference number, and this list says',
+    'which painting and painter each number belongs to.',
     '',
     '**This list is not published on the website.** It is rewritten automatically',
     `every time new artwork is added, so do not type into it — it is for looking up.`,

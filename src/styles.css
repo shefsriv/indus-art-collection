@@ -251,13 +251,35 @@ h3 { font-size: 1.3rem; }
   grid-template-columns: repeat(3, 1fr);
   gap: 46px 34px;
 }
-.art-item { margin: 0; cursor: zoom-in; }
+/* A tile is a small card: the artist's name in a strip above the picture, the
+   details and links in a strip below it. */
+.art-item {
+  margin: 0;
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.art-item .art-head {
+  display: block;
+  padding: 11px 14px;
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+.art-item .art-head:hover { color: var(--gold); }
 .art-item .frame {
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--paper-2);
-  border: 1px solid var(--line);
+  cursor: zoom-in;
 }
 .art-item .frame img {
   width: 100%;
@@ -265,7 +287,7 @@ h3 { font-size: 1.3rem; }
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
-.art-item:hover .frame img { transform: scale(1.035); }
+.art-item .frame:hover img { transform: scale(1.035); }
 .art-item .frame::after {
   content: 'View';
   position: absolute;
@@ -279,34 +301,102 @@ h3 { font-size: 1.3rem; }
   text-transform: uppercase;
   opacity: 0;
   transition: opacity 0.3s;
+  pointer-events: none;
 }
-.art-item:hover .frame::after { opacity: 1; }
+.art-item .frame:hover::after { opacity: 1; }
 
-.art-item figcaption { text-align: center; padding: 16px 8px 0; }
-.art-item figcaption strong {
+.art-item .art-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px 13px;
+  border-top: 1px solid var(--line);
+  margin: 0;
+  flex: 1;
+}
+.art-item .art-foot-main { min-width: 0; }
+.art-item .art-foot strong {
   display: block;
   font-family: var(--serif);
-  font-size: 1.22rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.3;
 }
-/* The reference is how a painting is named, so it is set to be read at a
-   glance — the same dark ink as the rest of the caption, not a gold aside. */
-.art-item figcaption .by {
+.art-item .art-foot .spec {
   display: block;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 3px;
+}
+.art-item .art-foot-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 0.74rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
-  margin-top: 7px;
 }
-.art-item figcaption .spec {
-  display: block;
-  font-size: 0.83rem;
-  color: var(--ink-soft);
-  margin-top: 5px;
+.art-item .art-foot .ref { font-weight: 500; color: var(--ink); cursor: zoom-in; }
+.art-item .art-foot .ref:hover { color: var(--gold); }
+.art-item .art-foot .enquire {
+  color: var(--gold);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
 }
+.art-item .art-foot .enquire:hover { color: var(--teal); }
+
+/* ---------- meet the artists ---------- */
+
+.artist-list { display: flex; flex-direction: column; }
+.artist-entry {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 44px;
+  align-items: start;
+  padding: 44px 0;
+  border-top: 1px solid var(--line);
+}
+.artist-entry:first-child { border-top: 0; padding-top: 0; }
+.artist-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.artist-preview img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+}
+.artist-text h2 { margin: 8px 0 12px; }
+.artist-text h2 a:hover { color: var(--gold); }
+.artist-text p { color: var(--ink-soft); margin: 0 0 16px; max-width: 640px; }
+.text-link {
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border-bottom: 1px solid currentColor;
+}
+.text-link:hover { color: var(--gold); }
+
+/* the certificate line at the foot of the enlarged view */
+.lb-certified {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.lb-seal { color: var(--gold); flex-shrink: 0; }
+.lb-artist { border-bottom: 1px solid rgba(255, 255, 255, 0.35); }
+.lb-artist:hover { color: var(--gold); }
 
 /* ---------- artist detail ---------- */
 
@@ -618,7 +708,9 @@ h3 { font-size: 1.3rem; }
   .header-inner { justify-content: flex-start; padding: 14px 150px 12px 28px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .art-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 18px; }
-  .art-item figcaption strong { font-size: 1.05rem; }
+  .art-item .art-foot strong { font-size: 1rem; }
+  .artist-entry { grid-template-columns: 1fr; gap: 18px; padding: 32px 0; }
+  .artist-preview { max-width: 360px; }
   .form-card { padding: 26px; }
   .section { padding: 58px 0; }
 }
@@ -638,6 +730,10 @@ h3 { font-size: 1.3rem; }
      which breaks it mid-word, so the label sits above its value instead. */
   .info-list li { flex-direction: column; gap: 4px; }
   .info-list b { min-width: 0; padding-top: 0; }
+  /* on a phone the tile footer stacks: details, then the two links side by side */
+  .art-item .art-head { font-size: 1rem; padding: 9px 11px; white-space: normal; }
+  .art-item .art-foot { flex-direction: column; gap: 8px; padding: 10px 11px 12px; }
+  .art-item .art-foot-links { flex-direction: row; align-items: center; gap: 14px; }
 }
 
 /* ---------- FAQ ---------- */
@@ -671,3 +767,5 @@ h3 { font-size: 1.3rem; }
 }
 .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
 .faq-item p { margin: 0 0 20px; padding-right: 36px; color: var(--ink-soft); }
+
+.page-head .back-row { margin: 0 0 18px; }

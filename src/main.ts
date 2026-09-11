@@ -140,6 +140,7 @@ function footer(): string {
             <h4>${t(TEXT.footer.exploreHeading)}</h4>
             <ul>
               <li><a href="#/gallery">Gallery</a> — the full catalogue</li>
+              <li><a href="#/artists">Artists</a> — the painters</li>
               <li><a href="#/about">About</a> — who we are</li>
               <li><a href="#/news">News &amp; Events</a> — exhibitions</li>
               <li><a href="#/faq">FAQ</a> — common questions</li>
@@ -174,17 +175,29 @@ function footer(): string {
 
 /* ------------------------------------------------------------------- parts */
 
+/**
+ * A painting tile: the artist's name in a strip above the picture, and below
+ * it the title and details on the left with the reference and an Enquire link
+ * on the right. The picture and the reference open the enlarged view; the
+ * artist's name and Enquire are ordinary links.
+ */
 function artGrid(works: Work[]): string {
   if (!works.length) return `<p style="text-align:center;color:var(--ink-soft)">No works to show.</p>`;
   return `<div class="art-grid">${works.map((w) => `
     <figure class="art-item" data-id="${esc(w.id)}">
+      <a class="art-head" href="#/artist/${esc(w.artistId)}">${esc(w.artist)}</a>
       <div class="frame">
         <img src="${asset(w.thumb)}" alt="${esc(workAlt(w))}" loading="lazy" />
       </div>
-      <figcaption>
-        ${w.title ? `<strong>${esc(w.title)}</strong>` : ''}
-        <span class="by">${esc(w.ref)}</span>
-        <span class="spec">${esc(workLine(w))}</span>
+      <figcaption class="art-foot">
+        <div class="art-foot-main">
+          ${w.title ? `<strong>${esc(w.title)}</strong>` : ''}
+          <span class="spec">${esc(workLine(w))}</span>
+        </div>
+        <div class="art-foot-links">
+          <a class="ref" href="#/gallery?q=${esc(w.ref)}">${esc(w.ref)}</a>
+          <a class="enquire" href="#/contact?work=${encodeURIComponent(w.id)}">${t(TEXT.tile.enquire)}</a>
+        </div>
       </figcaption>
     </figure>`).join('')}</div>`;
 }
@@ -238,6 +251,9 @@ function homePage(): string {
           <h2>${t(TEXT.artists.heading)}</h2>
           <div class="rule"></div>
           <p>${t(TEXT.artists.intro)}</p>
+          <div class="btn-row" style="margin-top:30px">
+            <a class="btn btn-dark" href="#/artists">${t(TEXT.artists.button)}</a>
+          </div>
         </div>
       </div>
     </section>
@@ -310,6 +326,58 @@ function galleryPage(styleFilter: string, query: string): string {
       <div class="wrap">
         <div class="filters">${buttons}</div>
         <div id="galleryWorks">${artGrid(works)}</div>
+      </div>
+    </section>`;
+}
+
+/** Meet the Artists: one entry per painter, with a few of their works. */
+function artistsPage(): string {
+  const entries = catalog.artists.map((a) => {
+    const preview = allWorks.filter((w) => w.artistId === a.id).slice(0, 3);
+    return `
+      <article class="artist-entry">
+        <a class="artist-preview" href="#/artist/${esc(a.id)}">
+          ${preview.map((w) => `<img src="${asset(w.thumb)}" alt="${esc(workAlt(w))}" />`).join('')}
+        </a>
+        <div class="artist-text">
+          <span class="eyebrow">${esc(a.style)}</span>
+          <h2><a href="#/artist/${esc(a.id)}">${esc(a.name)}</a></h2>
+          <p>${esc(a.bio)}</p>
+          <a class="text-link" href="#/artist/${esc(a.id)}">${t(TEXT.artistsPage.worksLink, { count: String(a.count) })} →</a>
+        </div>
+      </article>`;
+  }).join('');
+
+  return `
+    <div class="wrap page-head">
+      <span class="eyebrow">${t(TEXT.artistsPage.eyebrow)}</span>
+      <h1>${t(TEXT.artistsPage.heading)}</h1>
+      <p class="lede">${t(TEXT.artistsPage.lede)}</p>
+    </div>
+    <section class="section">
+      <div class="wrap artist-list">${entries}</div>
+    </section>`;
+}
+
+/** One painter: biography, then every work of theirs in the collection. */
+function artistPage(id: string): string {
+  const a = catalog.artists.find((x) => x.id === id);
+  if (!a) return notFound();
+  const works = allWorks.filter((w) => w.artistId === a.id);
+  return `
+    <div class="wrap page-head">
+      <p class="back-row"><a class="back" href="#/artists">← ${t(TEXT.artistsPage.backLink)}</a></p>
+      <span class="eyebrow">${esc(a.style)}</span>
+      <h1>${esc(a.name)}</h1>
+      <p class="lede">${esc(a.bio)}</p>
+    </div>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>${t(TEXT.artistsPage.worksHeading)}</h2>
+          <div class="rule"></div>
+        </div>
+        ${artGrid(works)}
       </div>
     </section>`;
 }
@@ -502,14 +570,25 @@ function showLightbox(index: number): void {
   // rather than repeating "On request" against every empty line.
   const known = Boolean(w.medium || w.size);
 
+  // A small seal beside the authenticity line, drawn here so it needs no image.
+  const seal = `<svg class="lb-seal" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path fill="currentColor" d="M12 1.5l2.2 1.9 2.9-.4 1 2.7 2.7 1-.4 2.9L22.5 12l-1.9 2.2.4 2.9-2.7 1-1 2.7-2.9-.4L12 22.5l-2.2-1.9-2.9.4-1-2.7-2.7-1 .4-2.9L1.5 12l1.9-2.2-.4-2.9 2.7-1 1-2.7 2.9.4z"/>
+      <path fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 12.3l2.6 2.6L16.3 9.3"/>
+    </svg>`;
+
   info.innerHTML =
     (w.title ? `<strong>${esc(w.title)}</strong>` : '') +
+    `<div class="lb-row"><b>Artist</b><span><a href="#/artist/${esc(w.artistId)}" class="lb-artist">${esc(w.artist)}</a></span></div>` +
     row('Reference', w.ref) +
     (w.medium ? row('Medium', w.medium) : '') +
     (w.size ? row('Size', w.size) : '') +
     row('Price', ON_REQUEST) +
     (w.description ? `<p class="lb-desc">${esc(w.description)}</p>` : '') +
-    (known ? '' : `<p class="lb-note">${DETAILS_ON_REQUEST}</p>`);
+    (known ? '' : `<p class="lb-note">${DETAILS_ON_REQUEST}</p>`) +
+    `<p class="lb-certified">${seal}<span>${t(TEXT.lightbox.certified)}</span></p>`;
+
+  // the artist link leaves the page behind the lightbox, so let go of it first
+  info.querySelector('.lb-artist')?.addEventListener('click', closeLightbox);
 
   // Carry the painting into the enquiry form so its message names the work.
   (document.getElementById('lbEnquire') as HTMLAnchorElement).href =
@@ -575,7 +654,13 @@ function bindThumbs(): void {
     .map((el) => catalog.works.find((w) => w.id === el.dataset.id))
     .filter((w): w is Work => Boolean(w));
 
-  items.forEach((el, i) => el.addEventListener('click', () => showLightbox(i)));
+  // Only the picture and the reference open the enlarged view; the artist's
+  // name and Enquire are links that go where they say.
+  items.forEach((el, i) => {
+    const open = (e: Event) => { e.preventDefault(); showLightbox(i); };
+    el.querySelector('.frame')!.addEventListener('click', open);
+    el.querySelector('.ref')!.addEventListener('click', open);
+  });
 }
 
 /* ------------------------------------------------------------------ router */
@@ -599,8 +684,9 @@ function render(): void {
   const search = query.get('q') || '';
 
   if (parts.length === 0) body = homePage();
-  // the artist pages have been retired; an old link lands on the collection
-  else if (parts[0] === 'artists' || parts[0] === 'artist') { body = galleryPage('All', search); routeKey = '#/gallery'; }
+  else if (parts[0] === 'artists') body = artistsPage();
+  else if (parts[0] === 'artist' && parts[1]) { body = artistPage(parts[1]); routeKey = '#/artists'; }
+  else if (parts[0] === 'artist') { body = artistsPage(); routeKey = '#/artists'; }
   else if (parts[0] === 'gallery') body = galleryPage(query.get('style') || 'All', search);
   else if (parts[0] === 'about') body = aboutPage();
   else if (parts[0] === 'news') body = newsPage();

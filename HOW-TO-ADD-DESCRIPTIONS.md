@@ -49,9 +49,9 @@ One row per painting. Five columns are yours:
 - Do **not** touch the **Reference**, **Artist** or **Style** columns.
 
 The **Reference** column (IAC-001, IAC-002 …) is how each painting is named on
-the website — artist names are not shown there at all. When someone asks about a
-number, find it in this spreadsheet, or in **`Painting Reference List.md`**,
-which lists the same numbers grouped by painter. Neither file is published.
+the website, alongside the artist's name. When someone asks about a number, find
+it in this spreadsheet, or in **`Painting Reference List.md`**, which lists the
+same numbers grouped by painter. Neither file is published.
 
 The numbers run in the same order as the gallery, with no gaps. If a new painter
 is ever added in the *middle* of the collection, everything after them has to be
@@ -190,8 +190,8 @@ Change it and that painter's whole collection moves to another tab. A tab with
 nothing in it is not shown at all, so a painter moved out of a style empties it
 off the page by itself.
 
-Artist names are not shown on the website; they are kept here, and in the
-catalogue spreadsheet, so you can look up who painted which reference number.
+The `name` is shown on the website — above each painting and on the Meet the
+Artists page — and the `bio` is the paragraph on that page.
 
 ⚠️ If you change a `name`, change it in **`ORDER`** too — the list lower down
 the same file that sets which painter's works hang first. A different spelling

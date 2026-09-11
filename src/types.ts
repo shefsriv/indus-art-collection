@@ -1,8 +1,11 @@
 export interface Work {
   id: string;
-  /** How the painting is named in public — "IAC-001". No artist name is
-   *  published; the reference is what an enquiry quotes. */
+  /** How the painting is named in an enquiry — "IAC-001". */
   ref: string;
+  /** The painter's name, shown above the painting. */
+  artist: string;
+  /** Address of the painter's page: "#/artist/" + artistId. */
+  artistId: string;
   style: string;
   title: string;
   size: string;
@@ -16,9 +19,20 @@ export interface Work {
   full: string;
 }
 
+export interface Artist {
+  id: string;
+  name: string;
+  style: string;
+  bio: string;
+  /** How many of their paintings are in the collection. */
+  count: number;
+}
+
 export interface Catalog {
-  /** How many painters are represented. Their names stay out of the website. */
+  /** How many painters are represented. */
   artistCount: number;
+  /** The painters, in hanging order, for the Meet the Artists page. */
+  artists: Artist[];
   /** Already in hanging order, arranged when the catalogue is built. */
   works: Work[];
 }

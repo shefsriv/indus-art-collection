@@ -72,17 +72,25 @@ board and mount are flat, paint has texture everywhere — then runs the ordinar
 crop again inside to shed any pale mount. Judge which photographs need it from a
 contact sheet; the list is data, not a heuristic applied to the collection.
 
-## No artist names on the website
+## Artists are named, and every painting has a reference number
 
-Nothing published names a painter. Every painting is identified in public by a
-reference — `IAC-001`, `IAC-002` — shown under its thumbnail, in the enlarged
-view and in any enquiry it starts. Keeping that true means more than not
-printing the name: `src/data/catalog.json` carries no artist field, the image
-files are named after the reference rather than the photograph, and the hanging
-order lives in `scripts/metadata.cjs` instead of `src/config.ts`, because
-anything under `src/` is bundled into the JavaScript a visitor can read. There
-are no Artists pages and no `#/artist/...` routes; the old addresses land on the
-gallery.
+Artist names were kept off the site until September 2026, when Shefali decided
+— after looking at other galleries and asking friends — that naming the painter
+"brings credibility to the website". So now: every painting tile shows the
+artist's name in a strip above the picture, and below it the title and details
+on the left with the `IAC-###` reference and an **Enquire** link on the right.
+There is a **Meet the Artists** page (`#/artists`: name, style, biography and
+three preview thumbnails per painter) and a page per artist (`#/artist/<id>`)
+listing all their works. The enlarged view names the artist and ends with a
+certificate-of-authenticity line beside a small gold seal.
+
+The build writes `artist`, `artistId` and an `artists` list (with biographies)
+into `src/data/catalog.json`; the names and biographies themselves are still
+hand-written in `scripts/metadata.cjs`, and `ORDER` there fixes the hanging
+order everywhere. Image files are still named after the reference.
+
+The reference number remains what an enquiry quotes — the tile's Enquire link
+and the enlarged view's Enquire Now button both carry it into the contact form.
 
 `scripts/refs.json` remembers which reference belongs to which photograph, so a
 number, once quoted to a customer, never comes to mean a different painting.

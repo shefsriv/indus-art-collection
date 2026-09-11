@@ -108,11 +108,10 @@ IAC-002 …) is what matches each row to its painting, and it is also the only
 name the painting has on the website; the other two are rebuilt from the artist
 list every run.
 
-**This spreadsheet is your private list of who painted what.** Artist names are
-not shown anywhere on the website, so when someone enquires about *IAC-042* look
-the number up here — or in **`Painting Reference List.md`**, the same list
-grouped by painter, which is rewritten each time you publish. Neither file is
-part of the website.
+**This spreadsheet is your master list of who painted what.** When someone
+enquires about *IAC-042* look the number up here — or in
+**`Painting Reference List.md`**, the same list grouped by painter, which is
+rewritten each time you publish. Neither file is part of the website.
 
 ### The reference numbers
 
@@ -164,7 +163,7 @@ Near the top there is one block per artist:
 | Part | What it is | Safe to change? |
 | --- | --- | --- |
 | `'gopal-naskar'` | the **key**, matching the start of that artist's photo filenames | only if you rename the photos too |
-| `name` | the painter's name — for your reference list only; it is never shown on the site | yes |
+| `name` | the painter's name, shown above each of their paintings and on the Meet the Artists page | yes |
 | `style` | which gallery tab their paintings appear under — see below | yes |
 | `bio` | the biography — kept for your records; it is not published | yes |
 
@@ -278,8 +277,8 @@ Everything routine lives in **`src/config.ts`**:
 | `STYLE_ORDER` | The gallery's tabs, in the order they are shown |
 
 The order the paintings hang in is **not** here: it is `ORDER` in
-`scripts/metadata.cjs`, alongside the artists themselves, so that no painter's
-name is carried into the website.
+`scripts/metadata.cjs`, alongside the artists themselves. The same order is
+used on the Meet the Artists page.
 
 ### The New Collection on the home page
 
