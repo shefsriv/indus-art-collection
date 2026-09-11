@@ -18,7 +18,10 @@ There are only three files, and only three.
 | **The gallery tabs** and their order | `src\config.ts` (Notepad) |
 
 Contact details — your email address and the two phone numbers — are also in
-`src\config.ts`, at the top.
+`src\config.ts`, at the top. So are the **FAQ questions** (under `faq:`, one
+`{ q: '…', a: '…' }` line per question), the **Enquire** word under each
+painting (`tile:`) and the **certificate line** in the enlarged view
+(`lightbox:`).
 
 Whichever you change, the last three steps are always the same:
 
@@ -196,6 +199,20 @@ Artists page — and the `bio` is the paragraph on that page.
 ⚠️ If you change a `name`, change it in **`ORDER`** too — the list lower down
 the same file that sets which painter's works hang first. A different spelling
 in the two places drops that painter to the end of every listing.
+
+## Keeping an artist off the website
+
+Open **`scripts\build-catalog.cjs`** in Notepad and find, near the top:
+
+```js
+const ARTIST_EXCLUDE = ['mehnaaz-bano-painting'];
+```
+
+Any painter whose photo filenames begin with a name in this list is skipped
+entirely: their photos and their block in `metadata.cjs` stay where they are,
+but nothing of theirs appears on the website. Mainaz Bano is kept off this way.
+To add another, put their key in quotes inside the brackets, separated by a
+comma; to publish someone again, remove their key. Then `add-art` as usual.
 
 ## To practise without publishing
 

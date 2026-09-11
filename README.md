@@ -5,6 +5,25 @@ paintings by Indian artists.
 
 Built with TypeScript and Vite, deployed free on GitHub Pages.
 
+## The pages
+
+| Page | Address | What is on it |
+| --- | --- | --- |
+| Home | `#/` | banner, *The artwork we present*, this week's **New Collection**, sign-up |
+| Gallery | `#/gallery` | every painting, with a tab per style and a search |
+| Artists | `#/artists` | **Meet the Artists** — each painter's name, style, biography and three previews; each opens `#/artist/<name>` with all their works |
+| About | `#/about` | who you are and what you offer |
+| News & Events | `#/news` | announcements |
+| FAQ | `#/faq` | questions and answers in groups, with *Explore the Collection* and *Request an Art Consultation* buttons |
+| Register | `#/register` | the mailing-list form |
+| Contact | `#/contact` | the enquiry form |
+
+Every painting is shown as a card: the **artist's name** in a strip above the
+picture, and below it the title and size/medium on the left with the
+**IAC reference** and an **Enquire** link on the right. Clicking the picture (or
+the reference) enlarges it; the enlarged view lists artist, reference, medium,
+size and price, then a gold seal with the certificate-of-authenticity line.
+
 ---
 
 ## Adding new paintings
@@ -165,7 +184,7 @@ Near the top there is one block per artist:
 | `'gopal-naskar'` | the **key**, matching the start of that artist's photo filenames | only if you rename the photos too |
 | `name` | the painter's name, shown above each of their paintings and on the Meet the Artists page | yes |
 | `style` | which gallery tab their paintings appear under — see below | yes |
-| `bio` | the biography — kept for your records; it is not published | yes |
+| `bio` | the biography — the paragraph shown on the Meet the Artists page and at the top of that artist's own page | yes |
 
 `style` must be spelt exactly as one of the gallery's tabs:
 
@@ -178,6 +197,21 @@ Ashok Rathod, Gopal Naskar and Umendra P. Singh are Contemporary; the folk and
 tribal collection is Traditional Folk Art. Change a line here and that painter's
 whole collection moves to another tab. A new name spelt differently from the
 ones above simply gets a tab of its own, at the end.
+
+### Keeping an artist off the website
+
+To keep a painter's work in your files but **not** publish it, add the start of
+their photo filenames to `ARTIST_EXCLUDE` near the top of
+`scripts/build-catalog.cjs`:
+
+```js
+const ARTIST_EXCLUDE = ['mehnaaz-bano-painting'];
+```
+
+Their photos stay in the source folder and their block stays in
+`metadata.cjs`, but nothing of theirs is built, numbered or shown — not in the
+gallery, not on the Artists page. Mainaz Bano is kept off this way today. To
+publish her later, delete her name from that list and run `add-art`.
 
 ### Updating an existing artist
 
