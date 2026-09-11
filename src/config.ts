@@ -312,6 +312,8 @@ export const TEXT = {
     ],
     contactHeading: 'Contact',
     enquiryLink: 'Send an enquiry',
+    // The very last line of every page reads "167 works · " followed by this.
+    artistsLine: 'various artists',
   },
 
   // ---- The enquiry form, wherever it appears ----

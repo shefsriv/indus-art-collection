@@ -167,7 +167,7 @@ function footer(): string {
         </div>
         <div class="footer-bottom">
           <span>© ${new Date().getFullYear()} ${esc(site.name)}. All artwork © the respective artists.</span>
-          <span>${catalog.works.length} works · ${catalog.artistCount} artists</span>
+          <span>${catalog.works.length} works · ${t(TEXT.footer.artistsLine)}</span>
         </div>
       </div>
     </footer>`;
@@ -190,14 +190,10 @@ function artGrid(works: Work[]): string {
         <img src="${asset(w.thumb)}" alt="${esc(workAlt(w))}" loading="lazy" />
       </div>
       <figcaption class="art-foot">
-        <div class="art-foot-main">
-          ${w.title ? `<strong>${esc(w.title)}</strong>` : ''}
-          <span class="spec">${esc(workLine(w))}</span>
-        </div>
-        <div class="art-foot-links">
-          <a class="ref" href="#/gallery?q=${esc(w.ref)}">${esc(w.ref)}</a>
-          <a class="enquire" href="#/contact?work=${encodeURIComponent(w.id)}">${t(TEXT.tile.enquire)}</a>
-        </div>
+        <a class="ref" href="#/gallery?q=${esc(w.ref)}">${esc(w.ref)}</a>
+        ${w.title ? `<strong>${esc(w.title)}</strong>` : ''}
+        <span class="spec">${esc(workLine(w))}</span>
+        <a class="enquire" href="#/contact?work=${encodeURIComponent(w.id)}">${t(TEXT.tile.enquire)}</a>
       </figcaption>
     </figure>`).join('')}</div>`;
 }
