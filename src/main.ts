@@ -167,7 +167,7 @@ function footer(): string {
         </div>
         <div class="footer-bottom">
           <span>© ${new Date().getFullYear()} ${esc(site.name)}. All artwork © the respective artists.</span>
-          <span>${catalog.works.length} works · ${t(TEXT.footer.artistsLine)}</span>
+          <span>${t(TEXT.footer.artistsLine)}</span>
         </div>
       </div>
     </footer>`;

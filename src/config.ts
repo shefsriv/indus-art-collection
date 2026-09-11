@@ -53,7 +53,7 @@ export const TEXT = {
   artists: {
     eyebrow: 'Our collection',
     heading: 'The artwork we present',
-    intro: 'Our collection brings together paintings in many styles by {artists} '
+    intro: 'Our collection brings together paintings in many styles by various '
       + 'artists, promoting painters from India and giving them an international '
       + 'platform to showcase their work. Every painting carries a reference '
       + 'number — quote it in an enquiry and we will send you the full details.',
@@ -94,7 +94,7 @@ export const TEXT = {
     heading: 'New Collection',
     intro: 'A changing selection from the collection, shown here first. '
       + 'Click any work to enlarge.',
-    button: 'See all {works} works',
+    button: 'See the full collection',
   },
 
   // ---- GALLERY PAGE ----
@@ -151,7 +151,7 @@ export const TEXT = {
     heading: 'News & Events',
     lede: 'Exhibitions, new arrivals and artist features.',
     itemHeading: 'The collection goes online',
-    itemBody: 'Indus Art Collection opens with {works} works by {artists} artists, '
+    itemBody: 'Indus Art Collection opens with a collection by various artists, '
       + 'spanning contemporary canvases and a large collection of folk and tribal '
       + 'painting.',
     note: 'Exhibition dates and gallery events will be announced here. Register below '
@@ -312,8 +312,8 @@ export const TEXT = {
     ],
     contactHeading: 'Contact',
     enquiryLink: 'Send an enquiry',
-    // The very last line of every page reads "167 works · " followed by this.
-    artistsLine: 'various artists',
+    // The very last line of every page, bottom right.
+    artistsLine: 'Original paintings by various artists',
   },
 
   // ---- The enquiry form, wherever it appears ----
