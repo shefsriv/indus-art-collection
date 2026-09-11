@@ -145,7 +145,7 @@ Every word on every page lives in **`src\config.ts`**, under a big block
 headed *EVERY WORD ON THE WEBSITE*. Open the file in Notepad (right-click →
 Open with → Notepad; not Word) and you will find the pages listed in the order
 a visitor meets them — home, artists (the "painters we represent" section),
-gallery, about, news, register, contact, footer.
+gallery, about, news, faq, register, contact, footer.
 
 Change the text between the quote marks. Four rules:
 

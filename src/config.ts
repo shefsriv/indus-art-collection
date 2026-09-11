@@ -134,6 +134,119 @@ export const TEXT = {
       + 'to be notified.',
   },
 
+  // ---- FAQ PAGE ----
+  // Questions are shown in groups, each group under its own small heading.
+  // Every question is  { q: 'the question', a: 'the answer' },  and a group is
+  // a heading plus a list of questions. Add, remove or reorder freely, keeping
+  // the quotes, the curly brackets and the commas.
+  faq: {
+    eyebrow: 'FAQ',
+    heading: 'Frequently Asked Questions',
+    lede: 'Everything you might want to know about the collection, choosing a '
+      + 'work, and how it reaches you.',
+    groups: [
+      { heading: 'About Indus Art Collection', items: [
+        { q: 'What makes Indus Art Collection different?',
+          a: 'We bring authentic, handcrafted artwork from talented artists in India '
+            + 'to collectors and art lovers in the U.S. and internationally. Our goal '
+            + 'is to give local artists an international platform while helping you '
+            + 'discover art with beauty, character, and a story.' },
+        { q: 'Where does your artwork come from?',
+          a: 'Our collection features artwork sourced from artists and galleries in '
+            + 'India, representing a range of Modern, Contemporary, cultural, '
+            + 'traditional, landscape, folk-inspired, and other artistic styles.' },
+        { q: 'Is the artwork handmade?',
+          a: 'Our collection focuses on authentic, handcrafted artwork, with '
+            + 'techniques and materials varying by artist. Artwork-specific details '
+            + 'are provided whenever available.' },
+        { q: 'What am I buying when I purchase artwork?',
+          a: 'You are purchasing more than décor—you are investing in a curated, '
+            + 'handcrafted piece of art created by an artist. Like fine jewelry or a '
+            + 'luxury piece, original art is chosen for its craftsmanship and '
+            + 'individuality, but it can also become a family heirloom—part of your '
+            + 'family\'s story today, and something your children can enjoy and pass '
+            + 'on to future generations.' },
+        { q: 'Do I receive a Certificate of Authenticity?',
+          a: 'Yes. Every original is sold with a signed Certificate of Authenticity '
+            + 'recording the artist, title, medium, dimensions, and year. Digital '
+            + 'copies are available on request.' },
+      ] },
+      { heading: 'Choosing artwork', items: [
+        { q: 'Can you help me choose the right artwork?',
+          a: 'Absolutely! Our art consultation service can help you select artwork '
+            + 'based on your space, décor, colors, style, size, and budget.' },
+        { q: 'Can I share a photo of my space?',
+          a: 'Yes. Send us a photo of your room or wall, along with the approximate '
+            + 'dimensions, and we can help you explore artwork that complements your '
+            + 'space.' },
+        { q: 'Do you offer customized sizes?',
+          a: 'Yes, custom sizes may be available for selected artwork. Contact us '
+            + 'with your requirements, and we will check with the artist and provide '
+            + 'options and pricing.' },
+        { q: 'Can you source artwork that isn\'t on your website?',
+          a: 'Yes. Through our relationships with artists and galleries in India and '
+            + 'other markets, we may be able to source artwork based on your '
+            + 'preferred style, subject, size, colors, medium, or budget.' },
+        { q: 'How is artwork priced, and how do I buy?',
+          a: 'Because works vary widely in size and medium, every painting is priced '
+            + 'on enquiry. Tell us the reference number of the piece that interests '
+            + 'you and we will reply with the price, availability, and shipping '
+            + 'options, then arrange payment and delivery with you directly.' },
+      ] },
+      { heading: 'Delivery and framing', items: [
+        { q: 'How long does it take to receive my artwork?',
+          a: 'Please allow approximately 8 weeks (about 2 months). Artwork is '
+            + 'shipped from India, typically rolled in a protective tube, framed in '
+            + 'the U.S., and then delivered to you. We recommend planning ahead for '
+            + 'gifts, special occasions, and design projects.' },
+        { q: 'Do you ship outside the U.S.?',
+          a: 'Yes. We arrange shipping worldwide. Delivery times and framing '
+            + 'arrangements vary by destination, so contact us with your location '
+            + 'and we will confirm the details before you order.' },
+        { q: 'Can I order artwork for a specific deadline?',
+          a: 'Yes. Please contact us before placing your order with your required '
+            + 'date. We will confirm whether the artwork can be delivered within your '
+            + 'timeframe.' },
+        { q: 'Will my painting arrive framed?',
+          a: 'Artwork may be shipped rolled in a protective tube for international '
+            + 'transportation. Once it arrives in the U.S., we coordinate framing '
+            + 'before final delivery when framing is included or requested.' },
+        { q: 'Can you help me select a frame?',
+          a: 'Yes. We can help you choose a framing direction that complements both '
+            + 'the artwork and your space.' },
+        { q: 'What if my artwork arrives damaged?',
+          a: 'Every piece is packed carefully and inspected before delivery. If it '
+            + 'arrives damaged, contact us within 48 hours with photographs and we '
+            + 'will put it right.' },
+      ] },
+      { heading: 'Designers, hotels and businesses', items: [
+        { q: 'Do you work with interior designers and architects?',
+          a: 'Yes. We can source individual pieces or curate collections for '
+            + 'residential, commercial, hospitality, and design projects based on '
+            + 'style, size, theme, quantity, and budget.' },
+        { q: 'Do you offer artwork for hotels and businesses?',
+          a: 'Yes. We can source artwork for hotels, restaurants, corporate offices, '
+            + 'luxury residences, healthcare spaces, and other commercial '
+            + 'environments, including larger coordinated collections.' },
+      ] },
+      { heading: 'Offers and getting started', items: [
+        { q: 'Do you offer discounts?',
+          a: 'We periodically offer special promotions around major Indian festivals '
+            + 'and special occasions. Follow us or check our website for current '
+            + 'offers.' },
+        { q: 'How do I get started?',
+          a: 'Browse our collection and find something that speaks to you. If you '
+            + 'need help, send us a photo of your space or contact us for a '
+            + 'personalized art consultation—we would love to help.' },
+      ] },
+    ],
+    exploreButton: 'Explore the Collection',
+    consultButton: 'Request an Art Consultation',
+    // The message the enquiry form starts with when someone clicks the
+    // consultation button above.
+    consultPrefill: 'I would like to request an art consultation. ',
+  },
+
   // ---- REGISTER PAGE, and the sign-up section at the foot of the home page ----
   register: {
     eyebrow: 'Register',
@@ -254,5 +367,6 @@ export const NAV = [
   { label: 'Gallery', href: '#/gallery' },
   { label: 'About', href: '#/about' },
   { label: 'News & Events', href: '#/news' },
+  { label: 'FAQ', href: '#/faq' },
   { label: 'Contact', href: '#/contact' },
 ];

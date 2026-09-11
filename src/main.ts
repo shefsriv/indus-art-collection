@@ -142,6 +142,7 @@ function footer(): string {
               <li><a href="#/gallery">Gallery</a> — the full catalogue</li>
               <li><a href="#/about">About</a> — who we are</li>
               <li><a href="#/news">News &amp; Events</a> — exhibitions</li>
+              <li><a href="#/faq">FAQ</a> — common questions</li>
             </ul>
           </div>
           <div>
@@ -369,15 +370,49 @@ function newsPage(): string {
     </section>`;
 }
 
-function contactPage(workId?: string): string {
-  // Arriving from a painting's Enquire Now button, the form already names it.
+function faqPage(): string {
+  // Each question is a native <details> block, so it opens and closes without
+  // any script and works with the keyboard and screen readers as it stands.
+  const groups = TEXT.faq.groups.map((g) => `
+    <h3>${t(g.heading)}</h3>
+    <div class="faq-list">
+      ${g.items.map((i) => `
+        <details class="faq-item">
+          <summary>${t(i.q)}</summary>
+          <p>${t(i.a)}</p>
+        </details>`).join('')}
+    </div>`).join('');
+
+  return `
+    <div class="wrap page-head">
+      <span class="eyebrow">${t(TEXT.faq.eyebrow)}</span>
+      <h1>${t(TEXT.faq.heading)}</h1>
+      ${TEXT.faq.lede ? `<p class="lede">${t(TEXT.faq.lede)}</p>` : ''}
+    </div>
+    <section class="section">
+      <div class="wrap"><div class="prose faq">
+        ${groups}
+        <div class="btn-row" style="justify-content:flex-start;margin-top:44px">
+          <a class="btn btn-dark" href="#/gallery">${t(TEXT.faq.exploreButton)}</a>
+          <a class="btn btn-dark" href="#/contact?topic=consultation">${t(TEXT.faq.consultButton)}</a>
+        </div>
+      </div></div>
+    </section>`;
+}
+
+function contactPage(workId?: string, topic?: string): string {
+  // Arriving from a painting's Enquire Now button, the form already names it;
+  // arriving from the FAQ's consultation button, it asks for a consultation.
   const work = workId ? catalog.works.find((w) => w.id === workId) : undefined;
+  const consult = topic === 'consultation';
   const subject = work
     ? `Indus Art Collection — enquiry: ${workLabel(work)}`
+    : consult ? 'Indus Art Collection — art consultation'
     : 'Indus Art Collection — enquiry';
   const prefill = work
     ? `I would like to enquire about ${workLabel(work)}${work.size ? ` (${work.size})` : ''}. `
       + 'Please send price, availability and shipping.'
+    : consult ? TEXT.faq.consultPrefill
     : '';
 
   return `
@@ -569,8 +604,9 @@ function render(): void {
   else if (parts[0] === 'gallery') body = galleryPage(query.get('style') || 'All', search);
   else if (parts[0] === 'about') body = aboutPage();
   else if (parts[0] === 'news') body = newsPage();
+  else if (parts[0] === 'faq') body = faqPage();
   else if (parts[0] === 'register') body = registerPage();
-  else if (parts[0] === 'contact') body = contactPage(query.get('work') || undefined);
+  else if (parts[0] === 'contact') body = contactPage(query.get('work') || undefined, query.get('topic') || undefined);
   else body = notFound();
 
   app.innerHTML = header(routeKey, search) + `<main>${body}</main>` + footer() + lightboxMarkup() +
