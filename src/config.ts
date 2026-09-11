@@ -195,10 +195,10 @@ export const TEXT = {
       ] },
       { heading: 'Delivery and framing', items: [
         { q: 'How long does it take to receive my artwork?',
-          a: 'Please allow approximately 8 weeks (about 2 months). Artwork is '
-            + 'shipped from India, typically rolled in a protective tube, framed in '
-            + 'the U.S., and then delivered to you. We recommend planning ahead for '
-            + 'gifts, special occasions, and design projects.' },
+          a: 'Please allow approximately 8 weeks (about 2 months) from order to '
+            + 'delivery, as each piece travels from India and is prepared for you '
+            + 'before it is delivered. We recommend planning ahead for gifts, '
+            + 'special occasions, and design projects.' },
         { q: 'Do you ship outside the U.S.?',
           a: 'Yes. We arrange shipping worldwide. Delivery times and framing '
             + 'arrangements vary by destination, so contact us with your location '
@@ -208,12 +208,13 @@ export const TEXT = {
             + 'date. We will confirm whether the artwork can be delivered within your '
             + 'timeframe.' },
         { q: 'Will my painting arrive framed?',
-          a: 'Artwork may be shipped rolled in a protective tube for international '
-            + 'transportation. Once it arrives in the U.S., we coordinate framing '
-            + 'before final delivery when framing is included or requested.' },
-        { q: 'Can you help me select a frame?',
-          a: 'Yes. We can help you choose a framing direction that complements both '
-            + 'the artwork and your space.' },
+          a: 'Yes. When framing is included or requested, your artwork is delivered '
+            + 'framed and ready to hang. We select a frame that complements the '
+            + 'work, so there is nothing for you to arrange.' },
+        { q: 'Can I choose the frame myself?',
+          a: 'For most works we take care of framing for you. For selected '
+            + 'higher-value pieces we are happy to discuss framing options that suit '
+            + 'both the artwork and your space—just ask when you enquire.' },
         { q: 'What if my artwork arrives damaged?',
           a: 'Every piece is packed carefully and inspected before delivery. If it '
             + 'arrives damaged, contact us within 48 hours with photographs and we '
