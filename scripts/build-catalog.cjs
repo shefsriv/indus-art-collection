@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 const ExcelJS = require('exceljs');
-const { artists, works, ORDER, FRAMED } = require('./metadata.cjs');
+const { artists, works, ORDER, FRAMED, WORK_EXCLUDE, NOCROP } = require('./metadata.cjs');
 const { findCropBox, findFrameBox } = require('./autocrop.cjs');
 
 const SRC = process.env.ART_SRC || 'C:/Users/shefs/indus-art-source';
@@ -76,6 +76,7 @@ const isMono = (base) =>
 const ARTIST_EXCLUDE = ['mehnaaz-bano-painting'];
 
 const isExcluded = (base) => {
+  if (WORK_EXCLUDE.includes(base)) return true;
   if (ARTIST_EXCLUDE.some((p) => base.startsWith(p))) return true;
   if (!base.startsWith(FOLK_PREFIX)) return false;
   return FOLK_EXCLUDE.has(parseInt(base.slice(FOLK_PREFIX.length), 10));
@@ -84,6 +85,12 @@ const isExcluded = (base) => {
 const artistKeyOf = (base) => {
   const keys = Object.keys(artists).sort((a, b) => b.length - a.length);
   return keys.find((k) => base.startsWith(k));
+};
+
+/** The full extent of a photograph, for those already trimmed by hand. */
+const wholeImage = async (src) => {
+  const { width, height } = await sharp(src).metadata();
+  return { left: 0, top: 0, width, height };
 };
 
 /** A painter's name as a web address: 'M. D. Ishak' → 'm-d-ishak'. */
@@ -189,7 +196,8 @@ function refFor(refs, base) {
 
     // Discard the page margin and the caption the artist printed under the
     // work — or, for a work photographed in its frame, the frame and mount.
-    const box = FRAMED.includes(base) ? await findFrameBox(src) : await findCropBox(src);
+    const box = NOCROP.includes(base) ? await wholeImage(src)
+      : FRAMED.includes(base) ? await findFrameBox(src) : await findCropBox(src);
     const width = box.width;
     const height = box.height;
 

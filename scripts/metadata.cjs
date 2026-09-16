@@ -95,6 +95,30 @@ const artists = {
     bio: 'Umesh Kumar Saxena paints translucent, petal-like forms that float '
       + 'against dark grounds, suspended between botanical study and abstraction.',
   },
+  'santosh-kumar-shandilya': {
+    name: 'Santosh Kumar Shandilya',
+    style: 'Impressionism',
+    bio: 'Santosh Kumar Shandilya paints the ghats of Varanasi in oil and acrylic '
+      + 'on linen canvas — temples, boats and river steps caught in shifting '
+      + 'light, from dawn haze to lamplit evenings.',
+  },
+  'swapon-roy': {
+    name: 'Swapon Roy',
+    style: 'Realism',
+    bio: 'Swapon Roy paints the Buddha in acrylic and oil — serene golden figures '
+      + 'set against carved stone, temple doorways and luminous skies, with doves '
+      + 'and butterflies as emblems of peace.',
+  },
+  // The portraits arrived without a painter's name. Replace both the name and
+  // the biography once it is known — and add the name to ORDER below.
+  'portrait': {
+    name: 'Unknown Artist',
+    style: 'Contemporary',
+    bio: 'A series of vivid, close-cropped portraits in acrylic, the faces built '
+      + 'from patches of saturated colour and scored texture, with lotus, '
+      + 'butterfly and jewel motifs woven through. The painter\'s name is being '
+      + 'confirmed.',
+  },
   'india-folk-tribal-paintings-song-collection-2604-260408-001807': {
     name: 'Folk & Tribal Masters',
     style: 'Traditional Folk Art',
@@ -122,6 +146,39 @@ const works = {
   'kandan-g-2': { title: '', size: '24 x 48 in / 61 x 122 cm', medium: 'Acrylic on canvas', year: '2024', ref: '1028' },
   'kandan-g-3': { title: '', size: '36 x 60 in / 92 x 153 cm', medium: 'Acrylic on canvas', year: '2025', ref: '1060' },
   'kandan-g-4': { title: '', size: '36 x 60 in / 92 x 153 cm', medium: 'Acrylic on canvas', year: '2025', ref: '1061' },
+  // added September 2026, read from the caption strips
+  'kandan-g-5': { title: '', size: '36 x 65 in / 91 x 165 cm', medium: 'Acrylic on canvas', year: '2025', ref: '1064' },
+  'kandan-g-6': { title: '', size: '36 x 65 in / 91 x 165 cm', medium: 'Acrylic on canvas', year: '2025' },
+  'kandan-g-7': { title: '', size: '38 x 74 in / 97 x 187 cm', medium: 'Acrylic on canvas' },
+  'kandan-g-8': { title: '', size: '36 x 60 in / 91 x 152 cm', medium: 'Acrylic on canvas', year: '2025' },
+
+  // details to come; the numbering follows Shefali's files (there is no 7)
+  'santosh-kumar-shandilya-1': { title: '', size: '', medium: '' },
+  'santosh-kumar-shandilya-2': { title: '', size: '', medium: '' },
+  'santosh-kumar-shandilya-3': { title: '', size: '', medium: '' },
+  'santosh-kumar-shandilya-4': { title: '', size: '', medium: '' },
+  'santosh-kumar-shandilya-5': { title: '', size: '', medium: '' },
+  'santosh-kumar-shandilya-6': { title: '', size: '', medium: '' },
+  'santosh-kumar-shandilya-8': { title: '', size: '', medium: '' },
+  'santosh-kumar-shandilya-9': { title: '', size: '', medium: '' },
+
+  'swapon-roy-1': { title: 'Front the Door', size: '36 x 48 in', medium: 'Acrylic and oil on canvas' },
+  'swapon-roy-2': { title: 'Eternal Peace', size: '30 x 40 in', medium: 'Acrylic and oil on canvas', year: '2026' },
+  'swapon-roy-3': { title: 'Another Way', size: '30 x 40 in', medium: 'Acrylic and oil on canvas' },
+  'swapon-roy-4': { title: 'At Nalanda', size: '36 x 48 in', medium: 'Acrylic and oil on canvas' },
+
+  // Portrait 2 was the same picture as Portrait 1, so there is no portrait-2
+  'portrait-1': { title: '', size: '', medium: '' },
+  'portrait-3': { title: '', size: '', medium: '' },
+  'portrait-4': { title: '', size: '', medium: '' },
+  'portrait-5': { title: '', size: '', medium: '' },
+  'portrait-6': { title: '', size: '', medium: '' },
+  'portrait-7': { title: '', size: '', medium: '' },
+  'portrait-8': { title: '', size: '', medium: '' },
+  'portrait-9': { title: '', size: '', medium: '' },
+  'portrait-10': { title: '', size: '', medium: '' },
+  'portrait-11': { title: '', size: '', medium: '' },
+  'portrait-12': { title: '', size: '', medium: '' },
 
   'm-salim-painting-1': { title: '', size: '', medium: '' },
   'm-salim-painting-2': { title: '', size: '', medium: '' },
@@ -156,6 +213,11 @@ const works = {
   'umesh-ji-4': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
   'umesh-ji-5': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
   'umesh-ji-6': { title: '', size: '36 x 72 in', medium: 'Acrylic on canvas', year: '2025' },
+  // added September 2026 — two-panel works, captioned "Painting 20/2025"
+  'umesh-ji-7': { title: '', size: '48 x 84 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-8': { title: '', size: '48 x 84 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-9': { title: '', size: '48 x 84 in', medium: 'Acrylic on canvas', year: '2025' },
+  'umesh-ji-10': { title: '', size: '48 x 84 in', medium: 'Acrylic on canvas', year: '2025' },
   'umesh-kumar-saxena-painting-1-1': { title: 'Triptych', size: '18 x 60 in each', medium: 'Acrylic on canvas' },
   'umesh-kumar-saxena-painting-1-2': { title: 'Triptych', size: '18 x 60 in each', medium: 'Acrylic on canvas' },
 };
@@ -187,8 +249,39 @@ const ORDER = [
   'Gopal Naskar',
   'Umendra P. Singh',
   'M. Salim',
+  'Santosh Kumar Shandilya',
+  'Swapon Roy',
+  'Unknown Artist',
   'Folk & Tribal Masters',
   'N. K. Mishra',
 ];
 
-module.exports = { artists, works, ORDER, FRAMED };
+// Paintings kept in the source folder but taken off the website. One source
+// filename (without extension) per line. To bring one back, delete its line;
+// to remove another, add it. Renumber afterwards so the references stay in
+// sequence:   node scripts/build-catalog.cjs --renumber
+const WORK_EXCLUDE = [
+  // M. D. Ishak — the landscapes Shefali withdrew in September 2026
+  'm-d-ishak-5', 'm-d-ishak-6', 'm-d-ishak-7', 'm-d-ishak-11', 'm-d-ishak-14',
+  'm-d-ishak-15', 'm-d-ishak-20', 'm-d-ishak-22', 'm-d-ishak-23', 'm-d-ishak-24',
+  'm-d-ishak-27', 'm-d-ishak-30', 'm-d-ishak-31', 'm-d-ishak-32', 'm-d-ishak-34',
+  'm-d-ishak-35', 'm-d-ishak-36', 'm-d-ishak-37', 'm-d-ishak-38', 'm-d-ishak-39',
+  'm-d-ishak-41', 'm-d-ishak-42', 'm-d-ishak-43', 'm-d-ishak-44', 'm-d-ishak-45',
+  'm-d-ishak-46', 'm-d-ishak-47', 'm-d-ishak-48', 'm-d-ishak-49', 'm-d-ishak-50',
+  'm-d-ishak-51', 'm-d-ishak-52', 'm-d-ishak-53', 'm-d-ishak-54', 'm-d-ishak-55',
+  'm-d-ishak-56', 'm-d-ishak-57', 'm-d-ishak-58', 'm-d-ishak-59', 'm-d-ishak-60',
+  'm-d-ishak-61', 'm-d-ishak-62', 'm-d-ishak-63', 'm-d-ishak-64', 'm-d-ishak-65',
+  'm-d-ishak-66', 'm-d-ishak-67',
+];
+
+// Photographs already trimmed to the painting, which the automatic crop must
+// leave alone. Umesh Kumar Saxena's two-panel works are here because the pale
+// gap between the panels made the crop keep only one of them.
+const NOCROP = [
+  'umesh-ji-7',
+  'umesh-ji-8',
+  'umesh-ji-9',
+  'umesh-ji-10',
+];
+
+module.exports = { artists, works, ORDER, FRAMED, WORK_EXCLUDE, NOCROP };

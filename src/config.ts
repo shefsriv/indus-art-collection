@@ -369,8 +369,12 @@ export const CONTACTS: Contact[] = [
 // section falls back to the first twelve paintings, so the page is never bare.
 // ===========================================================================
 export const NEW_COLLECTION = [
-  'IAC-001 - IAC-008',   // Umesh Kumar Saxena
-  'IAC-009 - IAC-012',   // Kandan G
+  // September 2026 arrivals
+  'IAC-007 - IAC-010',   // Umesh Kumar Saxena — four new two-panel works
+  'IAC-017 - IAC-020',   // Kandan G — four new works
+  'IAC-060 - IAC-067',   // Santosh Kumar Shandilya — Varanasi ghats
+  'IAC-068 - IAC-071',   // Swapon Roy — Buddha
+  'IAC-072 - IAC-082',   // the portraits (artist to be confirmed)
 ];
 
 // The gallery's tabs, in the order they are shown. A tab appears only when
