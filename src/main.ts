@@ -184,7 +184,7 @@ function footer(): string {
 function artGrid(works: Work[]): string {
   if (!works.length) return `<p style="text-align:center;color:var(--ink-soft)">No works to show.</p>`;
   return `<div class="art-grid">${works.map((w) => `
-    <figure class="art-item" data-id="${esc(w.id)}">
+    <figure class="art-item${w.wide ? ' wide' : ''}" data-id="${esc(w.id)}">
       <a class="art-head" href="#/artist/${esc(w.artistId)}">${esc(w.artist)}</a>
       <div class="frame">
         <img src="${asset(w.thumb)}" alt="${esc(workAlt(w))}" loading="lazy" />

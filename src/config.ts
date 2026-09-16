@@ -374,7 +374,10 @@ export const NEW_COLLECTION = [
   'IAC-017 - IAC-020',   // Kandan G — four new works
   'IAC-060 - IAC-067',   // Santosh Kumar Shandilya — Varanasi ghats
   'IAC-068 - IAC-071',   // Swapon Roy — Buddha
-  'IAC-072 - IAC-082',   // the portraits (artist to be confirmed)
+  'IAC-072',             // four of the portraits (artist to be confirmed)
+  'IAC-074',
+  'IAC-077',
+  'IAC-082',
 ];
 
 // The gallery's tabs, in the order they are shown. A tab appears only when

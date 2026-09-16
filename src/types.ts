@@ -14,6 +14,8 @@ export interface Work {
   description: string;
   /** Painted in a single pigment — these hang before the coloured works. */
   mono: boolean;
+  /** Wide-format: shown two columns across, with an 8:5 thumbnail. */
+  wide: boolean;
   aspect: number;
   thumb: string;
   full: string;

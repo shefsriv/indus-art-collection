@@ -250,7 +250,12 @@ h3 { font-size: 1.3rem; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 46px 34px;
+  /* wide tiles take two columns; dense packing fills the gap that would
+     otherwise open when one lands at the end of a row */
+  grid-auto-flow: dense;
 }
+.art-item.wide { grid-column: span 2; }
+.art-item.wide .frame { aspect-ratio: 8 / 5; }
 /* A tile is a small card: the artist's name in a strip above the picture, the
    details and links in a strip below it. */
 .art-item {
