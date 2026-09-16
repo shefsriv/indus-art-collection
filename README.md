@@ -77,11 +77,11 @@ Better still, photograph the canvas before it is framed.
 
 **A photograph you have already trimmed yourself** (or one the automatic crop
 gets wrong, such as a two-panel work with a pale gap between the panels) goes in
-the  list in the same file, and is then used exactly as it is.
+the `NOCROP` list in the same file, and is then used exactly as it is.
 
 **To take a painting off the website** without deleting its photo, add its
-filename (without the extension) to the  list in
-, then renumber (see *The reference numbers* below) so
+filename (without the extension) to the `WORK_EXCLUDE` list in
+`scripts/metadata.cjs`, then renumber (see *The reference numbers* below) so
 the references close up. The 47 M. D. Ishak landscapes withdrawn in September
 2026 are listed there.
 
