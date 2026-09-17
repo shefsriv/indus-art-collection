@@ -18,11 +18,12 @@ Built with TypeScript and Vite, deployed free on GitHub Pages.
 | Register | `#/register` | the mailing-list form |
 | Contact | `#/contact` | the enquiry form |
 
-Every painting is shown as a card: the **artist's name** in a strip above the
-picture, and below it the title and size/medium on the left with the
-**IAC reference** and an **Enquire** link on the right. Clicking the picture (or
-the reference) enlarges it; the enlarged view lists artist, reference, medium,
-size and price, then a gold seal with the certificate-of-authenticity line.
+Every painting is shown as a card, all centred: the **artist's name** in a
+strip above the picture, then beneath it the **IAC reference**, the title and
+size/medium, and an **Enquire** link. Clicking the picture (or the reference)
+enlarges it; the enlarged view lists artist, reference, medium, size and price,
+then a gold seal with the certificate-of-authenticity line. Enlarged images are
+capped at 1200 px and watermarked (see *Image size and watermark* below).
 
 ---
 
