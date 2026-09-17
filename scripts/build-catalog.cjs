@@ -28,7 +28,26 @@ const LIST_FILE = path.join(ROOT, 'Painting Reference List.md');
 const TILE_W = 760;
 const TILE_H = 950;
 const MAT = '#f4f1ea';
-const FULL_W = 2000;
+// The enlarged view. Kept to screen size on purpose: crisp on a monitor, but
+// too small to print well, so a saved copy is of little use.
+const FULL_W = 1200;
+
+/**
+ * A discreet watermark for the enlarged image — the site's name and the
+ * painting's reference in the bottom-right corner, white with a dark edge so
+ * it reads on light and dark paintings alike. The thumbnails stay clean.
+ */
+const watermark = (w, h, ref) => {
+  const size = Math.max(15, Math.round(w / 42));
+  const pad = Math.round(size * 0.9);
+  const text = `Indus Art Collection · ${ref}`;
+  return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+    <text x="${w - pad}" y="${h - pad}" text-anchor="end"
+      font-family="Georgia, serif" font-size="${size}" letter-spacing="1"
+      fill="#fff" fill-opacity="0.8" stroke="#000" stroke-opacity="0.55"
+      stroke-width="${(size / 9).toFixed(2)}" paint-order="stroke">${text}</text>
+  </svg>`);
+};
 
 // Pages of the folk-collection document that are not a work to sell. Two kinds:
 // page furniture and studio clutter (a locator map, the blank back of a canvas,
@@ -205,8 +224,11 @@ function refFor(refs, base) {
       .resize(TILE_W, TILE_H, { fit: 'contain', background: MAT })
       .jpeg({ quality: 80, mozjpeg: true }).toFile(path.join(THUMB_DIR, `${id}.jpg`));
 
-    await sharp(src).extract(box)
-      .resize({ width: FULL_W, withoutEnlargement: true })
+    const fullBuf = await sharp(src).extract(box)
+      .resize({ width: FULL_W, withoutEnlargement: true }).toBuffer();
+    const fullMeta = await sharp(fullBuf).metadata();
+    await sharp(fullBuf)
+      .composite([{ input: watermark(fullMeta.width, fullMeta.height, ref) }])
       .jpeg({ quality: 86, mozjpeg: true }).toFile(path.join(FULL_DIR, `${id}.jpg`));
 
     // The painter is named on the website — above each painting and on the
