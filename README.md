@@ -203,9 +203,11 @@ Near the top there is one block per artist:
 `Traditional Folk Art`
 
 Today: Umesh Kumar Saxena is Abstract; Kandan G and Nirakar Chaudhary are
-Modern; M. Salim and N. K. Mishra are Impressionism; M. D. Ishak is Realism;
-Ashok Rathod, Gopal Naskar and Umendra P. Singh are Contemporary; the folk and
-tribal collection is Traditional Folk Art. Change a line here and that painter's
+Modern; M. Salim, N. K. Mishra and Santosh Kumar Shandilya are Impressionism;
+M. D. Ishak and Swapon Roy are Realism; Ashok Rathod, Gopal Naskar, Umendra P.
+Singh and the portraits (listed as "Unknown Artist" until the painter is
+confirmed — key `portrait`) are Contemporary; the folk and tribal collection is
+Traditional Folk Art. Change a line here and that painter's
 whole collection moves to another tab. A new name spelt differently from the
 ones above simply gets a tab of its own, at the end.
 
@@ -386,6 +388,25 @@ pick up.
 To move the forms to a different account or service, replace `formspree` in
 `src/config.ts` with the new endpoint. Left blank, the forms fall back to
 opening the visitor's own email app.
+
+### Phone numbers and calling hours
+
+The two numbers on the Contact page and in the footer are the `CONTACTS` list
+near the bottom of `src/config.ts`. Each line has a `region`, a `phone` and
+an optional `hours` line, which is shown under the number on the Contact page
+only ("9 am – 5 pm, Monday to Friday (Arizona time)"). Add or remove a line and
+both pages update.
+
+### Image size and watermark
+
+The enlarged view serves images no wider than 1200 px — clear on a screen, too
+small to print well. Each one also carries a small watermark in the bottom-right
+corner, *Indus Art Collection · IAC-042*, stamped when the site is built; the
+thumbnails stay clean, and your master photos in the source folder are never
+touched. Both live near the top of `scripts/build-catalog.cjs`: `FULL_W` is
+the size cap and the `watermark` block just below it sets the wording, size
+and strength. Nothing on a website can stop a determined copier — a screenshot
+always works — so this is about making a copy less useful, not impossible.
 
 ### Using your own domain name
 

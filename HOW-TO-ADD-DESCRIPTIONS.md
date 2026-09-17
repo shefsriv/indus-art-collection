@@ -115,7 +115,10 @@ Close the dark window. Done.
 ## Changing the New Collection each week
 
 The home page shows one section of paintings, headed **New Collection**. You
-choose which paintings appear there.
+choose which paintings appear there. It is a shop window, not a separate
+collection: every painting stays in the gallery for good, and the New
+Collection simply rotates — new arrivals go in, older ones drop off the home
+page but remain in the gallery.
 
 1. Open **`Painting Reference List.md`** and find the artist you want to show
    this week. Note their first and last reference number — say IAC-082 to
@@ -125,8 +128,9 @@ choose which paintings appear there.
 
    ```js
    export const NEW_COLLECTION = [
-     'IAC-001 - IAC-008',   // Umesh Kumar Saxena
-     'IAC-009 - IAC-012',   // Kandan G
+     'IAC-007 - IAC-010',   // Umesh Kumar Saxena — four new two-panel works
+     'IAC-017 - IAC-020',   // Kandan G — four new works
+     'IAC-072',             // a single painting
    ];
    ```
 
@@ -199,6 +203,31 @@ Artists page — and the `bio` is the paragraph on that page.
 ⚠️ If you change a `name`, change it in **`ORDER`** too — the list lower down
 the same file that sets which painter's works hang first. A different spelling
 in the two places drops that painter to the end of every listing.
+
+## Taking individual paintings off the website
+
+To remove particular paintings (rather than a whole artist), open
+**`scripts\metadata.cjs`** in Notepad and find the `WORK_EXCLUDE` list near
+the bottom. Add the photo's filename without its extension, in quotes, ending
+with a comma — `'m-d-ishak-5',`. Look the filename up in
+`Painting Reference List.md` (the *Photograph* column). The photo stays in the
+source folder, so deleting the line brings the painting back.
+
+Removing paintings leaves holes in the numbering, so afterwards run
+
+```
+node scripts\build-catalog.cjs --renumber
+npm.cmd run add-art
+```
+
+⚠️ Renumbering changes every reference after the first hole. Anyone you have
+quoted a number to needs the new list.
+
+## Calling hours on the Contact page
+
+Under each phone number the Contact page shows when someone will answer. Both
+are in **`src\config.ts`** near the bottom, on the two `CONTACTS` lines —
+change the text after `hours:` between the quote marks.
 
 ## Keeping an artist off the website
 

@@ -123,9 +123,22 @@ painting inherited its old number.
 Shefali objected to the home page repeating what the gallery already holds:
 "the point of all in next page gallery defeats the purpose". So the one grid of
 paintings on the home page is the **New Collection** — a rotating selection she
-changes weekly, chosen by reference number in `NEW_COLLECTION` in
+changes as work arrives, chosen by reference number in `NEW_COLLECTION` in
 `src/config.ts` (ranges like `'IAC-001 - IAC-008'`, one line per artist). Keep
-that section a selection; do not let it drift back into showing everything. The
+that section a selection; do not let it drift back into showing everything.
+
+**"Update the New Collection with these paintings" means two things at once:**
+add them to the gallery permanently *and* make them the home-page selection.
+Nothing leaves the gallery to make room — the old New Collection works simply
+stop being featured. She was explicit: "the new collection will be rotated by
+adding new paintings in it and removing the old one but it will stay in the
+gallery." Removals from the gallery happen only when she lists reference
+numbers to remove; never infer one, and never ask whether existing work should
+go. New photographs usually land in `C:\Users\shefs\Documents\Paintings` —
+loose JPEGs, or pictures inside .docx/.pdf files — not in the source folder;
+copying them into `indus-art-source` under the right artist key is part of the
+job. Read the caption strips for sizes and media, and write a short biography
+for a new painter from the work itself, flagging it for her to correct. The
 home page is now banner → *The artwork we present* → *New Collection* →
 sign-up, and nothing else: the folk and tribal section that used to sit below
 was removed for the same reason. Everything else belongs in the gallery.
@@ -134,6 +147,33 @@ Gallery tabs come from each artist's `style` in `scripts/metadata.cjs`, ordered
 by `STYLE_ORDER` in `src/config.ts`: Modern, Contemporary, Abstract,
 Impressionism, Realism, Traditional Folk Art. A tab is rendered only when works
 of that style exist, so new styles can be listed before their first painting.
+
+## Withdrawing paintings, hand-trimmed photos, and tile size
+
+`WORK_EXCLUDE` in `scripts/metadata.cjs` lists source filenames kept in the
+folder but not built; `ARTIST_EXCLUDE` in `build-catalog.cjs` does the same
+for a whole painter (Mainaz Bano). After a withdrawal, renumber — she wants no
+gaps — and say in the report that quoted numbers have changed.
+
+`NOCROP` in `metadata.cjs` lists photographs to use whole. It exists because
+Umesh Kumar Saxena's two-panel works have a pale gap between the panels that
+made `findCropBox` keep only one panel (or keep the caption strip); those four
+were trimmed by hand in the source folder instead.
+
+Every tile is the same 4:5 box, so wide paintings show small. In September
+2026 wide works were tried at double width (two grid columns, `grid-auto-flow:
+dense`); she rejected it because dense packing shuffled the reference order —
+"I want the numbering to stay consistent" — and it was reverted. Do not bring
+it back. A grid with fewer, larger columns is the only order-preserving way to
+make them bigger, and only if she asks.
+
+## Protecting the images
+
+Enlarged images are capped at `FULL_W = 1200` px and carry a corner
+watermark, *Indus Art Collection · IAC-###*, composited at build time by the
+`watermark` helper in `build-catalog.cjs`; thumbnails are clean, and source
+photos untouched. This was her choice after being told plainly that nothing
+stops a screenshot. Right-click blocking was offered and declined.
 
 ## The blank-page trap
 
