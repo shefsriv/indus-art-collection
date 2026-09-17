@@ -106,7 +106,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.005,
       "thumb": "art/thumb/iac-001.jpg",
       "full": "art/full/iac-001.jpg"
@@ -123,7 +122,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.4914,
       "thumb": "art/thumb/iac-002.jpg",
       "full": "art/full/iac-002.jpg"
@@ -140,7 +138,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.4764,
       "thumb": "art/thumb/iac-003.jpg",
       "full": "art/full/iac-003.jpg"
@@ -157,7 +154,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.508,
       "thumb": "art/thumb/iac-004.jpg",
       "full": "art/full/iac-004.jpg"
@@ -174,7 +170,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.5122,
       "thumb": "art/thumb/iac-005.jpg",
       "full": "art/full/iac-005.jpg"
@@ -191,7 +186,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.4917,
       "thumb": "art/thumb/iac-006.jpg",
       "full": "art/full/iac-006.jpg"
@@ -208,7 +202,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.7519,
       "thumb": "art/thumb/iac-007.jpg",
       "full": "art/full/iac-007.jpg"
@@ -225,7 +218,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.7714,
       "thumb": "art/thumb/iac-008.jpg",
       "full": "art/full/iac-008.jpg"
@@ -242,7 +234,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.7574,
       "thumb": "art/thumb/iac-009.jpg",
       "full": "art/full/iac-009.jpg"
@@ -259,7 +250,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.8135,
       "thumb": "art/thumb/iac-010.jpg",
       "full": "art/full/iac-010.jpg"
@@ -276,7 +266,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9566,
       "thumb": "art/thumb/iac-011.jpg",
       "full": "art/full/iac-011.jpg"
@@ -293,7 +282,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9523,
       "thumb": "art/thumb/iac-012.jpg",
       "full": "art/full/iac-012.jpg"
@@ -310,7 +298,6 @@
       "year": "2024",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.5054,
       "thumb": "art/thumb/iac-013.jpg",
       "full": "art/full/iac-013.jpg"
@@ -327,7 +314,6 @@
       "year": "2024",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.4998,
       "thumb": "art/thumb/iac-014.jpg",
       "full": "art/full/iac-014.jpg"
@@ -344,7 +330,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6092,
       "thumb": "art/thumb/iac-015.jpg",
       "full": "art/full/iac-015.jpg"
@@ -361,7 +346,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.5481,
       "thumb": "art/thumb/iac-016.jpg",
       "full": "art/full/iac-016.jpg"
@@ -378,7 +362,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.7701,
       "thumb": "art/thumb/iac-017.jpg",
       "full": "art/full/iac-017.jpg"
@@ -395,7 +378,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.7999,
       "thumb": "art/thumb/iac-018.jpg",
       "full": "art/full/iac-018.jpg"
@@ -412,7 +394,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.9353,
       "thumb": "art/thumb/iac-019.jpg",
       "full": "art/full/iac-019.jpg"
@@ -429,7 +410,6 @@
       "year": "2025",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.8001,
       "thumb": "art/thumb/iac-020.jpg",
       "full": "art/full/iac-020.jpg"
@@ -446,7 +426,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.2913,
       "thumb": "art/thumb/iac-021.jpg",
       "full": "art/full/iac-021.jpg"
@@ -463,7 +442,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 2.7484,
       "thumb": "art/thumb/iac-022.jpg",
       "full": "art/full/iac-022.jpg"
@@ -480,7 +458,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9912,
       "thumb": "art/thumb/iac-023.jpg",
       "full": "art/full/iac-023.jpg"
@@ -497,7 +474,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0023,
       "thumb": "art/thumb/iac-024.jpg",
       "full": "art/full/iac-024.jpg"
@@ -514,7 +490,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0111,
       "thumb": "art/thumb/iac-025.jpg",
       "full": "art/full/iac-025.jpg"
@@ -531,7 +506,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1,
       "thumb": "art/thumb/iac-026.jpg",
       "full": "art/full/iac-026.jpg"
@@ -548,7 +522,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9951,
       "thumb": "art/thumb/iac-027.jpg",
       "full": "art/full/iac-027.jpg"
@@ -565,7 +538,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9718,
       "thumb": "art/thumb/iac-028.jpg",
       "full": "art/full/iac-028.jpg"
@@ -582,7 +554,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9974,
       "thumb": "art/thumb/iac-029.jpg",
       "full": "art/full/iac-029.jpg"
@@ -599,7 +570,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0109,
       "thumb": "art/thumb/iac-030.jpg",
       "full": "art/full/iac-030.jpg"
@@ -616,7 +586,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0208,
       "thumb": "art/thumb/iac-031.jpg",
       "full": "art/full/iac-031.jpg"
@@ -633,7 +602,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0024,
       "thumb": "art/thumb/iac-032.jpg",
       "full": "art/full/iac-032.jpg"
@@ -650,7 +618,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9941,
       "thumb": "art/thumb/iac-033.jpg",
       "full": "art/full/iac-033.jpg"
@@ -667,7 +634,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9988,
       "thumb": "art/thumb/iac-034.jpg",
       "full": "art/full/iac-034.jpg"
@@ -684,7 +650,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0024,
       "thumb": "art/thumb/iac-035.jpg",
       "full": "art/full/iac-035.jpg"
@@ -701,7 +666,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1,
       "thumb": "art/thumb/iac-036.jpg",
       "full": "art/full/iac-036.jpg"
@@ -718,7 +682,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0293,
       "thumb": "art/thumb/iac-037.jpg",
       "full": "art/full/iac-037.jpg"
@@ -735,7 +698,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0228,
       "thumb": "art/thumb/iac-038.jpg",
       "full": "art/full/iac-038.jpg"
@@ -752,7 +714,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9872,
       "thumb": "art/thumb/iac-039.jpg",
       "full": "art/full/iac-039.jpg"
@@ -769,7 +730,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9885,
       "thumb": "art/thumb/iac-040.jpg",
       "full": "art/full/iac-040.jpg"
@@ -786,7 +746,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0012,
       "thumb": "art/thumb/iac-041.jpg",
       "full": "art/full/iac-041.jpg"
@@ -803,7 +762,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9904,
       "thumb": "art/thumb/iac-042.jpg",
       "full": "art/full/iac-042.jpg"
@@ -820,7 +778,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9829,
       "thumb": "art/thumb/iac-043.jpg",
       "full": "art/full/iac-043.jpg"
@@ -837,7 +794,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.597,
       "thumb": "art/thumb/iac-044.jpg",
       "full": "art/full/iac-044.jpg"
@@ -854,7 +810,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6204,
       "thumb": "art/thumb/iac-045.jpg",
       "full": "art/full/iac-045.jpg"
@@ -871,7 +826,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.974,
       "thumb": "art/thumb/iac-046.jpg",
       "full": "art/full/iac-046.jpg"
@@ -888,7 +842,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.5384,
       "thumb": "art/thumb/iac-047.jpg",
       "full": "art/full/iac-047.jpg"
@@ -905,7 +858,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.013,
       "thumb": "art/thumb/iac-048.jpg",
       "full": "art/full/iac-048.jpg"
@@ -922,7 +874,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9835,
       "thumb": "art/thumb/iac-049.jpg",
       "full": "art/full/iac-049.jpg"
@@ -939,7 +890,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0022,
       "thumb": "art/thumb/iac-050.jpg",
       "full": "art/full/iac-050.jpg"
@@ -956,7 +906,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0022,
       "thumb": "art/thumb/iac-051.jpg",
       "full": "art/full/iac-051.jpg"
@@ -973,7 +922,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.5037,
       "thumb": "art/thumb/iac-052.jpg",
       "full": "art/full/iac-052.jpg"
@@ -990,7 +938,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 2.0011,
       "thumb": "art/thumb/iac-053.jpg",
       "full": "art/full/iac-053.jpg"
@@ -1007,7 +954,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 2.4358,
       "thumb": "art/thumb/iac-054.jpg",
       "full": "art/full/iac-054.jpg"
@@ -1024,7 +970,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6718,
       "thumb": "art/thumb/iac-055.jpg",
       "full": "art/full/iac-055.jpg"
@@ -1041,7 +986,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.1612,
       "thumb": "art/thumb/iac-056.jpg",
       "full": "art/full/iac-056.jpg"
@@ -1058,7 +1002,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.2559,
       "thumb": "art/thumb/iac-057.jpg",
       "full": "art/full/iac-057.jpg"
@@ -1075,7 +1018,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3498,
       "thumb": "art/thumb/iac-058.jpg",
       "full": "art/full/iac-058.jpg"
@@ -1092,7 +1034,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3382,
       "thumb": "art/thumb/iac-059.jpg",
       "full": "art/full/iac-059.jpg"
@@ -1109,7 +1050,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.5648,
       "thumb": "art/thumb/iac-060.jpg",
       "full": "art/full/iac-060.jpg"
@@ -1126,7 +1066,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.2417,
       "thumb": "art/thumb/iac-061.jpg",
       "full": "art/full/iac-061.jpg"
@@ -1143,7 +1082,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6691,
       "thumb": "art/thumb/iac-062.jpg",
       "full": "art/full/iac-062.jpg"
@@ -1160,7 +1098,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9907,
       "thumb": "art/thumb/iac-063.jpg",
       "full": "art/full/iac-063.jpg"
@@ -1177,7 +1114,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.693,
       "thumb": "art/thumb/iac-064.jpg",
       "full": "art/full/iac-064.jpg"
@@ -1194,7 +1130,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.6786,
       "thumb": "art/thumb/iac-065.jpg",
       "full": "art/full/iac-065.jpg"
@@ -1211,7 +1146,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.6747,
       "thumb": "art/thumb/iac-066.jpg",
       "full": "art/full/iac-066.jpg"
@@ -1228,7 +1162,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.5648,
       "thumb": "art/thumb/iac-067.jpg",
       "full": "art/full/iac-067.jpg"
@@ -1245,7 +1178,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.756,
       "thumb": "art/thumb/iac-068.jpg",
       "full": "art/full/iac-068.jpg"
@@ -1262,7 +1194,6 @@
       "year": "2026",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7498,
       "thumb": "art/thumb/iac-069.jpg",
       "full": "art/full/iac-069.jpg"
@@ -1279,7 +1210,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7582,
       "thumb": "art/thumb/iac-070.jpg",
       "full": "art/full/iac-070.jpg"
@@ -1296,7 +1226,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7511,
       "thumb": "art/thumb/iac-071.jpg",
       "full": "art/full/iac-071.jpg"
@@ -1313,7 +1242,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3289,
       "thumb": "art/thumb/iac-072.jpg",
       "full": "art/full/iac-072.jpg"
@@ -1330,7 +1258,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.33,
       "thumb": "art/thumb/iac-073.jpg",
       "full": "art/full/iac-073.jpg"
@@ -1347,7 +1274,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3267,
       "thumb": "art/thumb/iac-074.jpg",
       "full": "art/full/iac-074.jpg"
@@ -1364,7 +1290,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3292,
       "thumb": "art/thumb/iac-075.jpg",
       "full": "art/full/iac-075.jpg"
@@ -1381,7 +1306,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7539,
       "thumb": "art/thumb/iac-076.jpg",
       "full": "art/full/iac-076.jpg"
@@ -1398,7 +1322,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3588,
       "thumb": "art/thumb/iac-077.jpg",
       "full": "art/full/iac-077.jpg"
@@ -1415,7 +1338,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3389,
       "thumb": "art/thumb/iac-078.jpg",
       "full": "art/full/iac-078.jpg"
@@ -1432,7 +1354,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.745,
       "thumb": "art/thumb/iac-079.jpg",
       "full": "art/full/iac-079.jpg"
@@ -1449,7 +1370,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3311,
       "thumb": "art/thumb/iac-080.jpg",
       "full": "art/full/iac-080.jpg"
@@ -1466,7 +1386,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3333,
       "thumb": "art/thumb/iac-081.jpg",
       "full": "art/full/iac-081.jpg"
@@ -1483,7 +1402,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3412,
       "thumb": "art/thumb/iac-082.jpg",
       "full": "art/full/iac-082.jpg"
@@ -1500,7 +1418,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.6964,
       "thumb": "art/thumb/iac-083.jpg",
       "full": "art/full/iac-083.jpg"
@@ -1517,7 +1434,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 1.236,
       "thumb": "art/thumb/iac-084.jpg",
       "full": "art/full/iac-084.jpg"
@@ -1534,7 +1450,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 1.3882,
       "thumb": "art/thumb/iac-085.jpg",
       "full": "art/full/iac-085.jpg"
@@ -1551,7 +1466,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 1.4427,
       "thumb": "art/thumb/iac-086.jpg",
       "full": "art/full/iac-086.jpg"
@@ -1568,7 +1482,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 2.7357,
       "thumb": "art/thumb/iac-087.jpg",
       "full": "art/full/iac-087.jpg"
@@ -1585,7 +1498,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 1.3647,
       "thumb": "art/thumb/iac-088.jpg",
       "full": "art/full/iac-088.jpg"
@@ -1602,7 +1514,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.454,
       "thumb": "art/thumb/iac-089.jpg",
       "full": "art/full/iac-089.jpg"
@@ -1619,7 +1530,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 1.5886,
       "thumb": "art/thumb/iac-090.jpg",
       "full": "art/full/iac-090.jpg"
@@ -1636,7 +1546,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 1.3282,
       "thumb": "art/thumb/iac-091.jpg",
       "full": "art/full/iac-091.jpg"
@@ -1653,7 +1562,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 1.9959,
       "thumb": "art/thumb/iac-092.jpg",
       "full": "art/full/iac-092.jpg"
@@ -1670,7 +1578,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.7704,
       "thumb": "art/thumb/iac-093.jpg",
       "full": "art/full/iac-093.jpg"
@@ -1687,7 +1594,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 1.4111,
       "thumb": "art/thumb/iac-094.jpg",
       "full": "art/full/iac-094.jpg"
@@ -1704,7 +1610,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.7978,
       "thumb": "art/thumb/iac-095.jpg",
       "full": "art/full/iac-095.jpg"
@@ -1721,7 +1626,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 1.4619,
       "thumb": "art/thumb/iac-096.jpg",
       "full": "art/full/iac-096.jpg"
@@ -1738,7 +1642,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 2.6072,
       "thumb": "art/thumb/iac-097.jpg",
       "full": "art/full/iac-097.jpg"
@@ -1755,7 +1658,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.7984,
       "thumb": "art/thumb/iac-098.jpg",
       "full": "art/full/iac-098.jpg"
@@ -1772,7 +1674,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 1.5842,
       "thumb": "art/thumb/iac-099.jpg",
       "full": "art/full/iac-099.jpg"
@@ -1789,7 +1690,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.7678,
       "thumb": "art/thumb/iac-100.jpg",
       "full": "art/full/iac-100.jpg"
@@ -1806,7 +1706,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 1.0644,
       "thumb": "art/thumb/iac-101.jpg",
       "full": "art/full/iac-101.jpg"
@@ -1823,7 +1722,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 1.0105,
       "thumb": "art/thumb/iac-102.jpg",
       "full": "art/full/iac-102.jpg"
@@ -1840,7 +1738,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.6164,
       "thumb": "art/thumb/iac-103.jpg",
       "full": "art/full/iac-103.jpg"
@@ -1857,7 +1754,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.6517,
       "thumb": "art/thumb/iac-104.jpg",
       "full": "art/full/iac-104.jpg"
@@ -1874,7 +1770,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": false,
       "aspect": 0.7803,
       "thumb": "art/thumb/iac-105.jpg",
       "full": "art/full/iac-105.jpg"
@@ -1891,7 +1786,6 @@
       "year": "",
       "description": "",
       "mono": true,
-      "wide": true,
       "aspect": 1.5369,
       "thumb": "art/thumb/iac-106.jpg",
       "full": "art/full/iac-106.jpg"
@@ -1908,7 +1802,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3681,
       "thumb": "art/thumb/iac-107.jpg",
       "full": "art/full/iac-107.jpg"
@@ -1925,7 +1818,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3755,
       "thumb": "art/thumb/iac-108.jpg",
       "full": "art/full/iac-108.jpg"
@@ -1942,7 +1834,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7476,
       "thumb": "art/thumb/iac-109.jpg",
       "full": "art/full/iac-109.jpg"
@@ -1959,7 +1850,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3818,
       "thumb": "art/thumb/iac-110.jpg",
       "full": "art/full/iac-110.jpg"
@@ -1976,7 +1866,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.369,
       "thumb": "art/thumb/iac-111.jpg",
       "full": "art/full/iac-111.jpg"
@@ -1993,7 +1882,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7398,
       "thumb": "art/thumb/iac-112.jpg",
       "full": "art/full/iac-112.jpg"
@@ -2010,7 +1898,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7208,
       "thumb": "art/thumb/iac-113.jpg",
       "full": "art/full/iac-113.jpg"
@@ -2027,7 +1914,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7313,
       "thumb": "art/thumb/iac-114.jpg",
       "full": "art/full/iac-114.jpg"
@@ -2044,7 +1930,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3811,
       "thumb": "art/thumb/iac-115.jpg",
       "full": "art/full/iac-115.jpg"
@@ -2061,7 +1946,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.5717,
       "thumb": "art/thumb/iac-116.jpg",
       "full": "art/full/iac-116.jpg"
@@ -2078,7 +1962,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7317,
       "thumb": "art/thumb/iac-117.jpg",
       "full": "art/full/iac-117.jpg"
@@ -2095,7 +1978,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3523,
       "thumb": "art/thumb/iac-118.jpg",
       "full": "art/full/iac-118.jpg"
@@ -2112,7 +1994,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7418,
       "thumb": "art/thumb/iac-119.jpg",
       "full": "art/full/iac-119.jpg"
@@ -2129,7 +2010,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7535,
       "thumb": "art/thumb/iac-120.jpg",
       "full": "art/full/iac-120.jpg"
@@ -2146,7 +2026,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.9353,
       "thumb": "art/thumb/iac-121.jpg",
       "full": "art/full/iac-121.jpg"
@@ -2163,7 +2042,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6874,
       "thumb": "art/thumb/iac-122.jpg",
       "full": "art/full/iac-122.jpg"
@@ -2180,7 +2058,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.3931,
       "thumb": "art/thumb/iac-123.jpg",
       "full": "art/full/iac-123.jpg"
@@ -2197,7 +2074,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.8048,
       "thumb": "art/thumb/iac-124.jpg",
       "full": "art/full/iac-124.jpg"
@@ -2214,7 +2090,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.8167,
       "thumb": "art/thumb/iac-125.jpg",
       "full": "art/full/iac-125.jpg"
@@ -2231,7 +2106,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.4577,
       "thumb": "art/thumb/iac-126.jpg",
       "full": "art/full/iac-126.jpg"
@@ -2248,7 +2122,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.5637,
       "thumb": "art/thumb/iac-127.jpg",
       "full": "art/full/iac-127.jpg"
@@ -2265,7 +2138,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7436,
       "thumb": "art/thumb/iac-128.jpg",
       "full": "art/full/iac-128.jpg"
@@ -2282,7 +2154,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6574,
       "thumb": "art/thumb/iac-129.jpg",
       "full": "art/full/iac-129.jpg"
@@ -2299,7 +2170,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7319,
       "thumb": "art/thumb/iac-130.jpg",
       "full": "art/full/iac-130.jpg"
@@ -2316,7 +2186,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6464,
       "thumb": "art/thumb/iac-131.jpg",
       "full": "art/full/iac-131.jpg"
@@ -2333,7 +2202,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6549,
       "thumb": "art/thumb/iac-132.jpg",
       "full": "art/full/iac-132.jpg"
@@ -2350,7 +2218,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6141,
       "thumb": "art/thumb/iac-133.jpg",
       "full": "art/full/iac-133.jpg"
@@ -2367,7 +2234,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.8173,
       "thumb": "art/thumb/iac-134.jpg",
       "full": "art/full/iac-134.jpg"
@@ -2384,7 +2250,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7222,
       "thumb": "art/thumb/iac-135.jpg",
       "full": "art/full/iac-135.jpg"
@@ -2401,7 +2266,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6608,
       "thumb": "art/thumb/iac-136.jpg",
       "full": "art/full/iac-136.jpg"
@@ -2418,7 +2282,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.6027,
       "thumb": "art/thumb/iac-137.jpg",
       "full": "art/full/iac-137.jpg"
@@ -2435,7 +2298,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.639,
       "thumb": "art/thumb/iac-138.jpg",
       "full": "art/full/iac-138.jpg"
@@ -2452,7 +2314,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.7038,
       "thumb": "art/thumb/iac-139.jpg",
       "full": "art/full/iac-139.jpg"
@@ -2469,7 +2330,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.2118,
       "thumb": "art/thumb/iac-140.jpg",
       "full": "art/full/iac-140.jpg"
@@ -2486,7 +2346,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6078,
       "thumb": "art/thumb/iac-141.jpg",
       "full": "art/full/iac-141.jpg"
@@ -2503,7 +2362,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 1.4638,
       "thumb": "art/thumb/iac-142.jpg",
       "full": "art/full/iac-142.jpg"
@@ -2520,7 +2378,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6665,
       "thumb": "art/thumb/iac-143.jpg",
       "full": "art/full/iac-143.jpg"
@@ -2537,7 +2394,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 3.2663,
       "thumb": "art/thumb/iac-144.jpg",
       "full": "art/full/iac-144.jpg"
@@ -2554,7 +2410,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": true,
       "aspect": 3.2496,
       "thumb": "art/thumb/iac-145.jpg",
       "full": "art/full/iac-145.jpg"
@@ -2571,7 +2426,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.9947,
       "thumb": "art/thumb/iac-146.jpg",
       "full": "art/full/iac-146.jpg"
@@ -2588,7 +2442,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.5459,
       "thumb": "art/thumb/iac-147.jpg",
       "full": "art/full/iac-147.jpg"
@@ -2605,7 +2458,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6819,
       "thumb": "art/thumb/iac-148.jpg",
       "full": "art/full/iac-148.jpg"
@@ -2622,7 +2474,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.5537,
       "thumb": "art/thumb/iac-149.jpg",
       "full": "art/full/iac-149.jpg"
@@ -2639,7 +2490,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 0.6989,
       "thumb": "art/thumb/iac-150.jpg",
       "full": "art/full/iac-150.jpg"
@@ -2656,7 +2506,6 @@
       "year": "",
       "description": "",
       "mono": false,
-      "wide": false,
       "aspect": 1.0133,
       "thumb": "art/thumb/iac-151.jpg",
       "full": "art/full/iac-151.jpg"

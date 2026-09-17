@@ -28,8 +28,6 @@ const LIST_FILE = path.join(ROOT, 'Painting Reference List.md');
 const TILE_W = 760;
 const TILE_H = 950;
 const MAT = '#f4f1ea';
-// Paintings at least this many times wider than tall are shown double width.
-const WIDE_FROM = 1.4;
 const FULL_W = 2000;
 
 // Pages of the folk-collection document that are not a work to sell. Two kinds:
@@ -203,12 +201,8 @@ function refFor(refs, base) {
     const width = box.width;
     const height = box.height;
 
-    // A wide painting takes a tile two columns across on the site, so its
-    // thumbnail is rendered to a matching 8:5 mat; it would otherwise sit as a
-    // thin band in the middle of the ordinary upright tile.
-    const wide = width / height >= WIDE_FROM;
     await sharp(src).extract(box)
-      .resize(wide ? TILE_W * 2 : TILE_W, TILE_H, { fit: 'contain', background: MAT })
+      .resize(TILE_W, TILE_H, { fit: 'contain', background: MAT })
       .jpeg({ quality: 80, mozjpeg: true }).toFile(path.join(THUMB_DIR, `${id}.jpg`));
 
     await sharp(src).extract(box)
@@ -229,7 +223,6 @@ function refFor(refs, base) {
       year: meta.year || '',
       description: '',
       mono,
-      wide,
       aspect: +(width / height).toFixed(4),
       thumb: `art/thumb/${id}.jpg`,
       full: `art/full/${id}.jpg`,

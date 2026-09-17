@@ -6,7 +6,7 @@ which painting and painter each number belongs to.
 **This list is not published on the website.** It is rewritten automatically
 every time new artwork is added, so do not type into it — it is for looking up.
 
-151 paintings · 13 painters · updated 2026-09-16
+151 paintings · 13 painters · updated 2026-09-17
 
 ## Umesh Kumar Saxena — Abstract · 12 works
 
