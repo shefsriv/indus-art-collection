@@ -344,11 +344,13 @@ export const TEXT = {
 export type Contact = {
   region: string;
   phone?: string;
+  // When someone will answer, shown after the number on the contact page.
+  hours?: string;
 };
 
 export const CONTACTS: Contact[] = [
-  { region: 'United States', phone: '602-741-4861' },
-  { region: 'India', phone: '+91 7800353989' },
+  { region: 'United States', phone: '602-741-4861', hours: '9 am – 5 pm, Monday to Friday (Arizona time)' },
+  { region: 'India', phone: '+91 7800353989', hours: '9 am – 5 pm, Monday to Friday (IST)' },
 ];
 
 // ===========================================================================

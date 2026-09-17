@@ -670,6 +670,7 @@ h3 { font-size: 1.3rem; }
 
 /* Long addresses must be allowed to wrap rather than force the page wider. */
 .info-list span, .info-list a, .footer-contacts a { overflow-wrap: anywhere; }
+.info-list .hours { display: block; font-size: 0.8rem; color: var(--ink-soft); margin-top: 2px; }
 
 /* Confirms which painting a visitor arrived from, above the enquiry form. */
 .enquiry-about {

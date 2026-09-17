@@ -494,7 +494,7 @@ function contactPage(workId?: string, topic?: string): string {
           <ul class="info-list">
             <li><b>Email</b><span><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></span></li>
             ${CONTACTS.filter((c) => c.phone).map((c) => `
-              <li><b>${esc(c.region)}</b><span><a href="${telHref(c.phone!)}">${esc(c.phone!)}</a></span></li>`).join('')}
+              <li><b>${esc(c.region)}</b><span><a href="${telHref(c.phone!)}">${esc(c.phone!)}</a>${c.hours ? `<small class="hours">${esc(c.hours)}</small>` : ''}</span></li>`).join('')}
           </ul>
           <h3>${t(TEXT.contact.tradeHeading)}</h3>
           <p>${t(TEXT.contact.tradeBody)}</p>
