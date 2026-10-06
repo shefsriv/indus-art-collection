@@ -145,6 +145,71 @@ export const TEXT = {
     button: 'Get in touch',
   },
 
+  // ---- COMMISSION ART PAGE ----
+  commission: {
+    eyebrow: 'Commission',
+    heading: 'Commission Art',
+    lede: 'Any painting in the collection can be made to suit you — a different '
+      + 'size, a different palette, or an entirely new work painted for your '
+      + 'space by the artist of your choosing.',
+    // Each line between the square brackets is one paragraph. Add or remove
+    // paragraphs by adding or removing lines, keeping the quotes and comma.
+    paragraphs: [
+      'Because we work directly with our painters, a work need not be bought '
+        + 'exactly as you see it. If a painting is right in spirit but wrong in '
+        + 'size for your wall, or the colours would sit better a shade warmer, '
+        + 'the artist can paint it again for you. Equally, if you have something '
+        + 'in mind that is not in the collection at all, tell us the subject and '
+        + 'the style and we will find the right painter for it.',
+      'Every commission is an original, signed by the artist and sold with a '
+        + 'Certificate of Authenticity, exactly as the rest of the collection is.',
+    ],
+    // What a visitor can ask to have changed. One line per point.
+    optionsHeading: 'What can be customised',
+    options: [
+      { who: 'Size', what: 'Painted to the dimensions of your wall, from an '
+        + 'intimate study to a large statement piece or a set of panels.' },
+      { who: 'Colour', what: 'The palette adjusted to your room — warmer, cooler, '
+        + 'or matched to the furnishings and light you already have.' },
+      { who: 'Subject', what: 'A new composition in the artist\'s own idiom: a '
+        + 'landscape, a portrait, a deity, a city, or a theme of your own.' },
+      { who: 'Medium', what: 'Oil, acrylic, watercolour or traditional natural '
+        + 'pigment, on canvas, paper or handmade surfaces.' },
+      { who: 'Framing', what: 'Framed and ready to hang, with the frame chosen to '
+        + 'suit both the painting and your space.' },
+    ],
+    // The steps, in order. Each is a short heading and a sentence.
+    stepsHeading: 'How a commission works',
+    steps: [
+      { heading: 'Tell us what you have in mind',
+        body: 'Send us a photograph of the space, its approximate dimensions, and '
+          + 'any paintings in the collection whose look you are drawn to. There is '
+          + 'no cost and no obligation at this stage.' },
+      { heading: 'We match you with an artist',
+        body: 'We come back with a recommended painter, what they propose, the '
+          + 'price, and how long the work will take.' },
+      { heading: 'The artist begins',
+        body: 'Once you are happy, a deposit confirms the commission and the '
+          + 'painting is begun. We send progress photographs along the way.' },
+      { heading: 'Approval and delivery',
+        body: 'You see the finished painting in photographs before it travels. It '
+          + 'is then framed, packed and shipped to you, with its Certificate of '
+          + 'Authenticity.' },
+    ],
+    // Any number of further sections, each a heading and a paragraph.
+    sections: [
+      { heading: 'How long it takes', body: 'A commission usually takes about '
+        + 'twelve weeks from approval to delivery — longer for very large works or '
+        + 'intricate traditional pieces. Tell us if you are working to a date and '
+        + 'we will confirm before you commit.' },
+      { heading: 'Pricing', body: 'A commission is priced on enquiry, as the rest '
+        + 'of the collection is, and depends on the artist, the size and the '
+        + 'medium. We confirm the full price in writing before any work begins.' },
+    ],
+    // The message the enquiry form starts with on this page.
+    prefill: 'I would like to commission a painting. ',
+  },
+
   // ---- NEWS & EVENTS PAGE ----
   news: {
     eyebrow: 'News & Events',
@@ -402,6 +467,7 @@ export const NAV = [
   { label: 'Home', href: '#/' },
   { label: 'Gallery', href: '#/gallery' },
   { label: 'Artists', href: '#/artists' },
+  { label: 'Commission Art', href: '#/commission' },
   { label: 'About', href: '#/about' },
   { label: 'News & Events', href: '#/news' },
   { label: 'FAQ', href: '#/faq' },

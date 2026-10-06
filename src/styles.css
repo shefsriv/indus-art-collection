@@ -683,6 +683,34 @@ h3 { font-size: 1.3rem; }
 /* Opens the contact page's details column, above the email and phone list. */
 .contact-lead { margin: 0; font-size: 0.98rem; }
 
+/* The numbered steps on the Commission Art page. The number is drawn in gold
+   in the margin by a counter, so nothing is numbered by hand in config.ts. */
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 22px 0 0; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 22px 52px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+.steps li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 0.85rem;
+}
+.steps h4 { margin: 4px 0 6px; font-size: 1.02rem; font-weight: 500; }
+.steps p { margin: 0; }
+
 .info-list { list-style: none; padding: 0; margin: 22px 0 0; }
 .info-list li { padding: 11px 0; border-bottom: 1px solid var(--line); display: flex; gap: 18px; font-size: 0.92rem; }
 .info-list b { min-width: 108px; font-weight: 500; color: var(--ink-soft); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; }

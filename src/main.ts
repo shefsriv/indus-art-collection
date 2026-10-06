@@ -141,6 +141,7 @@ function footer(): string {
             <ul>
               <li><a href="#/gallery">Gallery</a> — the full catalogue</li>
               <li><a href="#/artists">Artists</a> — the painters</li>
+              <li><a href="#/commission">Commission Art</a> — made for you</li>
               <li><a href="#/about">About</a> — who we are</li>
               <li><a href="#/news">News &amp; Events</a> — exhibitions</li>
               <li><a href="#/faq">FAQ</a> — common questions</li>
@@ -417,6 +418,45 @@ function aboutPage(): string {
     </section>`;
 }
 
+function commissionPage(): string {
+  // The numbered steps are an ordered list so the numbers come from the
+  // browser rather than being typed into the wording in config.ts.
+  const steps = TEXT.commission.steps.map((s) => `
+    <li>
+      <h4>${t(s.heading)}</h4>
+      <p>${t(s.body)}</p>
+    </li>`).join('');
+
+  return `
+    <div class="wrap page-head">
+      <span class="eyebrow">${t(TEXT.commission.eyebrow)}</span>
+      <h1>${t(TEXT.commission.heading)}</h1>
+      <p class="lede">${t(TEXT.commission.lede)}</p>
+    </div>
+    <section class="section">
+      <div class="wrap prose">
+        ${TEXT.commission.paragraphs.map((p) => `<p>${t(p)}</p>`).join('')}
+
+        <h3>${t(TEXT.commission.optionsHeading)}</h3>
+        <ul class="info-list">
+          ${TEXT.commission.options.map((o) =>
+            `<li><b>${t(o.who)}</b><span>${t(o.what)}</span></li>`).join('')}
+        </ul>
+
+        <h3>${t(TEXT.commission.stepsHeading)}</h3>
+        <ol class="steps">${steps}</ol>
+
+        ${TEXT.commission.sections.map((s) =>
+          `<h3>${t(s.heading)}</h3><p>${t(s.body)}</p>`).join('')}
+
+        <div style="margin-top:44px">
+          ${enquiryForm('Indus Art Collection — commission enquiry',
+            t(TEXT.commission.prefill))}
+        </div>
+      </div>
+    </section>`;
+}
+
 function newsPage(): string {
   return `
     <div class="wrap page-head">
@@ -684,6 +724,7 @@ function render(): void {
   else if (parts[0] === 'artist' && parts[1]) { body = artistPage(parts[1]); routeKey = '#/artists'; }
   else if (parts[0] === 'artist') { body = artistsPage(); routeKey = '#/artists'; }
   else if (parts[0] === 'gallery') body = galleryPage(query.get('style') || 'All', search);
+  else if (parts[0] === 'commission') body = commissionPage();
   else if (parts[0] === 'about') body = aboutPage();
   else if (parts[0] === 'news') body = newsPage();
   else if (parts[0] === 'faq') body = faqPage();
