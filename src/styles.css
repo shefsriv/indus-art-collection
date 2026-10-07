@@ -225,15 +225,16 @@ h3 { font-size: 1.3rem; }
 /* Mission, vision and guiding principles — a box inside the home banner,
    between the opening paragraph and the "View the collection" button. Three
    columns on a wide screen, stacked on a telephone. */
-.values-box {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  /* Darkened rather than lightened: the banner photographs show through, and
-     pale text needs the ground under it kept dark to stay readable. */
+.values-box { margin: 0 auto 36px; }
+/* Each point gets its own outlined box, drawn like the button below it. The
+   panel is darkened rather than lightened: the banner photographs show
+   through, and pale text needs the ground under it kept dark to stay read. */
+.values-box .values li {
+  border: 1px solid #fff;
   background: rgba(12, 26, 35, 0.46);
-  padding: 34px 32px;
-  margin: 0 auto 36px;
+  padding: 26px 22px 28px;
 }
-/* Written as a descendant of .values so it outranks the grey .values p below. */
+/* Written as descendants of .values so they outrank the grey .values p below. */
 .values-box .values h3 { color: #fff; }
 .values-box .values p { color: rgba(255, 255, 255, 0.92); }
 .values {
@@ -242,7 +243,7 @@ h3 { font-size: 1.3rem; }
   margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
+  gap: 20px;
 }
 .values li { text-align: center; }
 .values li::before {
@@ -263,8 +264,7 @@ h3 { font-size: 1.3rem; }
 .values p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.65; }
 
 @media (max-width: 860px) {
-  .values { grid-template-columns: 1fr; gap: 30px; }
-  .values-box { padding: 28px 22px; }
+  .values { grid-template-columns: 1fr; gap: 16px; }
 }
 .rule { width: 54px; height: 1px; background: var(--gold); margin: 18px auto; }
 
