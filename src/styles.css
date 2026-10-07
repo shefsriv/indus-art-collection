@@ -232,7 +232,7 @@ h3 { font-size: 1.3rem; }
 .values-box .values li {
   border: 1px solid #fff;
   background: rgba(12, 26, 35, 0.46);
-  padding: 24px 20px 26px;
+  padding: 16px 18px 18px;
 }
 /* Written as descendants of .values so they outrank the grey .values p below. */
 .values-box .values h3 { color: #fff; }
@@ -246,22 +246,14 @@ h3 { font-size: 1.3rem; }
   gap: 34px;
 }
 .values li { text-align: center; }
-.values li::before {
-  content: '';
-  display: block;
-  width: 34px;
-  height: 1px;
-  background: var(--gold);
-  margin: 0 auto 18px;
-}
 .values h3 {
   font-size: 0.82rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
-  margin: 0 0 11px;
+  margin: 0 0 8px;
 }
-.values p { margin: 0; color: var(--ink-soft); font-size: 0.8rem; line-height: 1.7; }
+.values p { margin: 0; color: var(--ink-soft); font-size: 0.8rem; line-height: 1.6; }
 
 @media (max-width: 860px) {
   .values { grid-template-columns: 1fr; gap: 22px; }
