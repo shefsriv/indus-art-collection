@@ -228,7 +228,8 @@ h3 { font-size: 1.3rem; }
    stacked on a telephone. The boxes are darkened rather than lightened — the
    banner photographs show through, and pale text needs the ground under it
    kept dark to stay readable. */
-.values-box { margin: 0 auto 36px; }
+/* The bottom margin is the gap down to the "View the collection" button. */
+.values-box { margin: 0 auto 58px; }
 .values-box .values li {
   border: 1px solid #fff;
   background: rgba(12, 26, 35, 0.46);
@@ -257,6 +258,7 @@ h3 { font-size: 1.3rem; }
 
 @media (max-width: 860px) {
   .values { grid-template-columns: 1fr; gap: 22px; }
+  .values-box { margin-bottom: 44px; }
 }
 .rule { width: 54px; height: 1px; background: var(--gold); margin: 18px auto; }
 
