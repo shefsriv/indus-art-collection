@@ -189,7 +189,8 @@ h3 { font-size: 1.3rem; }
   inset: 0;
   background: linear-gradient(180deg, rgba(15, 30, 40, 0.72), rgba(15, 30, 40, 0.88));
 }
-.hero-inner { position: relative; z-index: 2; color: #fff; padding: 90px 28px; max-width: 780px; }
+/* Wider than the words need, so the three points below sit in three columns. */
+.hero-inner { position: relative; z-index: 2; color: #fff; padding: 90px 28px; max-width: 1020px; }
 .hero-inner h1 { color: #fff; margin-bottom: 20px; }
 .hero-inner p { font-size: 1.09rem; color: rgba(255, 255, 255, 0.86); margin: 0 auto 34px; max-width: 620px; }
 
@@ -221,16 +222,27 @@ h3 { font-size: 1.3rem; }
 /* a section that is only a heading and a paragraph needs no gap under it */
 .section-head:last-child { margin-bottom: 0; }
 
-/* Mission, vision and guiding principles, directly under the home banner.
-   Three columns on a wide screen, stacked on a telephone. */
-.section-values { padding: 64px 0; }
+/* Mission, vision and guiding principles — a box inside the home banner,
+   between the opening paragraph and the "View the collection" button. Three
+   columns on a wide screen, stacked on a telephone. */
+.values-box {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Darkened rather than lightened: the banner photographs show through, and
+     pale text needs the ground under it kept dark to stay readable. */
+  background: rgba(12, 26, 35, 0.46);
+  padding: 34px 32px;
+  margin: 0 auto 36px;
+}
+/* Written as a descendant of .values so it outranks the grey .values p below. */
+.values-box .values h3 { color: #fff; }
+.values-box .values p { color: rgba(255, 255, 255, 0.92); }
 .values {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: 36px;
 }
 .values li { text-align: center; }
 .values li::before {
@@ -248,10 +260,11 @@ h3 { font-size: 1.3rem; }
   font-weight: 500;
   margin: 0 0 12px;
 }
-.values p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+.values p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.65; }
 
 @media (max-width: 860px) {
-  .values { grid-template-columns: 1fr; gap: 38px; }
+  .values { grid-template-columns: 1fr; gap: 30px; }
+  .values-box { padding: 28px 22px; }
 }
 .rule { width: 54px; height: 1px; background: var(--gold); margin: 18px auto; }
 

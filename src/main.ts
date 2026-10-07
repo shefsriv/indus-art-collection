@@ -235,21 +235,18 @@ function homePage(): string {
         <span class="eyebrow">${t(TEXT.home.eyebrow)}</span>
         <h1>${t(TEXT.home.heading)}</h1>
         <p>${t(TEXT.home.intro)}</p>
+        <div class="values-box">
+          <ul class="values">
+            ${TEXT.values.items.map((v) => `
+              <li>
+                <h3>${t(v.heading)}</h3>
+                <p>${t(v.body)}</p>
+              </li>`).join('')}
+          </ul>
+        </div>
         <div class="btn-row">
           <a class="btn btn-light" href="#/gallery">${t(TEXT.home.galleryButton)}</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section section-values">
-      <div class="wrap">
-        <ul class="values">
-          ${TEXT.values.items.map((v) => `
-            <li>
-              <h3>${t(v.heading)}</h3>
-              <p>${t(v.body)}</p>
-            </li>`).join('')}
-        </ul>
       </div>
     </section>
 
