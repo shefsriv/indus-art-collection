@@ -241,6 +241,18 @@ function homePage(): string {
       </div>
     </section>
 
+    <section class="section section-values">
+      <div class="wrap">
+        <ul class="values">
+          ${TEXT.values.items.map((v) => `
+            <li>
+              <h3>${t(v.heading)}</h3>
+              <p>${t(v.body)}</p>
+            </li>`).join('')}
+        </ul>
+      </div>
+    </section>
+
     <section class="section">
       <div class="wrap">
         <div class="section-head">

@@ -220,6 +220,39 @@ h3 { font-size: 1.3rem; }
 .section-head p { color: var(--ink-soft); margin-top: 14px; }
 /* a section that is only a heading and a paragraph needs no gap under it */
 .section-head:last-child { margin-bottom: 0; }
+
+/* Mission, vision and guiding principles, directly under the home banner.
+   Three columns on a wide screen, stacked on a telephone. */
+.section-values { padding: 64px 0; }
+.values {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+.values li { text-align: center; }
+.values li::before {
+  content: '';
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 20px;
+}
+.values h3 {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+.values p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+@media (max-width: 860px) {
+  .values { grid-template-columns: 1fr; gap: 38px; }
+}
 .rule { width: 54px; height: 1px; background: var(--gold); margin: 18px auto; }
 
 /* ---------- artwork grid (masonry-ish columns) ---------- */

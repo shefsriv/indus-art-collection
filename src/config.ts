@@ -49,6 +49,24 @@ export const TEXT = {
     galleryButton: 'View the collection',
   },
 
+  // ---- HOME PAGE, the three points under the banner ----
+  // Add or remove a point by adding or removing a line between the square
+  // brackets; they are shown side by side in the order they are written.
+  values: {
+    items: [
+      { heading: 'Our Mission',
+        body: 'To promote Indian artists and their work in every part of the '
+          + 'world.' },
+      { heading: 'Our Vision',
+        body: 'To win our artists the recognition their work deserves, and give '
+          + 'them an international platform that reaches art lovers everywhere.' },
+      { heading: 'Our Guiding Principles',
+        body: 'Honesty and integrity in all we do; art that educates as well as '
+          + 'delights; and support that makes an artist\'s life as beautiful as '
+          + 'their work.' },
+    ],
+  },
+
   // ---- The painters section on the home page ----
   artists: {
     eyebrow: 'Our collection',
